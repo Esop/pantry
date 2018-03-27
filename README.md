@@ -20,6 +20,3 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   * Source: https://github.com/phoenixframework/phoenix
 
 
-# Heroku
-herokuapp_name = glacial-tundra-54542
-heroku_url =https://glacial-tundra-54542.herokuapp.com
