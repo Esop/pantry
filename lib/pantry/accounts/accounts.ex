@@ -7,6 +7,7 @@ defmodule Pantry.Accounts do
   alias Pantry.Repo
 
   alias Pantry.Accounts.Client
+  alias Pantry.Accounts.Volunteer
 
   @doc """
   Returns the list of clients.
@@ -196,5 +197,9 @@ defmodule Pantry.Accounts do
   """
   def change_volunteer(%Volunteer{} = volunteer) do
     Volunteer.changeset(volunteer, %{})
+  end
+
+  def get_user_by_email(email) do
+    Repo.get_by(Volunteer, email: email)
   end
 end

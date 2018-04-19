@@ -7,6 +7,7 @@ defmodule PantryWeb.Router do
     plug(:fetch_flash)
     plug(:protect_from_forgery)
     plug(:put_secure_browser_headers)
+    plug(PantryWeb.Auth, repo: Pantry.Repo)
   end
 
   pipeline :api do
@@ -20,6 +21,7 @@ defmodule PantryWeb.Router do
     get("/", PageController, :index)
     resources("/clients", ClientController)
     resources("/volunteers", VolunteerController)
+    resources("/sessions", SessionController, only: [:new, :create, :delete])
   end
 
   # Other scopes may use custom stacks.
