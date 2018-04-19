@@ -28,3 +28,11 @@ notes or comments (e.g. needs help with utilities Referred to 211 01/01/2014)
 
 
 mix ecto.gen.html Accounts User users first_name last_name address county city state zip_code telephone ethnicity
+
+
+
+## Volunteer
+first_name
+last_name
+email
+

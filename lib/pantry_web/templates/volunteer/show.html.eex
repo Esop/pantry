@@ -1,0 +1,28 @@
+<h2>Show Volunteer</h2>
+
+<ul>
+
+  <li>
+    <strong>First name:</strong>
+    <%= @volunteer.first_name %>
+  </li>
+
+  <li>
+    <strong>Last name:</strong>
+    <%= @volunteer.last_name %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @volunteer.email %>
+  </li>
+
+  <li>
+    <strong>Password hash:</strong>
+    <%= @volunteer.password_hash %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: volunteer_path(@conn, :edit, @volunteer) %></span>
+<span><%= link "Back", to: volunteer_path(@conn, :index) %></span>

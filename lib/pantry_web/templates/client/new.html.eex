@@ -1,4 +1,7 @@
-<h2>New Client</h2>
+<br>
+<br>
+<br>
+<h2>New Client Intake Form</h2>
 
 <%= render "form.html", Map.put(assigns, :action, client_path(@conn, :create)) %>
 

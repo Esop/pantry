@@ -19,6 +19,7 @@ defmodule PantryWeb.Router do
 
     get("/", PageController, :index)
     resources("/clients", ClientController)
+    resources("/volunteers", VolunteerController)
   end
 
   # Other scopes may use custom stacks.
