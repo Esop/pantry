@@ -1,4 +1,5 @@
 defmodule Pantry.Application do
+  @moduledoc false
   use Application
 
   # See https://hexdocs.pm/elixir/Application.html
@@ -11,7 +12,7 @@ defmodule Pantry.Application do
       # Start the Ecto repository
       supervisor(Pantry.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(PantryWeb.Endpoint, []),
+      supervisor(PantryWeb.Endpoint, [])
       # Start your own worker by calling: Pantry.Worker.start_link(arg1, arg2, arg3)
       # worker(Pantry.Worker, [arg1, arg2, arg3]),
     ]
