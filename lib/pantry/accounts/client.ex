@@ -1,4 +1,7 @@
 defmodule Pantry.Accounts.Client do
+  @moduledoc """
+  Clients are managed by Volunteers
+  """
   use Ecto.Schema
   import Ecto.Changeset
 

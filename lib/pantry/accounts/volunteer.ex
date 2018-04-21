@@ -1,4 +1,8 @@
 defmodule Pantry.Accounts.Volunteer do
+  @moduledoc """
+   Volunteers manage the clients in this application
+  they can edit and delete records
+  """
   use Ecto.Schema
   import Ecto.Changeset
 
