@@ -6,7 +6,7 @@ defmodule Pantry.AccountsTest do
   describe "clients" do
     alias Pantry.Accounts.Client
 
-   def client_fixture(attrs \\ %{}) do
+    def client_fixture(attrs \\ %{}) do
       {:ok, client} =
         attrs
         |> Enum.into(valid_client_creation_params())
@@ -81,10 +81,9 @@ defmodule Pantry.AccountsTest do
 
       volunteer
     end
-
-    # # FIXME: Find a way to test this
+    # FIXME: Find a way to test this
     # test "list_volunteers/0 returns all volunteers" do
-    #   # volunteer = volunteer_fixture()
+    #   volunteer = volunteer_fixture()
     #   volunteer = Map.put(volunteer_fixture, :password, "$secre$")
     #   assert Accounts.list_volunteers() == [volunteer]
     # end
