@@ -22,6 +22,7 @@ defmodule Pantry.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import Pantry.DataCase
+      import Pantry.TestHelpers
     end
   end
 
