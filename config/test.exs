@@ -9,6 +9,9 @@ config :pantry, PantryWeb.Endpoint,
 # Print only warnings and errors during test
 config :logger, level: :warn
 
+# Make tests run faster
+config :comeonin, :bcrypt_log_rounds, 4
+
 # Configure your database
 config :pantry, Pantry.Repo,
   adapter: Ecto.Adapters.Postgres,
