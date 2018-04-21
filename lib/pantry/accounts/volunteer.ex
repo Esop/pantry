@@ -9,6 +9,7 @@ defmodule Pantry.Accounts.Volunteer do
     field(:first_name, :string)
     field(:last_name, :string)
     field(:password_hash, :string)
+    field(:password_confirmation, :string, virtual: true)
     field(:password, :string, virtual: true)
     field(:admin, :boolean, default: true)
 
@@ -16,11 +17,19 @@ defmodule Pantry.Accounts.Volunteer do
   end
 
   @doc false
-  def changeset(volunteer, attrs) do
+  def volunteer_registration_changeset(volunteer, attrs) do
     volunteer
-    |> cast(attrs, [:first_name, :last_name, :email, :password])
+    |> cast(attrs, [:first_name, :last_name, :email, :password, :password_confirmation])
+    |> validate_required([:first_name, :last_name, :email, :password, :password_confirmation])
     |> confirm_passwords_are_equal()
-    |> validate_required([:first_name, :last_name, :email, :password])
+    |> put_pass_hash()
+  end
+
+  def volunteer_update_changeset(volunteer, attrs) do
+    volunteer
+    |> cast(attrs, [:first_name, :last_name, :email, :password, :password_confirmation])
+    |> validate_required([:password_confirmation, :password])
+    |> confirm_passwords_are_equal()
     |> put_pass_hash()
   end
 

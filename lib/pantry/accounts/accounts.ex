@@ -148,7 +148,7 @@ defmodule Pantry.Accounts do
   """
   def create_volunteer(attrs \\ %{}) do
     %Volunteer{}
-    |> Volunteer.changeset(attrs)
+    |> Volunteer.volunteer_registration_changeset(attrs)
     |> Repo.insert()
   end
 
@@ -166,7 +166,7 @@ defmodule Pantry.Accounts do
   """
   def update_volunteer(%Volunteer{} = volunteer, attrs) do
     volunteer
-    |> Volunteer.changeset(attrs)
+    |> Volunteer.volunteer_update_changeset(attrs)
     |> Repo.update()
   end
 
@@ -196,7 +196,7 @@ defmodule Pantry.Accounts do
 
   """
   def change_volunteer(%Volunteer{} = volunteer) do
-    Volunteer.changeset(volunteer, %{})
+    Volunteer.volunteer_registration_changeset(volunteer, %{})
   end
 
   def get_user_by_email(email) do
