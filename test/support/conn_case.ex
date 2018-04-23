@@ -20,6 +20,7 @@ defmodule PantryWeb.ConnCase do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
       import PantryWeb.Router.Helpers
+      import Pantry.TestHelpers
 
       # The default endpoint for testing
       @endpoint PantryWeb.Endpoint
