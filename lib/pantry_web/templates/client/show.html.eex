@@ -1,0 +1,58 @@
+<h2>Show Client</h2>
+
+<ul>
+
+  <li>
+    <strong>First name:</strong>
+    <%= @client.first_name %>
+  </li>
+
+  <li>
+    <strong>Last name:</strong>
+    <%= @client.last_name %>
+  </li>
+
+  <li>
+    <strong>Address:</strong>
+    <%= @client.address %>
+  </li>
+
+  <li>
+    <strong>County:</strong>
+    <%= @client.county %>
+  </li>
+
+  <li>
+    <strong>City:</strong>
+    <%= @client.city %>
+  </li>
+
+  <li>
+    <strong>State:</strong>
+    <%= @client.state %>
+  </li>
+
+  <li>
+    <strong>Zip code:</strong>
+    <%= @client.zip_code %>
+  </li>
+
+  <li>
+    <strong>Telephone:</strong>
+    <%= @client.telephone %>
+  </li>
+
+  <li>
+    <strong>Ethnicity:</strong>
+    <%= @client.ethnicity %>
+  </li>
+
+  <li>
+    <strong>Last visit:</strong>
+    <%= @client.last_visit %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: client_path(@conn, :edit, @client) %></span>
+<span><%= link "Back", to: client_path(@conn, :index) %></span>
