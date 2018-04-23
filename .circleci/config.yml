@@ -1,0 +1,48 @@
+version: 2
+jobs:
+  build_and_test_elixir:
+    docker:
+      - image: circleci/elixir:1.6.4
+      - image: circleci/postgres:9.6.2
+
+
+    working_directory: /home/circleci/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - elixir-build-v3-{{ checksum "mix.lock" }}
+      - run:
+          name: "Install Hex"
+          command: mix local.hex --force
+      - run:
+          name: "Install Rebar"
+          command: mix local.rebar --force
+      - run:
+          name: "Install Elixir dependencies"
+          command: mix deps.get
+      - run:
+          name: "Compile Elixir source"
+          command: mix compile
+      - run:
+          name: "Create the test database"
+          command: mix ecto.create
+      - run:
+          name: "Run Elixir linting"
+          command: mix credo
+      - run:
+          name: "Test the application"
+          command: mix test
+
+      - save_cache:
+          key: elixir-build-v3-{{ checksum "mix.lock" }}
+          paths:
+            - '_build'
+            - 'deps'
+            - '~/.mix'
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build_and_test_elixir
