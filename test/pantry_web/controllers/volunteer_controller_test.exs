@@ -25,7 +25,6 @@ defmodule PantryWeb.VolunteerControllerTest do
   describe "create volunteer" do
     test "redirects to show when data is valid", %{conn: conn} do
       conn = post(conn, volunteer_path(conn, :create), volunteer: valid_volunteer_signup_params())
-      # conn = post(conn, volunteer_path(conn, :create), volunteer: @create_attrs)
 
       assert %{id: id} = redirected_params(conn)
       assert redirected_to(conn) == volunteer_path(conn, :show, id)
@@ -72,7 +71,6 @@ defmodule PantryWeb.VolunteerControllerTest do
       assert html_response(conn, 200) =~ "some updated email"
     end
 
-    # test "renders errors when data is invalid", %{conn: conn, volunteer: volunteer} do
     test "renders errors when data is invalid", %{conn: conn, volunteer: volunteer} do
       invalid_updated_attrs = Map.put(valid_volunteer_signup_params(), :password, nil)
       conn = put(conn, volunteer_path(conn, :update, volunteer), volunteer: invalid_updated_attrs)

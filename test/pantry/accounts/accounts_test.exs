@@ -81,7 +81,9 @@ defmodule Pantry.AccountsTest do
 
       volunteer
     end
-    # FIXME: Find a way to test this
+
+    # FIXME: FIND A WAY TO TEST THIS HOWEVER I'M UNSURE IF
+    # THESE ARE HIGH VALUE TESTS.
     # test "list_volunteers/0 returns all volunteers" do
     #   volunteer = volunteer_fixture()
     #   volunteer = Map.put(volunteer_fixture, :password, "$secre$")
@@ -98,10 +100,10 @@ defmodule Pantry.AccountsTest do
       assert {:ok, %Volunteer{} = volunteer} =
                Accounts.create_volunteer(valid_volunteer_signup_params())
 
-      # assert volunteer.email == "some email"
-      # assert volunteer.first_name == "some first_name"
-      # assert volunteer.last_name == "some last_name"
-      # assert volunteer.password_hash == "some password_hash"
+      assert volunteer.first_name == "Velvet"
+      assert volunteer.last_name == "Hunter"
+      assert volunteer.password_hash
+      assert volunteer.password
     end
 
     test "create_volunteer/1 with invalid data returns error changeset" do
