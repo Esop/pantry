@@ -16,6 +16,7 @@ defmodule Pantry.Accounts.Client do
     field(:state, :string)
     field(:telephone, :string)
     field(:zip_code, :string)
+    has_many :vouchers, Pantry.Forms.Voucher
 
     timestamps()
   end

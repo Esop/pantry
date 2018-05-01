@@ -64,4 +64,21 @@ voucher_amount
 
 
 
-rix phx.gen.html Forms form forms client_id:references:clients received_money:boolean received_food:boolean voucher_amount next_service_date:date
+mix phx.gen.html Forms Voucher vouchers client_id:references:clients received_money:boolean received_food:boolean voucher_amount next_service_date:date
+
+
+
+trash lib/pantry_web/controllers/form_controller.ex
+trash lib/pantry_web/templates/form/edit.html.eex
+trash lib/pantry_web/templates/form/form.html.eex
+ trash lib/pantry_web/templates/form/index.html.eex
+ trash lib/pantry_web/templates/form/new.html.eex
+ trash lib/pantry_web/templates/form/show.html.eex
+ trash lib/pantry_web/views/form_view.ex
+trash test/pantry_web/controllers/form_controller_test.exs
+ trash lib/pantry/forms/form.ex
+trash priv/repo/migrations/20180430163419_create_vouchers.exs
+ trash lib/pantry/forms/forms.ex
+ trash lib/pantry/forms/forms.ex
+ trash test/pantry/forms/forms_test.exs
+ trash test/pantry/forms/forms_test.exs
