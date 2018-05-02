@@ -9,16 +9,19 @@ defmodule Pantry.Forms do
   alias Pantry.Forms.Voucher
 
   @doc """
-  Returns the list of vouchers.
+  Returns the list of vouchers
+  for the client.
 
   ## Examples
 
-      iex> list_vouchers()
+      iex> list_vouchers(client)
       [%Voucher{}, ...]
 
   """
-  def list_vouchers do
-    Repo.all(Voucher)
+  def list_vouchers(client) do
+    Voucher
+    |> where([v], v.client_id == ^client.id)
+    |> Repo.all()
   end
 
   @doc """
@@ -35,7 +38,11 @@ defmodule Pantry.Forms do
       ** (Ecto.NoResultsError)
 
   """
-  def get_voucher!(id), do: Repo.get!(Voucher, id)
+  def get_voucher!(client, id) do
+    Voucher
+    |> where([t], t.client_id == ^client.id)
+    |> Repo.get!(id)
+  end
 
   @doc """
   Creates a voucher.
