@@ -10,7 +10,7 @@ defmodule PantryWeb.SessionController do
       {:ok, conn} ->
         conn
         |> put_flash(:info, "Welcom back!")
-        |> redirect(to: page_path(conn, :index))
+        |> redirect(to: client_path(conn, :index))
 
       {:error, _reason, conn} ->
         conn

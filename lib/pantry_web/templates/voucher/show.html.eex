@@ -1,5 +1,5 @@
-<h2>Show Voucher</h2>
 
+<h2> Voucher For <%= @client.first_name <> @client.last_name %> </h2>
 <ul>
 
   <li>
@@ -24,5 +24,6 @@
 
 </ul>
 
-<span><%= link "Edit", to: client_voucher_path(@conn, :edit, @client, @voucher) %></span>
-<span><%= link "Back", to: client_voucher_path(@conn, :index, @client) %></span>
+<span><%= link "view all vouchers for #{@client.first_name <> " " <> @client.last_name}", to: client_voucher_path(@conn, :index, @client) , class: "btn btn-primary btn-xs"%></span>
+<span><%= link "Edit this voucher", to: client_voucher_path(@conn, :edit, @client, @voucher) , class: "btn btn-primary btn-xs"%></span>
+<span><%= link "previous page", to: client_voucher_path(@conn, :index, @client) , class: "btn btn-primary btn-xs"%></span>

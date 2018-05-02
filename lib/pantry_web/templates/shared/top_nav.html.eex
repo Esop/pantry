@@ -1,22 +1,17 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <a class="navbar-brand" href="#">Community Cares</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<%= link "Community Cares", to: page_path(@conn, :index), class: "navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+  <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link"><%= link "Log in", to: session_path(@conn, :new) %><span class="sr-only">(current)</span></a>
+        <%= link "Log in", to: session_path(@conn, :new), class: "navbar-brand" %>
       </li>
       <li class="nav-item">
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <%= link "Sign up", to: volunteer_path(@conn, :new), class: "navbar-brand" %>
       </li>
     </ul>
   </div>
 </nav>
-<br>
-<br>
-<br>

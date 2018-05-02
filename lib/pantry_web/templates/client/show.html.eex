@@ -54,5 +54,13 @@
 
 </ul>
 
-<span><%= link "Edit", to: client_path(@conn, :edit, @client) %></span>
-<span><%= link "Back", to: client_path(@conn, :index) %></span>
+<span><%= link "Create New Voucher", to: client_voucher_path(@conn, :new, @client), class: "btn btn-primary btn-xs" %></span>
+<br>
+<br>
+<span><%= link "Edit Client Record", to: client_path(@conn, :edit, @client), class: "btn btn-primary btn-xs" %></span>
+<br>
+<br>
+<span><%= link "Go Back", to: client_path(@conn, :index), class: "btn btn-primary btn-xs" %></span>
+<br>
+<br>
+<br>
