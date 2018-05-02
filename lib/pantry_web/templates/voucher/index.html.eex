@@ -1,0 +1,33 @@
+<br>
+<br>
+<br>
+<br>
+<h2> <%= "Vouchers for #{@client.first_name} #{@client.last_name}" %></h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Received money</th>
+      <th>Received food</th>
+      <th>Voucher amount</th>
+      <th>Next service date</th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for voucher <- @vouchers do %>
+    <tr>
+      <td><%= voucher.received_money %></td>
+      <td><%= voucher.received_food %></td>
+      <td><%= voucher.voucher_amount %></td>
+      <td><%= voucher.next_service_date %></td>
+      <td class="text-right">
+        <span><%= link "Show", to: client_voucher_path(@conn, :show, @client ,voucher), class: "btn btn-danger btn-xs" %></span>
+        <span><%= link "Edit", to: client_voucher_path(@conn, :edit,@client, voucher), class: "btn btn-danger btn-xs" %></span>
+        <span><%= link "Delete", to: client_voucher_path(@conn, :delete, @client, voucher), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "Create a new voucher for #{@client.first_name } ", to: client_voucher_path(@conn, :new, @client) %></span>

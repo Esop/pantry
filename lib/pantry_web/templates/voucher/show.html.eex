@@ -1,0 +1,28 @@
+<h2>Show Voucher</h2>
+
+<ul>
+
+  <li>
+    <strong>Received money:</strong>
+    <%= @voucher.received_money %>
+  </li>
+
+  <li>
+    <strong>Received food:</strong>
+    <%= @voucher.received_food %>
+  </li>
+
+  <li>
+    <strong>Voucher amount:</strong>
+    <%= @voucher.voucher_amount %>
+  </li>
+
+  <li>
+    <strong>Next service date:</strong>
+    <%= @voucher.next_service_date %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: client_voucher_path(@conn, :edit, @client, @voucher) %></span>
+<span><%= link "Back", to: client_voucher_path(@conn, :index, @client) %></span>

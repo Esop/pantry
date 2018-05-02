@@ -19,7 +19,11 @@ defmodule PantryWeb.Router do
     pipe_through(:browser)
 
     get("/", PageController, :index)
-    resources("/clients", ClientController)
+
+    resources("/clients", ClientController) do
+      resources("/vouchers", VoucherController)
+    end
+
     resources("/volunteers", VolunteerController)
     resources("/sessions", SessionController, only: [:new, :create, :delete])
   end
