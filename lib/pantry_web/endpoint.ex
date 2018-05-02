@@ -1,5 +1,6 @@
 defmodule PantryWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :pantry
+  use ExDebugToolbar.Phoenix
 
   socket "/socket", PantryWeb.UserSocket
 

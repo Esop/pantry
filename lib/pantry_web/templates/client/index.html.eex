@@ -1,4 +1,4 @@
-<h2>Listing Clients</h2>
+<h2>All Current Clients</h2>
 
 <table class="table">
   <thead>
@@ -41,4 +41,4 @@
   </tbody>
 </table>
 
-<span><%= link "New Client", to: client_path(@conn, :new) %></span>
+<span><%= link "New Client Form", to: client_path(@conn, :new), class: "btn btn-danger btn-small" %></span>

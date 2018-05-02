@@ -30,4 +30,4 @@
   </tbody>
 </table>
 
-<span><%= link "Create a new voucher for #{@client.first_name } ", to: client_voucher_path(@conn, :new, @client) %></span>
+<span><%= link "Create a new voucher for #{@client.first_name } #{@client.last_name} ", to: client_voucher_path(@conn, :new, @client), class: "btn btn-danger" %></span>

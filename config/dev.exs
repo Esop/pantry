@@ -11,9 +11,16 @@ config :pantry, PantryWeb.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
-                    cd: Path.expand("../assets", __DIR__)]]
+  watchers: [
+    node: [
+      "node_modules/brunch/bin/brunch",
+      "watch",
+      "--stdin",
+      cd: Path.expand("../assets", __DIR__)
+    ]
+  ]
 
+config :ex_debug_toolbar, enable: true
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
@@ -39,7 +46,8 @@ config :pantry, PantryWeb.Endpoint,
       ~r{lib/pantry_web/views/.*(ex)$},
       ~r{lib/pantry_web/templates/.*(eex)$}
     ]
-  ]
+  ],
+  instrumenters: [ExDebugToolbar.Collector.InstrumentationCollector]
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
@@ -55,4 +63,10 @@ config :pantry, Pantry.Repo,
   password: "postgres",
   database: "pantry_dev",
   hostname: "localhost",
-  pool_size: 10
+  pool_size: 10,
+  loggers: [ExDebugToolbar.Collector.EctoCollector, Ecto.LogEntry]
+
+
+config :phoenix, :template_engines,
+ eex: ExDebugToolbar.Template.EExEngine,
+ exs: ExDebugToolbar.Template.ExsEngine
