@@ -1,6 +1,3 @@
-<br>
-<br>
-<br>
 <h2>New Voucher</h2>
 
 <%= render "form.html", Map.put(assigns, :action, client_voucher_path(@conn, :create, @client)) %>
