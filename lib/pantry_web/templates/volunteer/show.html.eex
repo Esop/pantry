@@ -1,28 +1,31 @@
-<h2>Show Volunteer</h2>
+<div class="row volunteer">
+  <div class="col"></div>
+  <div class="col-lg-6 card">
+    <div class="card-body">
+      <h2>Show Volunteer</h2>
 
-<ul>
+      <ul>
 
-  <li>
-    <strong>First name:</strong>
-    <%= @volunteer.first_name %>
-  </li>
+        <li>
+          <strong>First name:</strong>
+          <%= @volunteer.first_name %>
+        </li>
 
-  <li>
-    <strong>Last name:</strong>
-    <%= @volunteer.last_name %>
-  </li>
+        <li>
+          <strong>Last name:</strong>
+          <%= @volunteer.last_name %>
+        </li>
 
-  <li>
-    <strong>Email:</strong>
-    <%= @volunteer.email %>
-  </li>
+        <li>
+          <strong>Email:</strong>
+          <%= @volunteer.email %>
+        </li>
 
-  <li>
-    <strong>Password hash:</strong>
-    <%= @volunteer.password_hash %>
-  </li>
-
-</ul>
+      </ul>
+    </div>
+  </div>
+  <div class="col"></div>
+</div>
 
 <span><%= link "Edit", to: volunteer_path(@conn, :edit, @volunteer) %></span>
 <span><%= link "Back", to: volunteer_path(@conn, :index) %></span>

@@ -6,15 +6,15 @@
   <% end %>
 
   <div class="form-group">
-    <%= label f, :received_money, class: "control-label" %>
-    <%= checkbox f, :received_money, class: "checkbox" %>
-    <%= error_tag f, :received_money %>
-  </div>
-
-  <div class="form-group">
     <%= label f, :received_food, class: "control-label" %>
     <%= checkbox f, :received_food, class: "checkbox" %>
     <%= error_tag f, :received_food %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :received_money, class: "control-label" %>
+    <%= checkbox f, :received_money, class: "checkbox" %>
+    <%= error_tag f, :received_money %>
   </div>
 
   <div class="form-group">
