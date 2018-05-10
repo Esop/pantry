@@ -1,5 +1,14 @@
-<h2>New Volunteer</h2>
+<div class="row">
+  <div class="col"></div>
+  <div class="col-lg-6 new-volunteer card">
+    <div class="card-body">
+      <h2>New Volunteer</h2>
 
-<%= render "form.html", Map.put(assigns, :action, volunteer_path(@conn, :create)) %>
+      <%= render "form.html", Map.put(assigns, :action, volunteer_path(@conn, :create)) %>
 
-<span><%= link "Back", to: volunteer_path(@conn, :index) %></span>
+      <span><%= link "Back", to: volunteer_path(@conn, :index) %></span>
+    </div>
+  </div>
+
+  <div class="col"></div>
+</div>
