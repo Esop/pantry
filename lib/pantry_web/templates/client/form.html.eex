@@ -55,7 +55,7 @@
 
   <div class="form-group">
     <%= label f, :ethnicity, class: "control-label" %>
-    <%= text_input f, :ethnicity, class: "form-control" %>
+    <%=  select f, :ethnicity, ["Black/African American", "White", "Hispanic/Latino", "Asian", "American Indian/Alaskan Native", "Native Hawaiian/Other Pacific Islander", "Other/Multi Racial"] %>
     <%= error_tag f, :ethnicity %>
   </div>
 
