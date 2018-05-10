@@ -1,59 +1,58 @@
-<h2>Show Client</h2>
+<div class="row">
+  <div class="col"></div>
+  <div class>
+    <div class="card">
+      <h2 class="text-center"> <strong> <%= @client.first_name <> " " <> @client.last_name %> </strong> </h2>
 
-<ul>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
 
-  <li>
-    <strong>First name:</strong>
-    <%= @client.first_name %>
-  </li>
+          <li class="list-group-item">
+            <strong>Address:</strong>
+            <%= @client.address %>
+          </li>
 
-  <li>
-    <strong>Last name:</strong>
-    <%= @client.last_name %>
-  </li>
+          <li class="list-group-item">
+            <strong>County:</strong>
+            <%= @client.county %>
+          </li>
 
-  <li>
-    <strong>Address:</strong>
-    <%= @client.address %>
-  </li>
+          <li class="list-group-item">
+            <strong>City:</strong>
+            <%= @client.city %>
+          </li>
 
-  <li>
-    <strong>County:</strong>
-    <%= @client.county %>
-  </li>
+          <li class="list-group-item">
+            <strong>State:</strong>
+            <%= @client.state %>
+          </li>
 
-  <li>
-    <strong>City:</strong>
-    <%= @client.city %>
-  </li>
+          <li class="list-group-item">
+            <strong>Zip code:</strong>
+            <%= @client.zip_code %>
+          </li>
 
-  <li>
-    <strong>State:</strong>
-    <%= @client.state %>
-  </li>
+          <li class="list-group-item">
+            <strong>Telephone:</strong>
+            <%= @client.telephone %>
+          </li>
 
-  <li>
-    <strong>Zip code:</strong>
-    <%= @client.zip_code %>
-  </li>
+          <li class="list-group-item">
+            <strong>Ethnicity:</strong>
+            <%= @client.ethnicity %>
+          </li>
 
-  <li>
-    <strong>Telephone:</strong>
-    <%= @client.telephone %>
-  </li>
+          <li class="list-group-item">
+            <strong>Last visit:</strong>
+            <%= @client.last_visit %>
+          </li>
 
-  <li>
-    <strong>Ethnicity:</strong>
-    <%= @client.ethnicity %>
-  </li>
-
-  <li>
-    <strong>Last visit:</strong>
-    <%= @client.last_visit %>
-  </li>
-
-</ul>
-
-<span><%= link "Create New Voucher", to: client_voucher_path(@conn, :new, @client), class: "btn btn-primary btn-xs" %></span>
-<span><%= link "Edit Client Record", to: client_path(@conn, :edit, @client), class: "btn btn-primary btn-xs" %></span>
-<span><%= link "Go Back", to: client_path(@conn, :index), class: "btn btn-primary btn-xs" %></span>
+        </ul>
+        <span><%= link "Create New Voucher", to: client_voucher_path(@conn, :new, @client), class: "btn btn-primary btn-xs" %></span>
+        <span><%= link "Edit Client Profile", to: client_path(@conn, :edit, @client), class: "btn btn-primary btn-xs" %></span>
+        <span><%= link "Go Back", to: client_path(@conn, :index), class: "btn btn-primary btn-xs" %></span>
+      </div>
+    </div>
+  </div>
+  <div class="col"></div>
+</div>

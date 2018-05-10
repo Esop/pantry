@@ -1,4 +1,4 @@
-<h2>Listing Volunteers</h2>
+<h2>All Volunteers</h2>
 
 <table class="table">
   <thead>
@@ -6,9 +6,6 @@
       <th>First name</th>
       <th>Last name</th>
       <th>Email</th>
-      <th>Password hash</th>
-
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -17,7 +14,6 @@
       <td><%= volunteer.first_name %></td>
       <td><%= volunteer.last_name %></td>
       <td><%= volunteer.email %></td>
-      <td><%= volunteer.password_hash %></td>
 
       <td class="text-right">
         <span><%= link "Show", to: volunteer_path(@conn, :show, volunteer), class: "btn btn-default btn-xs" %></span>
