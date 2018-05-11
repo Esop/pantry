@@ -43,6 +43,11 @@
           </li>
 
           <li class="list-group-item">
+            <strong>Total Family Size:</strong>
+            <%= @client.total_family_size %>
+          </li>
+
+          <li class="list-group-item">
             <strong>Last visit:</strong>
             <%= @client.last_visit %>
           </li>
