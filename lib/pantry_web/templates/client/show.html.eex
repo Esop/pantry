@@ -47,11 +47,6 @@
             <%= @client.total_family_size %>
           </li>
 
-          <li class="list-group-item">
-            <strong>Last visit:</strong>
-            <%= @client.last_visit %>
-          </li>
-
         </ul>
         <span><%= link "Create New Voucher", to: client_voucher_path(@conn, :new, @client), class: "btn btn-primary btn-xs" %></span>
         <span><%= link "Edit Client Profile", to: client_path(@conn, :edit, @client), class: "btn btn-primary btn-xs" %></span>

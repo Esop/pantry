@@ -12,7 +12,6 @@ defmodule Pantry.Accounts.Client do
     field(:ethnicity, :string)
     field(:first_name, :string)
     field(:last_name, :string)
-    field(:last_visit, :naive_datetime)
     field(:state, :string)
     field(:telephone, :string)
     field(:zip_code, :string)
@@ -37,7 +36,6 @@ defmodule Pantry.Accounts.Client do
       :zip_code,
       :telephone,
       :ethnicity,
-      :last_visit,
       :total_family_size,
       :description_of_need,
       :notes
@@ -52,7 +50,6 @@ defmodule Pantry.Accounts.Client do
       :zip_code,
       :telephone,
       :ethnicity,
-      :last_visit,
       :total_family_size
     ])
   end
