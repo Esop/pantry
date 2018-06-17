@@ -1,0 +1,23 @@
+<h2>Show Assistance</h2>
+
+<ul>
+
+  <li>
+    <strong>Received voucher:</strong>
+    <%= @assistance.received_voucher %>
+  </li>
+
+  <li>
+    <strong>Received food:</strong>
+    <%= @assistance.received_food %>
+  </li>
+
+  <li>
+    <strong>Next service:</strong>
+    <%= @assistance.next_service_date %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: client_assistance_path(@conn, :edit,@client, @assistance) %></span>
+<span><%= link "Back", to: client_assistance_path(@conn, :index, @client) %></span>
