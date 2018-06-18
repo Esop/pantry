@@ -18,7 +18,7 @@ defmodule Pantry.Accounts.Client do
     field(:total_family_size, :integer, default: 0)
     field(:description_of_need, :string)
     field(:notes, :string)
-    has_many(:vouchers, Pantry.Forms.Voucher)
+    has_many(:Assistance, Pantry.Forms.Assistance)
 
     timestamps()
   end

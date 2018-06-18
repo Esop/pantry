@@ -7,7 +7,7 @@ defmodule Pantry.Forms.Assistance do
     field(:next_service_date, :date)
     field(:received_food, :boolean, default: false)
     field(:received_voucher, :boolean, default: false)
-    field(:client_id, :id)
+    belongs_to(:client, Pantry.Accounts.Client)
 
     timestamps()
   end
