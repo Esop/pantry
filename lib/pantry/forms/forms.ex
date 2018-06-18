@@ -6,106 +6,106 @@ defmodule Pantry.Forms do
   import Ecto.Query, warn: false
   alias Pantry.Repo
 
-  alias Pantry.Forms.Voucher
+  alias Pantry.Forms.Assistance
 
   @doc """
-  Returns the list of vouchers
-  for the client.
+  Returns the list of assistance.
 
   ## Examples
 
-      iex> list_vouchers(client)
-      [%Voucher{}, ...]
+      iex> list_assistance()
+      [%Assistance{}, ...]
 
   """
-  def list_vouchers(client) do
-    Voucher
-    |> where([v], v.client_id == ^client.id)
+  def list_assistance(client) do
+    Assistance
+    |> where([t], t.client_id == ^client.id)
     |> Repo.all()
   end
 
   @doc """
-  Gets a single voucher.
+  Gets a single assistance.
 
-  Raises `Ecto.NoResultsError` if the Voucher does not exist.
+  Raises `Ecto.NoResultsError` if the Assistance does not exist.
 
   ## Examples
 
-      iex> get_voucher!(123)
-      %Voucher{}
+      iex> get_assistance!(123)
+      %Assistance{}
 
-      iex> get_voucher!(456)
+      iex> get_assistance!(456)
       ** (Ecto.NoResultsError)
 
   """
-  def get_voucher!(client, id) do
-    Voucher
+
+  def get_assistance!(client, id) do
+    Assistance
     |> where([t], t.client_id == ^client.id)
     |> Repo.get!(id)
   end
 
   @doc """
-  Creates a voucher.
+  Creates a assistance.
 
   ## Examples
 
-      iex> create_voucher(%{field: value})
-      {:ok, %Voucher{}}
+      iex> create_assistance(%{field: value})
+      {:ok, %Assistance{}}
 
-      iex> create_voucher(%{field: bad_value})
+      iex> create_assistance(%{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_voucher(attrs \\ %{}) do
-    %Voucher{}
-    |> Voucher.changeset(attrs)
+  def create_assistance(attrs \\ %{}) do
+    %Assistance{}
+    |> Assistance.changeset(attrs)
     |> Repo.insert()
   end
 
   @doc """
-  Updates a voucher.
+  Updates a assistance.
 
   ## Examples
 
-      iex> update_voucher(voucher, %{field: new_value})
-      {:ok, %Voucher{}}
+      iex> update_assistance(assistance, %{field: new_value})
+      {:ok, %Assistance{}}
 
-      iex> update_voucher(voucher, %{field: bad_value})
+      iex> update_assistance(assistance, %{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_voucher(%Voucher{} = voucher, attrs) do
-    voucher
-    |> Voucher.changeset(attrs)
+  def update_assistance(%Assistance{} = assistance, attrs) do
+    assistance
+    |> Assistance.changeset(attrs)
     |> Repo.update()
   end
 
   @doc """
-  Deletes a Voucher.
+  Deletes a Assistance.
 
   ## Examples
 
-      iex> delete_voucher(voucher)
-      {:ok, %Voucher{}}
+      iex> delete_assistance(assistance)
+      {:ok, %Assistance{}}
 
-      iex> delete_voucher(voucher)
+      iex> delete_assistance(assistance)
       {:error, %Ecto.Changeset{}}
 
   """
-  def delete_voucher(%Voucher{} = voucher) do
-    Repo.delete(voucher)
+  def delete_assistance(%Assistance{} = assistance) do
+    Repo.delete(assistance)
   end
 
   @doc """
-  Returns an `%Ecto.Changeset{}` for tracking voucher changes.
+  Returns an `%Ecto.Changeset{}` for tracking assistance changes.
 
   ## Examples
 
-      iex> change_voucher(voucher)
-      %Ecto.Changeset{source: %Voucher{}}
+      iex> change_assistance(assistance)
+      %Ecto.Changeset{source: %Assistance{}}
 
   """
-  def change_voucher(%Voucher{} = voucher) do
-    Voucher.changeset(voucher, %{})
+  def change_assistance(%Assistance{} = assistance) do
+    Assistance.changeset(assistance, %{})
   end
 end

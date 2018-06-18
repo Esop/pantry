@@ -12,11 +12,13 @@ defmodule Pantry.Accounts.Client do
     field(:ethnicity, :string)
     field(:first_name, :string)
     field(:last_name, :string)
-    field(:last_visit, :naive_datetime)
     field(:state, :string)
     field(:telephone, :string)
     field(:zip_code, :string)
-    has_many :vouchers, Pantry.Forms.Voucher
+    field(:total_family_size, :integer, default: 0)
+    field(:description_of_need, :string)
+    field(:notes, :string)
+    has_many(:Assistance, Pantry.Forms.Assistance)
 
     timestamps()
   end
@@ -34,7 +36,9 @@ defmodule Pantry.Accounts.Client do
       :zip_code,
       :telephone,
       :ethnicity,
-      :last_visit
+      :total_family_size,
+      :description_of_need,
+      :notes
     ])
     |> validate_required([
       :first_name,
@@ -46,7 +50,7 @@ defmodule Pantry.Accounts.Client do
       :zip_code,
       :telephone,
       :ethnicity,
-      :last_visit
+      :total_family_size
     ])
   end
 end

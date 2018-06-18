@@ -68,4 +68,68 @@ defmodule Pantry.FormsTest do
       assert %Ecto.Changeset{} = Forms.change_voucher(voucher)
     end
   end
+
+  describe "assistance" do
+    alias Pantry.Forms.Assistance
+
+    @valid_attrs %{next_service: ~D[2010-04-17], received_food: true, received_voucher: true}
+    @update_attrs %{next_service: ~D[2011-05-18], received_food: false, received_voucher: false}
+    @invalid_attrs %{next_service: nil, received_food: nil, received_voucher: nil}
+
+    def assistance_fixture(attrs \\ %{}) do
+      {:ok, assistance} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Forms.create_assistance()
+
+      assistance
+    end
+
+    test "list_assistance/0 returns all assistance" do
+      assistance = assistance_fixture()
+      assert Forms.list_assistance() == [assistance]
+    end
+
+    test "get_assistance!/1 returns the assistance with given id" do
+      assistance = assistance_fixture()
+      assert Forms.get_assistance!(assistance.id) == assistance
+    end
+
+    test "create_assistance/1 with valid data creates a assistance" do
+      assert {:ok, %Assistance{} = assistance} = Forms.create_assistance(@valid_attrs)
+      assert assistance.next_service == ~D[2010-04-17]
+      assert assistance.received_food == true
+      assert assistance.received_voucher == true
+    end
+
+    test "create_assistance/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Forms.create_assistance(@invalid_attrs)
+    end
+
+    test "update_assistance/2 with valid data updates the assistance" do
+      assistance = assistance_fixture()
+      assert {:ok, assistance} = Forms.update_assistance(assistance, @update_attrs)
+      assert %Assistance{} = assistance
+      assert assistance.next_service == ~D[2011-05-18]
+      assert assistance.received_food == false
+      assert assistance.received_voucher == false
+    end
+
+    test "update_assistance/2 with invalid data returns error changeset" do
+      assistance = assistance_fixture()
+      assert {:error, %Ecto.Changeset{}} = Forms.update_assistance(assistance, @invalid_attrs)
+      assert assistance == Forms.get_assistance!(assistance.id)
+    end
+
+    test "delete_assistance/1 deletes the assistance" do
+      assistance = assistance_fixture()
+      assert {:ok, %Assistance{}} = Forms.delete_assistance(assistance)
+      assert_raise Ecto.NoResultsError, fn -> Forms.get_assistance!(assistance.id) end
+    end
+
+    test "change_assistance/1 returns a assistance changeset" do
+      assistance = assistance_fixture()
+      assert %Ecto.Changeset{} = Forms.change_assistance(assistance)
+    end
+  end
 end

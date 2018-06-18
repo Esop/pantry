@@ -21,7 +21,7 @@ defmodule PantryWeb.Router do
     get("/", PageController, :index)
 
     resources("/clients", ClientController) do
-      resources("/vouchers", VoucherController)
+      resources("/assistance", AssistanceController)
     end
 
     resources("/volunteers", VolunteerController)

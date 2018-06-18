@@ -55,14 +55,27 @@
 
   <div class="form-group">
     <%= label f, :ethnicity, class: "control-label" %>
-    <%= text_input f, :ethnicity, class: "form-control" %>
+    <%= select f, :ethnicity, [ "" ,"Black/African American", "White", "Hispanic/Latino", "Asian", "American Indian/Alaskan Native", "Native Hawaiian/Other Pacific Islander", "Other/Multi Racial"] %>
     <%= error_tag f, :ethnicity %>
   </div>
 
   <div class="form-group">
-    <%= label f, :last_visit, class: "control-label" %>
-    <%= datetime_select f, :last_visit, class: "form-control" %>
-    <%= error_tag f, :last_visit %>
+    <%= label f, :total_family_size, class: "control-label" %>
+    <%= select f, :total_family_size, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"] %>
+    <%= error_tag f, :total_family_size %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :description_of_need, class: "control-label" %>
+    <%= text_input f, :description_of_need, class: "form-control" %>
+    <%= error_tag f, :description_of_need %>
+  </div>
+
+
+  <div class="form-group">
+    <%= label f, :notes, class: "control-label" %>
+    <%= text_input f, :notes, class: "form-control" %>
+    <%= error_tag f, :notes %>
   </div>
 
   <div class="form-group">
