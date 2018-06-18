@@ -37,7 +37,7 @@ defmodule Pantry.Forms do
       ** (Ecto.NoResultsError)
 
   """
-  # def get_assistance!(client, id), do: Repo.get!(Assistance, id)
+
   def get_assistance!(client, id) do
     Assistance
     |> where([t], t.client_id == ^client.id)
