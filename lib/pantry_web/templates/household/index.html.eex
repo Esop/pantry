@@ -1,0 +1,36 @@
+<h2>Residence information for <%= @client.first_name <> " " <> @client.last_name %> </h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Total members</th>
+      <th>Street address</th>
+      <th>City</th>
+      <th>County</th>
+      <th>Zip code</th>
+      <th>State</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for household <- @household do %>
+
+    <tr>
+      <td><%= household.total_members %></td>
+      <td><%= household.street_address %></td>
+      <td><%= household.city %></td>
+      <td><%= household.county %></td>
+      <td><%= household.zip_code %></td>
+      <td><%= household.state %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: client_household_path(@conn, :show, @client, household), class: "btn btn-danger btn-xs" %></span>
+        <span><%= link "Edit", to: client_household_path(@conn, :edit,@client, household), class: "btn btn-danger btn-xs" %></span>
+        <span><%= link "Delete", to: client_household_path(@conn, :delete, @client, household), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Household", to: client_household_path(@conn, :new, @client) %></span>
