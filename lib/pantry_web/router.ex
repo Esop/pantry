@@ -22,6 +22,8 @@ defmodule PantryWeb.Router do
 
     resources("/clients", ClientController) do
       resources("/assistance", AssistanceController)
+      # resources("/household", HouseholdController, only: [:new, :create, :show, :edit, :delete])
+      resources("/household", HouseholdController)
     end
 
     resources("/volunteers", VolunteerController)

@@ -18,7 +18,11 @@ defmodule Pantry.Accounts.Client do
     field(:total_family_size, :integer, default: 0)
     field(:description_of_need, :string)
     field(:notes, :string)
+
     has_many(:Assistance, Pantry.Forms.Assistance)
+    # FIXME: If I call has_one my routes are broken
+    # has_one(:Household, Pantry.Residence.Household)
+    has_many(:Household, Pantry.Residence.Household)
 
     timestamps()
   end
