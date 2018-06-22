@@ -1,5 +1,5 @@
 <h2>Edit Household</h2>
 
-<%# <%= render "form.html", Map.put(assigns, :action, household_path(@conn, :update, @household)) %> %>
+<%= render "form.html", Map.put(assigns, :action, client_household_path(@conn, :update,@client, @household)) %>
 
-<%# <span><%= link "Back", to: household_path(@conn, :index) %></span> %>
+<span><%= link "Back", to: client_household_path(@conn, :index, @client, @household) %></span>

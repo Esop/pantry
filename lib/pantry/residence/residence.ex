@@ -20,7 +20,6 @@ defmodule Pantry.Residence do
   def list_residences(client) do
     Household
     |> where([t], t.client_id == ^client.id)
-    |> preload(:client)
     |> Repo.all()
   end
 

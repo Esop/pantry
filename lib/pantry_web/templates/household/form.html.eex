@@ -42,6 +42,48 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :zero_five, class: "control-label" %>
+    <%= text_input f, :zero_five, class: "form-control" %>
+    <%= error_tag f, :zero_five %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :six_twelve, class: "control-label" %>
+    <%= text_input f, :six_twelve, class: "form-control" %>
+    <%= error_tag f, :six_twelve %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :thirteen_eighteen, class: "control-label" %>
+    <%= text_input f, :thirteen_eighteen, class: "form-control" %>
+    <%= error_tag f, :thirteen_eighteen %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :nineteen_twentyfive, class: "control-label" %>
+    <%= text_input f, :nineteen_twentyfive, class: "form-control" %>
+    <%= error_tag f, :nineteen_twentyfive %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :twentysix_thirtynine, class: "control-label" %>
+    <%= text_input f, :twentysix_thirtynine, class: "form-control" %>
+    <%= error_tag f, :twentysix_thirtynine %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :fourty_fiftyfour, class: "control-label" %>
+    <%= text_input f, :fourty_fiftyfour, class: "form-control" %>
+    <%= error_tag f, :fourty_fiftyfour %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :fiftyfive_and_over, class: "control-label" %>
+    <%= text_input f, :fiftyfive_and_over, class: "form-control" %>
+    <%= error_tag f, :fiftyfive_and_over %>
+  </div>
+
+  <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
