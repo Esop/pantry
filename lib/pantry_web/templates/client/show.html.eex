@@ -8,32 +8,7 @@
         <ul class="list-group list-group-flush">
 
           <li class="list-group-item">
-            <strong>Address:</strong>
-            <%= @client.address %>
-          </li>
-
-          <li class="list-group-item">
-            <strong>County:</strong>
-            <%= @client.county %>
-          </li>
-
-          <li class="list-group-item">
-            <strong>City:</strong>
-            <%= @client.city %>
-          </li>
-
-          <li class="list-group-item">
-            <strong>State:</strong>
-            <%= @client.state %>
-          </li>
-
-          <li class="list-group-item">
-            <strong>Zip code:</strong>
-            <%= @client.zip_code %>
-          </li>
-
-          <li class="list-group-item">
-            <strong>Telephone:</strong>
+            <strong>Telephone Number:</strong>
             <%= @client.telephone %>
           </li>
 
