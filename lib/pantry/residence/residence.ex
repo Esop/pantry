@@ -108,4 +108,5 @@ defmodule Pantry.Residence do
   def change_household(%Household{} = household) do
     Household.changeset(household, %{})
   end
+
 end
