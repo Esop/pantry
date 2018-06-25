@@ -132,4 +132,78 @@ defmodule Pantry.FormsTest do
       assert %Ecto.Changeset{} = Forms.change_assistance(assistance)
     end
   end
+
+  describe "produce_distributions" do
+    alias Pantry.Forms.ProduceDistribution
+
+    @valid_attrs %{first_name: "some first_name", food_stamps: true, income_eligibility: true, last_name: "some last_name", public_housing: "some public_housing", signature: "some signature", ssi_medicaid: "some ssi_medicaid", temporary_assistance: "some temporary_assistance"}
+    @update_attrs %{first_name: "some updated first_name", food_stamps: false, income_eligibility: false, last_name: "some updated last_name", public_housing: "some updated public_housing", signature: "some updated signature", ssi_medicaid: "some updated ssi_medicaid", temporary_assistance: "some updated temporary_assistance"}
+    @invalid_attrs %{first_name: nil, food_stamps: nil, income_eligibility: nil, last_name: nil, public_housing: nil, signature: nil, ssi_medicaid: nil, temporary_assistance: nil}
+
+    def produce_distribution_fixture(attrs \\ %{}) do
+      {:ok, produce_distribution} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Forms.create_produce_distribution()
+
+      produce_distribution
+    end
+
+    test "list_produce_distributions/0 returns all produce_distributions" do
+      produce_distribution = produce_distribution_fixture()
+      assert Forms.list_produce_distributions() == [produce_distribution]
+    end
+
+    test "get_produce_distribution!/1 returns the produce_distribution with given id" do
+      produce_distribution = produce_distribution_fixture()
+      assert Forms.get_produce_distribution!(produce_distribution.id) == produce_distribution
+    end
+
+    test "create_produce_distribution/1 with valid data creates a produce_distribution" do
+      assert {:ok, %ProduceDistribution{} = produce_distribution} = Forms.create_produce_distribution(@valid_attrs)
+      assert produce_distribution.first_name == "some first_name"
+      assert produce_distribution.food_stamps == true
+      assert produce_distribution.income_eligibility == true
+      assert produce_distribution.last_name == "some last_name"
+      assert produce_distribution.public_housing == "some public_housing"
+      assert produce_distribution.signature == "some signature"
+      assert produce_distribution.ssi_medicaid == "some ssi_medicaid"
+      assert produce_distribution.temporary_assistance == "some temporary_assistance"
+    end
+
+    test "create_produce_distribution/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Forms.create_produce_distribution(@invalid_attrs)
+    end
+
+    test "update_produce_distribution/2 with valid data updates the produce_distribution" do
+      produce_distribution = produce_distribution_fixture()
+      assert {:ok, produce_distribution} = Forms.update_produce_distribution(produce_distribution, @update_attrs)
+      assert %ProduceDistribution{} = produce_distribution
+      assert produce_distribution.first_name == "some updated first_name"
+      assert produce_distribution.food_stamps == false
+      assert produce_distribution.income_eligibility == false
+      assert produce_distribution.last_name == "some updated last_name"
+      assert produce_distribution.public_housing == "some updated public_housing"
+      assert produce_distribution.signature == "some updated signature"
+      assert produce_distribution.ssi_medicaid == "some updated ssi_medicaid"
+      assert produce_distribution.temporary_assistance == "some updated temporary_assistance"
+    end
+
+    test "update_produce_distribution/2 with invalid data returns error changeset" do
+      produce_distribution = produce_distribution_fixture()
+      assert {:error, %Ecto.Changeset{}} = Forms.update_produce_distribution(produce_distribution, @invalid_attrs)
+      assert produce_distribution == Forms.get_produce_distribution!(produce_distribution.id)
+    end
+
+    test "delete_produce_distribution/1 deletes the produce_distribution" do
+      produce_distribution = produce_distribution_fixture()
+      assert {:ok, %ProduceDistribution{}} = Forms.delete_produce_distribution(produce_distribution)
+      assert_raise Ecto.NoResultsError, fn -> Forms.get_produce_distribution!(produce_distribution.id) end
+    end
+
+    test "change_produce_distribution/1 returns a produce_distribution changeset" do
+      produce_distribution = produce_distribution_fixture()
+      assert %Ecto.Changeset{} = Forms.change_produce_distribution(produce_distribution)
+    end
+  end
 end

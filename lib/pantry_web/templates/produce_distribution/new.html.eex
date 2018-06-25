@@ -1,0 +1,5 @@
+<h2>New Produce distribution</h2>
+
+<%= render "form.html", Map.put(assigns, :action, produce_distribution_path(@conn, :create)) %>
+
+<span><%= link "Back", to: produce_distribution_path(@conn, :index) %></span>

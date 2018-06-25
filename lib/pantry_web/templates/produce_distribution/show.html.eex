@@ -1,0 +1,48 @@
+<h2>Show Produce distribution</h2>
+
+<ul>
+
+  <li>
+    <strong>First name:</strong>
+    <%= @produce_distribution.first_name %>
+  </li>
+
+  <li>
+    <strong>Last name:</strong>
+    <%= @produce_distribution.last_name %>
+  </li>
+
+  <li>
+    <strong>Income eligibility:</strong>
+    <%= @produce_distribution.income_eligibility %>
+  </li>
+
+  <li>
+    <strong>Food stamps:</strong>
+    <%= @produce_distribution.food_stamps %>
+  </li>
+
+  <li>
+    <strong>Temporary assistance:</strong>
+    <%= @produce_distribution.temporary_assistance %>
+  </li>
+
+  <li>
+    <strong>Ssi medicaid:</strong>
+    <%= @produce_distribution.ssi_medicaid %>
+  </li>
+
+  <li>
+    <strong>Public housing:</strong>
+    <%= @produce_distribution.public_housing %>
+  </li>
+
+  <li>
+    <strong>Signature:</strong>
+    <%= @produce_distribution.signature %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: produce_distribution_path(@conn, :edit, @produce_distribution) %></span>
+<span><%= link "Back", to: produce_distribution_path(@conn, :index) %></span>
