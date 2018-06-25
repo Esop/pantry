@@ -1,38 +1,43 @@
-<h2>Show Household</h2>
+<div class="row">
+  <div class="col"></div>
+  <div class="col-lg-6 card">
+    <h2>Show Household</h2>
 
-<ul>
+    <ul>
 
-  <li>
-    <strong>Total members:</strong>
-    <%= @household.total_members %>
-  </li>
+      <li>
+        <strong>Total members:</strong>
+        <%= @household.total_members %>
+      </li>
 
-  <li>
-    <strong>Street address:</strong>
-    <%= @household.street_address %>
-  </li>
+      <li>
+        <strong>Street address:</strong>
+        <%= @household.street_address %>
+      </li>
 
-  <li>
-    <strong>City:</strong>
-    <%= @household.city %>
-  </li>
+      <li>
+        <strong>City:</strong>
+        <%= @household.city %>
+      </li>
 
-  <li>
-    <strong>County:</strong>
-    <%= @household.county %>
-  </li>
+      <li>
+        <strong>County:</strong>
+        <%= @household.county %>
+      </li>
 
-  <li>
-    <strong>Zip code:</strong>
-    <%= @household.zip_code %>
-  </li>
+      <li>
+        <strong>Zip code:</strong>
+        <%= @household.zip_code %>
+      </li>
 
-  <li>
-    <strong>State:</strong>
-    <%= @household.state %>
-  </li>
+      <li>
+        <strong>State:</strong>
+        <%= @household.state %>
+      </li>
 
-</ul>
-
+    </ul>
+  </div>
+  <div class="col"></div>
+</div>
 <span><%= link "Edit", to: client_household_path(@conn, :edit, @client, @household) %></span>
 <span><%= link "Back", to: client_household_path(@conn, :index, @client) %></span>
