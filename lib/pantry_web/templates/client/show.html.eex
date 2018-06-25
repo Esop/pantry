@@ -17,11 +17,6 @@
             <%= @client.ethnicity %>
           </li>
 
-          <li class="list-group-item">
-            <strong>Total Family Size:</strong>
-            <%= @client.total_family_size %>
-          </li>
-
         </ul>
         <span><%= link "Edit Client Profile", to: client_path(@conn, :edit, @client), class: "btn btn-primary btn-xs" %></span>
         <span><%= link "Go Back", to: client_path(@conn, :index), class: "btn btn-primary btn-xs" %></span>
