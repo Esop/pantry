@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col"></div>
   <div class="col-lg-6 card">
-    <h2 class="text-center">New Household</h2>
+    <h2 class="text-center"><%= @client.first_name <> " " <> @client.last_name %> Household information</h2>
 
     <%= render "form.html", Map.put(assigns, :action, client_household_path(@conn, :create, @client)) %>
 

@@ -29,7 +29,6 @@ defmodule PantryWeb.HouseholdController do
     render(conn, "new.html", changeset: changeset, client: client)
   end
 
-
   def create(conn, %{"household" => household_params}, client) do
     household_params =
       household_params
@@ -67,7 +66,7 @@ defmodule PantryWeb.HouseholdController do
         |> redirect(to: client_household_path(conn, :show, client, household))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", household: household, changeset: changeset)
+        render(conn, "edit.html", client: client, household: household, changeset: changeset)
     end
   end
 
