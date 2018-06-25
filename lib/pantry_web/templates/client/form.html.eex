@@ -6,49 +6,19 @@
   <% end %>
 
   <div class="form-group">
-    <%= label f, :first_name, class: "control-label" %>
+    <%= label f, :first_name, "First Name", class: "control-label" %>
     <%= text_input f, :first_name, class: "form-control" %>
     <%= error_tag f, :first_name %>
   </div>
 
   <div class="form-group">
-    <%= label f, :last_name, class: "control-label" %>
+    <%= label f, :last_name, "Last Name", class: "control-label" %>
     <%= text_input f, :last_name, class: "form-control" %>
     <%= error_tag f, :last_name %>
   </div>
 
   <div class="form-group">
-    <%= label f, :address, class: "control-label" %>
-    <%= text_input f, :address, class: "form-control" %>
-    <%= error_tag f, :address %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :county, class: "control-label" %>
-    <%= text_input f, :county, class: "form-control" %>
-    <%= error_tag f, :county %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :city, class: "control-label" %>
-    <%= text_input f, :city, class: "form-control" %>
-    <%= error_tag f, :city %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :state, class: "control-label" %>
-    <%= text_input f, :state, class: "form-control" %>
-    <%= error_tag f, :state %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :zip_code, class: "control-label" %>
-    <%= text_input f, :zip_code, class: "form-control" %>
-    <%= error_tag f, :zip_code %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :telephone, class: "control-label" %>
+    <%= label f, :telephone, "Telephone Number", class: "control-label" %>
     <%= text_input f, :telephone, class: "form-control" %>
     <%= error_tag f, :telephone %>
   </div>

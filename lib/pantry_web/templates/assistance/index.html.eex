@@ -18,9 +18,9 @@
       <td><%= assistance.next_service_date %></td>
 
       <td class="text-right">
-        <%# <span><%= link "Show", to: client_assistance_path(@conn, :show, client, assistance), class: "btn btn-default btn-xs" %></span> %>
-        <%# <span><%= link "Edit", to: assistance_path(@conn, :edit, assistance), class: "btn btn-default btn-xs" %></span> %>
-        <%# <span><%= link "Delete", to: assistance_path(@conn, :delete, assistance), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span> %>
+        <span><%= link "Show", to: client_assistance_path(@conn, :show, @client, assistance), class: "btn btn-danger btn-xs" %></span>
+        <span><%= link "Edit", to: client_assistance_path(@conn, :edit, @client, assistance), class: "btn btn-danger btn-xs" %></span>
+        <span><%= link "Delete", to: client_assistance_path(@conn, :delete, @client, assistance), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
       </td>
     </tr>
 <% end %>

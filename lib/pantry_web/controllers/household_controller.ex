@@ -11,7 +11,6 @@ defmodule PantryWeb.HouseholdController do
   by implementing a Plug.
   """
   def action(conn, _) do
-    # client = Pantry.Residence.Household.get_client!(conn.params["client_id"])
     client = Pantry.Accounts.get_client!(conn.params["client_id"])
     args = [conn, conn.params, client]
     apply(__MODULE__, action_name(conn), args)
@@ -42,7 +41,7 @@ defmodule PantryWeb.HouseholdController do
         |> redirect(to: client_household_path(conn, :show, client, household))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        render(conn, "new.html", client: client, changeset: changeset)
     end
   end
 
@@ -67,7 +66,7 @@ defmodule PantryWeb.HouseholdController do
         |> redirect(to: client_household_path(conn, :show, client, household))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", household: household, changeset: changeset)
+        render(conn, "edit.html", client: client, household: household, changeset: changeset)
     end
   end
 

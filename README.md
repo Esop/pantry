@@ -82,3 +82,5 @@ trash priv/repo/migrations/20180430163419_create_vouchers.exs
  trash lib/pantry/forms/forms.ex
  trash test/pantry/forms/forms_test.exs
  trash test/pantry/forms/forms_test.exs
+
+

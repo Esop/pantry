@@ -72,4 +72,76 @@ defmodule Pantry.ResidenceTest do
       assert %Ecto.Changeset{} = Residence.change_household(household)
     end
   end
+
+  describe "agegroups" do
+    alias Pantry.Residence.AgeGroup
+
+    @valid_attrs %{fiftyfive_and_over: "some fiftyfive_and_over", fourty_fiftyfour: 42, nineteen_twentyfive: "some nineteen_twentyfive", six_twelve: 42, thirteen_eighteen: 42, twentysix_thirtynine: 42, zero_five: 42}
+    @update_attrs %{fiftyfive_and_over: "some updated fiftyfive_and_over", fourty_fiftyfour: 43, nineteen_twentyfive: "some updated nineteen_twentyfive", six_twelve: 43, thirteen_eighteen: 43, twentysix_thirtynine: 43, zero_five: 43}
+    @invalid_attrs %{fiftyfive_and_over: nil, fourty_fiftyfour: nil, nineteen_twentyfive: nil, six_twelve: nil, thirteen_eighteen: nil, twentysix_thirtynine: nil, zero_five: nil}
+
+    def age_group_fixture(attrs \\ %{}) do
+      {:ok, age_group} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Residence.create_age_group()
+
+      age_group
+    end
+
+    test "list_agegroups/0 returns all agegroups" do
+      age_group = age_group_fixture()
+      assert Residence.list_agegroups() == [age_group]
+    end
+
+    test "get_age_group!/1 returns the age_group with given id" do
+      age_group = age_group_fixture()
+      assert Residence.get_age_group!(age_group.id) == age_group
+    end
+
+    test "create_age_group/1 with valid data creates a age_group" do
+      assert {:ok, %AgeGroup{} = age_group} = Residence.create_age_group(@valid_attrs)
+      assert age_group.fiftyfive_and_over == "some fiftyfive_and_over"
+      assert age_group.fourty_fiftyfour == 42
+      assert age_group.nineteen_twentyfive == "some nineteen_twentyfive"
+      assert age_group.six_twelve == 42
+      assert age_group.thirteen_eighteen == 42
+      assert age_group.twentysix_thirtynine == 42
+      assert age_group.zero_five == 42
+    end
+
+    test "create_age_group/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Residence.create_age_group(@invalid_attrs)
+    end
+
+    test "update_age_group/2 with valid data updates the age_group" do
+      age_group = age_group_fixture()
+      assert {:ok, age_group} = Residence.update_age_group(age_group, @update_attrs)
+      assert %AgeGroup{} = age_group
+      assert age_group.fiftyfive_and_over == "some updated fiftyfive_and_over"
+      assert age_group.fourty_fiftyfour == 43
+      assert age_group.nineteen_twentyfive == "some updated nineteen_twentyfive"
+      assert age_group.six_twelve == 43
+      assert age_group.thirteen_eighteen == 43
+      assert age_group.twentysix_thirtynine == 43
+      assert age_group.zero_five == 43
+    end
+
+    test "update_age_group/2 with invalid data returns error changeset" do
+      age_group = age_group_fixture()
+      assert {:error, %Ecto.Changeset{}} = Residence.update_age_group(age_group, @invalid_attrs)
+      assert age_group == Residence.get_age_group!(age_group.id)
+    end
+
+    test "delete_age_group/1 deletes the age_group" do
+      age_group = age_group_fixture()
+      assert {:ok, %AgeGroup{}} = Residence.delete_age_group(age_group)
+      assert_raise Ecto.NoResultsError, fn -> Residence.get_age_group!(age_group.id) end
+    end
+
+    test "change_age_group/1 returns a age_group changeset" do
+      age_group = age_group_fixture()
+      assert %Ecto.Changeset{} = Residence.change_age_group(age_group)
+    end
+  end
 end
