@@ -1,5 +1,97 @@
-<h2>New Certification</h2>
+<h2 class="text-center">Second Harvest</h2>
+<h2 class="text-center">Emergency Food Assistance Program</h2>
+<h2 class="text-center">Certification of Eligibility to Take Food Home</h2>
 
-<%= render "form.html", Map.put(assigns, :action, certification_path(@conn, :create)) %>
+<%= render "form.html", Map.put(assigns, :action, client_certification_path(@conn, :create, @client)) %>
 
-<span><%= link "Back", to: certification_path(@conn, :index) %></span>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Household Size</th>
+      <th>Annual Income</th>
+      <th>Monthly Income</th>
+      <th>Twice Per Month</th>
+      <th>Every Two Weeks</th>
+      <th>Weekly Income</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>$15,301</td>
+      <td>$1,276</td>
+      <td>$638</td>
+      <td>$589</td>
+      <td>$295</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>$20,709</td>
+      <td>$1,726</td>
+      <td>$836</td>
+      <td>$797</td>
+      <td>$399</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>$26,117</td>
+      <td>$2,177</td>
+      <td>$1,086</td>
+      <td>$1,005</td>
+      <td>$503</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>$31,525</td>
+      <td>$2,628</td>
+      <td>$1,314</td>
+      <td>$1,213</td>
+      <td>$607</td>
+    </tr>
+      <td>5</td>
+      <td>$36,933</td>
+      <td>$3,078</td>
+      <td>1,539</td>
+      <td>$1,421</td>
+      <td>$711</td>
+    </tr>
+
+    <tr>
+    <td>6</td>
+      <td>$42,341</td>
+      <td>$3,529</td>
+      <td>$1.765</td>
+      <td>$1,629</td>
+      <td>$815</td>
+    </tr>
+
+    <tr>
+      <td>7</td>
+      <td>$47,749</td>
+      <td>$3,980</td>
+      <td>$1,990</td>
+      <td>$1,837</td>
+      <td>$919</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>$53,157</td>
+      <td>$4,430</td>
+      <td>$2,215</td>
+      <td>$2,045</td>
+      <td>$1,023</td>
+    </tr>
+    <tr>
+     <td>For each additional family member add</td>
+      <td>$5,408</td>
+      <td>$451</td>
+      <td>$226</td>
+      <td>$208</td>
+      <td>$104</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+
+<span><%= link "Back", to: client_certification_path(@conn, :index, @client) %></span>

@@ -216,8 +216,10 @@ defmodule Pantry.Forms do
       [%Certification{}, ...]
 
   """
-  def list_certifications do
-    Repo.all(Certification)
+  def list_certifications(client) do
+    Certification
+    |> where([t], t.client_id == ^client.id)
+    |> Repo.all()
   end
 
   @doc """
@@ -234,7 +236,11 @@ defmodule Pantry.Forms do
       ** (Ecto.NoResultsError)
 
   """
-  def get_certification!(id), do: Repo.get!(Certification, id)
+  def get_certification!(client, id) do
+    Certification
+    |> where([t], t.client_id == ^client.id)
+    |> Repo.get!(id)
+  end
 
   @doc """
   Creates a certification.

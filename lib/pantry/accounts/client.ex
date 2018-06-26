@@ -17,6 +17,7 @@ defmodule Pantry.Accounts.Client do
     # FIXME: If I call has_one my routes are broken
     # has_one(:Household, Pantry.Residence.Household)
     has_many(:Household, Pantry.Residence.Household)
+    has_many(:Certification, Pantry.Forms.Certification)
 
     timestamps()
   end

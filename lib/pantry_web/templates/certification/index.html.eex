@@ -32,13 +32,13 @@
       <td><%= certification.medicaid %></td>
 
       <td class="text-right">
-        <span><%= link "Show", to: certification_path(@conn, :show, certification), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Edit", to: certification_path(@conn, :edit, certification), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Delete", to: certification_path(@conn, :delete, certification), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+        <%# <span><%= link "Show", to: certification_path(@conn, :show, certification), class: "btn btn-default btn-xs" %></span> %>
+        <%# <span><%= link "Edit", to: certification_path(@conn, :edit, certification), class: "btn btn-default btn-xs" %></span> %>
+        <%# <span><%= link "Delete", to: certification_path(@conn, :delete, certification), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span> %>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "New Certification", to: certification_path(@conn, :new) %></span>
+<span><%= link "New Certification", to: client_certification_path(@conn, :new, @client) %></span>

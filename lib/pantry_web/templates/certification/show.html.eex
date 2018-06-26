@@ -1,4 +1,4 @@
-<h2>Show Certification</h2>
+<h2>Certification of Eligibility</h2>
 
 <ul>
 
@@ -54,5 +54,5 @@
 
 </ul>
 
-<span><%= link "Edit", to: certification_path(@conn, :edit, @certification) %></span>
-<span><%= link "Back", to: certification_path(@conn, :index) %></span>
+<span><%= link "Edit", to: client_certification_path(@conn, :edit, @client, @certification) %></span>
+<span><%= link "Back", to: client_certification_path(@conn, :index, @client) %></span>
