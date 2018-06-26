@@ -18,32 +18,32 @@
   </div>
 
   <div class="form-group">
-    <%= label f, :income_eligibility, class: "control-label" %>
+    <%= label f, :income_eligibility, "Meets income eligibility?", class: "control-label" %>
     <%= checkbox f, :income_eligibility, class: "checkbox" %>
     <%= error_tag f, :income_eligibility %>
   </div>
 
   <div class="form-group">
-    <%= label f, :food_stamps, class: "control-label" %>
+    <%= label f, :food_stamps, "Meets Food Stamps eligibility?", class: "control-label" %>
     <%= checkbox f, :food_stamps, class: "checkbox" %>
     <%= error_tag f, :food_stamps %>
   </div>
 
   <div class="form-group">
-    <%= label f, :temporary_assistance, class: "control-label" %>
-    <%= checkbox f, :temporary_assistance, class: "form-control" %>
+    <%= label f, :temporary_assistance, "Meets temporary assistance eligibility?", class: "control-label" %>
+    <%= checkbox f, :temporary_assistance, class: "checkbox" %>
     <%= error_tag f, :temporary_assistance %>
   </div>
 
   <div class="form-group">
-    <%= label f, :ssi_medicaid, class: "control-label" %>
-    <%= checkbox f, :ssi_medicaid, class: "form-control" %>
+    <%= label f, :ssi_medicaid, "Meets SSI or Medicaid eligibility?", class: "control-label" %>
+    <%= checkbox f, :ssi_medicaid, class: "checkbox" %>
     <%= error_tag f, :ssi_medicaid %>
   </div>
 
   <div class="form-group">
-    <%= label f, :public_housing, class: "control-label" %>
-    <%= checkbox f, :public_housing, class: "form-control" %>
+    <%= label f, :public_housing, "Meets public housing eligibility?", class: "control-label" %>
+    <%= checkbox f, :public_housing, class: "checkbox" %>
     <%= error_tag f, :public_housing %>
   </div>
 

@@ -52,5 +52,5 @@
   </div>
   <div class="col"></div>
 </div>
-<span><%= link "Edit", to: produce_distribution_path(@conn, :edit, @produce_distribution) %></span>
-<span><%= link "Back", to: produce_distribution_path(@conn, :index) %></span>
+<span><%= link "Edit", to: client_produce_distribution_path(@conn, :edit, @client, @produce_distribution) %></span>
+<span><%= link "Back", to: client_produce_distribution_path(@conn, :index, @client) %></span>

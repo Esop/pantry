@@ -28,13 +28,13 @@
       <td><%= produce_distribution.signature %></td>
 
       <td class="text-right">
-        <span><%= link "Show", to: produce_distribution_path(@conn, :show, produce_distribution), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Edit", to: produce_distribution_path(@conn, :edit, produce_distribution), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Delete", to: produce_distribution_path(@conn, :delete, produce_distribution), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+        <span><%= link "Show", to: client_produce_distribution_path(@conn, :show,@client, produce_distribution), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: client_produce_distribution_path(@conn, :edit, @client, produce_distribution), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: client_produce_distribution_path(@conn, :delete,  @client, produce_distribution), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "New Produce distribution", to: produce_distribution_path(@conn, :new) %></span>
+<span><%= link "New Produce distribution", to: client_produce_distribution_path(@conn, :new, @client) %></span>

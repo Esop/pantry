@@ -27,7 +27,8 @@ defmodule Pantry.Forms.ProduceDistribution do
       :temporary_assistance,
       :ssi_medicaid,
       :public_housing,
-      :signature
+      :signature,
+      :client_id
     ])
     |> validate_required([
       :first_name,
@@ -37,7 +38,8 @@ defmodule Pantry.Forms.ProduceDistribution do
       :temporary_assistance,
       :ssi_medicaid,
       :public_housing,
-      :signature
+      :signature,
+      :client_id
     ])
   end
 end

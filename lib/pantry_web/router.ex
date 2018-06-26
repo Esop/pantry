@@ -23,10 +23,10 @@ defmodule PantryWeb.Router do
     resources("/clients", ClientController) do
       resources("/assistance", AssistanceController)
       resources("/household", HouseholdController)
-    resources "/certifications", CertificationController
+      resources("/certifications", CertificationController)
+    resources("/produce_distributions", ProduceDistributionController)
     end
 
-    resources("/produce_distributions", ProduceDistributionController)
     resources("/volunteers", VolunteerController)
     resources("/sessions", SessionController, only: [:new, :create, :delete])
   end

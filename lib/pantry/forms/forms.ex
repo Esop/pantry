@@ -120,8 +120,10 @@ defmodule Pantry.Forms do
       [%ProduceDistribution{}, ...]
 
   """
-  def list_produce_distributions do
-    Repo.all(ProduceDistribution)
+  def list_produce_distributions(client) do
+    ProduceDistribution
+    |> where([t], t.client_id == ^client.id)
+    |> Repo.all()
   end
 
   @doc """
@@ -138,7 +140,11 @@ defmodule Pantry.Forms do
       ** (Ecto.NoResultsError)
 
   """
-  def get_produce_distribution!(id), do: Repo.get!(ProduceDistribution, id)
+  def get_produce_distribution!(client, id) do
+    ProduceDistribution
+    |> where([t], t.client_id == ^client.id)
+    |> Repo.get!(id)
+  end
 
   @doc """
   Creates a produce_distribution.

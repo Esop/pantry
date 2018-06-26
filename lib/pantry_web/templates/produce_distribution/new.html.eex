@@ -3,9 +3,9 @@
   <div class="col-lg-6 card">
     <h2>Produce Distribution Log Sheet</h2>
 
-    <%= render "form.html", Map.put(assigns, :action, produce_distribution_path(@conn, :create)) %>
+    <%= render "form.html", Map.put(assigns, :action, client_produce_distribution_path(@conn, :create, @client)) %>
 
-    <span><%= link "Back", to: produce_distribution_path(@conn, :index) %></span>
+    <span><%= link "Back", to: client_produce_distribution_path(@conn, :index, @client) %></span>
   </div>
   <div class="col"></div>
 </div>
