@@ -31,19 +31,19 @@
 
   <div class="form-group">
     <%= label f, :temporary_assistance, class: "control-label" %>
-    <%= text_input f, :temporary_assistance, class: "form-control" %>
+    <%= checkbox f, :temporary_assistance, class: "form-control" %>
     <%= error_tag f, :temporary_assistance %>
   </div>
 
   <div class="form-group">
     <%= label f, :ssi_medicaid, class: "control-label" %>
-    <%= text_input f, :ssi_medicaid, class: "form-control" %>
+    <%= checkbox f, :ssi_medicaid, class: "form-control" %>
     <%= error_tag f, :ssi_medicaid %>
   </div>
 
   <div class="form-group">
     <%= label f, :public_housing, class: "control-label" %>
-    <%= text_input f, :public_housing, class: "form-control" %>
+    <%= checkbox f, :public_housing, class: "form-control" %>
     <%= error_tag f, :public_housing %>
   </div>
 

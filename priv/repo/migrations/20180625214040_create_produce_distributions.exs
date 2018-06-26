@@ -7,9 +7,9 @@ defmodule Pantry.Repo.Migrations.CreateProduceDistributions do
       add :last_name, :string
       add :income_eligibility, :boolean, default: false, null: false
       add :food_stamps, :boolean, default: false, null: false
-      add :temporary_assistance, :string
-      add :ssi_medicaid, :string
-      add :public_housing, :string
+      add :temporary_assistance, :boolean, default: false, null: false
+      add :ssi_medicaid, :boolean, default: false, null: false
+      add :public_housing, :boolean, default: false, null: false
       add :signature, :string
       add :client_id, references(:clients, on_delete: :nothing)
 
