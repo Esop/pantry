@@ -1,0 +1,58 @@
+<h2>Show Certification</h2>
+
+<ul>
+
+  <li>
+    <strong>First name:</strong>
+    <%= @certification.first_name %>
+  </li>
+
+  <li>
+    <strong>Last name:</strong>
+    <%= @certification.last_name %>
+  </li>
+
+  <li>
+    <strong>Address:</strong>
+    <%= @certification.address %>
+  </li>
+
+  <li>
+    <strong>County:</strong>
+    <%= @certification.county %>
+  </li>
+
+  <li>
+    <strong>Family size:</strong>
+    <%= @certification.family_size %>
+  </li>
+
+  <li>
+    <strong>Income eligibility:</strong>
+    <%= @certification.income_eligibility %>
+  </li>
+
+  <li>
+    <strong>Supplemental nutrition assistance:</strong>
+    <%= @certification.supplemental_nutrition_assistance %>
+  </li>
+
+  <li>
+    <strong>Temporary assistance to needy families:</strong>
+    <%= @certification.temporary_assistance_to_needy_families %>
+  </li>
+
+  <li>
+    <strong>Supplemental security income:</strong>
+    <%= @certification.supplemental_security_income %>
+  </li>
+
+  <li>
+    <strong>Medicaid:</strong>
+    <%= @certification.medicaid %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: certification_path(@conn, :edit, @certification) %></span>
+<span><%= link "Back", to: certification_path(@conn, :index) %></span>

@@ -204,4 +204,100 @@ defmodule Pantry.Forms do
   def change_produce_distribution(%ProduceDistribution{} = produce_distribution) do
     ProduceDistribution.changeset(produce_distribution, %{})
   end
+
+  alias Pantry.Forms.Certification
+
+  @doc """
+  Returns the list of certifications.
+
+  ## Examples
+
+      iex> list_certifications()
+      [%Certification{}, ...]
+
+  """
+  def list_certifications do
+    Repo.all(Certification)
+  end
+
+  @doc """
+  Gets a single certification.
+
+  Raises `Ecto.NoResultsError` if the Certification does not exist.
+
+  ## Examples
+
+      iex> get_certification!(123)
+      %Certification{}
+
+      iex> get_certification!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_certification!(id), do: Repo.get!(Certification, id)
+
+  @doc """
+  Creates a certification.
+
+  ## Examples
+
+      iex> create_certification(%{field: value})
+      {:ok, %Certification{}}
+
+      iex> create_certification(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_certification(attrs \\ %{}) do
+    %Certification{}
+    |> Certification.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a certification.
+
+  ## Examples
+
+      iex> update_certification(certification, %{field: new_value})
+      {:ok, %Certification{}}
+
+      iex> update_certification(certification, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_certification(%Certification{} = certification, attrs) do
+    certification
+    |> Certification.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a Certification.
+
+  ## Examples
+
+      iex> delete_certification(certification)
+      {:ok, %Certification{}}
+
+      iex> delete_certification(certification)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_certification(%Certification{} = certification) do
+    Repo.delete(certification)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking certification changes.
+
+  ## Examples
+
+      iex> change_certification(certification)
+      %Ecto.Changeset{source: %Certification{}}
+
+  """
+  def change_certification(%Certification{} = certification) do
+    Certification.changeset(certification, %{})
+  end
 end

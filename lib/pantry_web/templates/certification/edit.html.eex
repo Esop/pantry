@@ -1,0 +1,5 @@
+<h2>Edit Certification</h2>
+
+<%= render "form.html", Map.put(assigns, :action, certification_path(@conn, :update, @certification)) %>
+
+<span><%= link "Back", to: certification_path(@conn, :index) %></span>

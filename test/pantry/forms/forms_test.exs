@@ -206,4 +206,82 @@ defmodule Pantry.FormsTest do
       assert %Ecto.Changeset{} = Forms.change_produce_distribution(produce_distribution)
     end
   end
+
+  describe "certifications" do
+    alias Pantry.Forms.Certification
+
+    @valid_attrs %{address: "some address", county: "some county", family_size: 42, first_name: "some first_name", income_eligibility: true, last_name: "some last_name", medicaid: true, supplemental_nutrition_assistance: true, supplemental_security_income: true, temporary_assistance_to_needy_families: true}
+    @update_attrs %{address: "some updated address", county: "some updated county", family_size: 43, first_name: "some updated first_name", income_eligibility: false, last_name: "some updated last_name", medicaid: false, supplemental_nutrition_assistance: false, supplemental_security_income: false, temporary_assistance_to_needy_families: false}
+    @invalid_attrs %{address: nil, county: nil, family_size: nil, first_name: nil, income_eligibility: nil, last_name: nil, medicaid: nil, supplemental_nutrition_assistance: nil, supplemental_security_income: nil, temporary_assistance_to_needy_families: nil}
+
+    def certification_fixture(attrs \\ %{}) do
+      {:ok, certification} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Forms.create_certification()
+
+      certification
+    end
+
+    test "list_certifications/0 returns all certifications" do
+      certification = certification_fixture()
+      assert Forms.list_certifications() == [certification]
+    end
+
+    test "get_certification!/1 returns the certification with given id" do
+      certification = certification_fixture()
+      assert Forms.get_certification!(certification.id) == certification
+    end
+
+    test "create_certification/1 with valid data creates a certification" do
+      assert {:ok, %Certification{} = certification} = Forms.create_certification(@valid_attrs)
+      assert certification.address == "some address"
+      assert certification.county == "some county"
+      assert certification.family_size == 42
+      assert certification.first_name == "some first_name"
+      assert certification.income_eligibility == true
+      assert certification.last_name == "some last_name"
+      assert certification.medicaid == true
+      assert certification.supplemental_nutrition_assistance == true
+      assert certification.supplemental_security_income == true
+      assert certification.temporary_assistance_to_needy_families == true
+    end
+
+    test "create_certification/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Forms.create_certification(@invalid_attrs)
+    end
+
+    test "update_certification/2 with valid data updates the certification" do
+      certification = certification_fixture()
+      assert {:ok, certification} = Forms.update_certification(certification, @update_attrs)
+      assert %Certification{} = certification
+      assert certification.address == "some updated address"
+      assert certification.county == "some updated county"
+      assert certification.family_size == 43
+      assert certification.first_name == "some updated first_name"
+      assert certification.income_eligibility == false
+      assert certification.last_name == "some updated last_name"
+      assert certification.medicaid == false
+      assert certification.supplemental_nutrition_assistance == false
+      assert certification.supplemental_security_income == false
+      assert certification.temporary_assistance_to_needy_families == false
+    end
+
+    test "update_certification/2 with invalid data returns error changeset" do
+      certification = certification_fixture()
+      assert {:error, %Ecto.Changeset{}} = Forms.update_certification(certification, @invalid_attrs)
+      assert certification == Forms.get_certification!(certification.id)
+    end
+
+    test "delete_certification/1 deletes the certification" do
+      certification = certification_fixture()
+      assert {:ok, %Certification{}} = Forms.delete_certification(certification)
+      assert_raise Ecto.NoResultsError, fn -> Forms.get_certification!(certification.id) end
+    end
+
+    test "change_certification/1 returns a certification changeset" do
+      certification = certification_fixture()
+      assert %Ecto.Changeset{} = Forms.change_certification(certification)
+    end
+  end
 end
