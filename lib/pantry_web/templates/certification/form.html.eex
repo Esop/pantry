@@ -1,71 +1,78 @@
-<%= form_for @changeset, @action, fn f -> %>
-  <%= if @changeset.action do %>
-    <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below.</p>
-    </div>
-  <% end %>
+<div class="row">
+  <div class="col"></div>
+  <div class="col-lg-6 card">
+    <%= form_for @changeset, @action, fn f -> %>
+      <%= if @changeset.action do %>
+        <div class="alert alert-danger">
+          <p>Oops, something went wrong! Please check the errors below.</p>
+        </div>
+      <% end %>
 
-  <div class="form-group">
-    <%= label f, :first_name, class: "control-label" %>
-    <%= text_input f, :first_name, class: "form-control" %>
-    <%= error_tag f, :first_name %>
-  </div>
+      <div class="form-group">
+        <%= label f, :first_name, class: "control-label" %>
+        <%= text_input f, :first_name, class: "form-control" %>
+        <%= error_tag f, :first_name %>
+      </div>
 
-  <div class="form-group">
-    <%= label f, :last_name, class: "control-label" %>
-    <%= text_input f, :last_name, class: "form-control" %>
-    <%= error_tag f, :last_name %>
-  </div>
+      <div class="form-group">
+        <%= label f, :last_name, class: "control-label" %>
+        <%= text_input f, :last_name, class: "form-control" %>
+        <%= error_tag f, :last_name %>
+      </div>
 
-  <div class="form-group">
-    <%= label f, :address, class: "control-label" %>
-    <%= text_input f, :address, class: "form-control" %>
-    <%= error_tag f, :address %>
-  </div>
+      <div class="form-group">
+        <%= label f, :address, class: "control-label" %>
+        <%= text_input f, :address, class: "form-control" %>
+        <%= error_tag f, :address %>
+      </div>
 
-  <div class="form-group">
-    <%= label f, :county, class: "control-label" %>
-    <%= text_input f, :county, class: "form-control" %>
-    <%= error_tag f, :county %>
-  </div>
+      <div class="form-group">
+        <%= label f, :county, class: "control-label" %>
+        <%= text_input f, :county, class: "form-control" %>
+        <%= error_tag f, :county %>
+      </div>
 
-  <div class="form-group">
-    <%= label f, :family_size, class: "control-label" %>
-    <%= number_input f, :family_size, class: "form-control" %>
-    <%= error_tag f, :family_size %>
-  </div>
+      <div class="form-group">
+        <%= label f, :family_size, class: "control-label" %>
+        <%= number_input f, :family_size, class: "form-control" %>
+        <%= error_tag f, :family_size %>
+      </div>
 
-  <div class="form-group">
-    <%= label f, :income_eligibility, class: "control-label" %>
-    <%= checkbox f, :income_eligibility, class: "checkbox" %>
-    <%= error_tag f, :income_eligibility %>
-  </div>
+      <div class="form-group">
+        <%= label f, :income_eligibility, "Meets income eligibility?", class: "control-label" %>
+        <%= checkbox f, :income_eligibility, class: "checkbox" %>
+        <%= error_tag f, :income_eligibility %>
+      </div>
 
-  <div class="form-group">
-    <%= label f, :supplemental_nutrition_assistance, class: "control-label" %>
-    <%= checkbox f, :supplemental_nutrition_assistance, class: "checkbox" %>
-    <%= error_tag f, :supplemental_nutrition_assistance %>
-  </div>
+      <div class="form-group">
+        <%= label f, :supplemental_nutrition_assistance, "Meets supplemental nutrition assistance eligibility?", class: "control-label" %>
+        <%= checkbox f, :supplemental_nutrition_assistance, class: "checkbox" %>
+        <%= error_tag f, :supplemental_nutrition_assistance %>
+      </div>
 
-  <div class="form-group">
-    <%= label f, :temporary_assistance_to_needy_families, class: "control-label" %>
-    <%= checkbox f, :temporary_assistance_to_needy_families, class: "checkbox" %>
-    <%= error_tag f, :temporary_assistance_to_needy_families %>
-  </div>
+      <div class="form-group">
+        <%= label f, :temporary_assistance_to_needy_families, "Meets temporary assistance to needy families eligibility?", class: "control-label" %>
+        <%= checkbox f, :temporary_assistance_to_needy_families, class: "checkbox" %>
+        <%= error_tag f, :temporary_assistance_to_needy_families %>
+      </div>
 
-  <div class="form-group">
-    <%= label f, :supplemental_security_income, class: "control-label" %>
-    <%= checkbox f, :supplemental_security_income, class: "checkbox" %>
-    <%= error_tag f, :supplemental_security_income %>
-  </div>
+      <div class="form-group">
+        <%= label f, :supplemental_security_income, "Meets SSI eligibility?", class: "control-label" %>
+        <%= checkbox f, :supplemental_security_income, class: "checkbox" %>
+        <%= error_tag f, :supplemental_security_income %>
+      </div>
 
-  <div class="form-group">
-    <%= label f, :medicaid, class: "control-label" %>
-    <%= checkbox f, :medicaid, class: "checkbox" %>
-    <%= error_tag f, :medicaid %>
-  </div>
+      <div class="form-group">
+        <%= label f, :medicaid, "Meets Medicaid eligibility?", class: "control-label" %>
+        <%= checkbox f, :medicaid, class: "checkbox" %>
+        <%= error_tag f, :medicaid %>
+      </div>
 
-  <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
+      <div class="form-group">
+        <%= submit "Submit", class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+  <div class="col"></div>
+</div>
+<br/>

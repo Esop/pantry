@@ -1,58 +1,66 @@
-<h2>Certification of Eligibility</h2>
+<h2 class="text-center">Certification of Eligibility</h2>
+<div class="row">
+  <div class="col"></div>
+    <div class="card card-body">
+      <ul class="list-group list-group-flush">
 
-<ul>
+        <li class="list-group-item">
+          <strong>First name:</strong>
+          <%= @certification.first_name %>
+        </li>
 
-  <li>
-    <strong>First name:</strong>
-    <%= @certification.first_name %>
-  </li>
+        <li class="list-group-item">
+          <strong>Last name:</strong>
+          <%= @certification.last_name %>
+        </li>
 
-  <li>
-    <strong>Last name:</strong>
-    <%= @certification.last_name %>
-  </li>
+        <li class="list-group-item">
+          <strong>Address:</strong>
+          <%= @certification.address %>
+        </li>
 
-  <li>
-    <strong>Address:</strong>
-    <%= @certification.address %>
-  </li>
+        <li class="list-group-item">
+          <strong>County:</strong>
+          <%= @certification.county %>
+        </li>
 
-  <li>
-    <strong>County:</strong>
-    <%= @certification.county %>
-  </li>
+        <li class="list-group-item">
+          <strong>Family size:</strong>
+          <%= @certification.family_size %>
+        </li>
 
-  <li>
-    <strong>Family size:</strong>
-    <%= @certification.family_size %>
-  </li>
+        <li class="list-group-item">
+          <strong>Income eligibility:</strong>
+          <%= @certification.income_eligibility %>
+        </li>
 
-  <li>
-    <strong>Income eligibility:</strong>
-    <%= @certification.income_eligibility %>
-  </li>
+        <li class="list-group-item">
+          <strong>Supplemental nutrition assistance:</strong>
+          <%= @certification.supplemental_nutrition_assistance %>
+        </li>
 
-  <li>
-    <strong>Supplemental nutrition assistance:</strong>
-    <%= @certification.supplemental_nutrition_assistance %>
-  </li>
+        <li class="list-group-item">
+          <strong>Temporary assistance to needy families:</strong>
+          <%= @certification.temporary_assistance_to_needy_families %>
+        </li>
 
-  <li>
-    <strong>Temporary assistance to needy families:</strong>
-    <%= @certification.temporary_assistance_to_needy_families %>
-  </li>
+        <li class="list-group-item">
+          <strong>Supplemental security income:</strong>
+          <%= @certification.supplemental_security_income %>
+        </li>
 
-  <li>
-    <strong>Supplemental security income:</strong>
-    <%= @certification.supplemental_security_income %>
-  </li>
+        <li class="list-group-item">
+          <strong>Medicaid:</strong>
+          <%= @certification.medicaid %>
+        </li>
 
-  <li>
-    <strong>Medicaid:</strong>
-    <%= @certification.medicaid %>
-  </li>
+      </ul>
+      <span> <%= link "Create Assistance Package", to: client_assistance_path(@conn, :new, @client), class: "btn btn-danger" %></span>
+      <br>
+      <span><%= link "Edit Eligibility", to: client_certification_path(@conn, :edit, @client, @certification), class: "btn btn-primary" %></span>
+      <br>
+      <span><%= link "Back", to: client_certification_path(@conn, :index, @client), class: "btn btn-primary" %></span>
+    </div>
+  <div class="col"></div>
+</div>
 
-</ul>
-
-<span><%= link "Edit", to: client_certification_path(@conn, :edit, @client, @certification) %></span>
-<span><%= link "Back", to: client_certification_path(@conn, :index, @client) %></span>

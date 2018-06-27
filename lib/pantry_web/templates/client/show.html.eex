@@ -1,6 +1,6 @@
+
 <div class="row">
   <div class="col"></div>
-  <div class>
     <div class="card">
       <h2 class="text-center"> <strong> <%= @client.first_name <> " " <> @client.last_name %> </strong> </h2>
 
@@ -17,12 +17,22 @@
             <%= @client.ethnicity %>
           </li>
 
+          <li class="list-group-item">
+            <strong>Notes:</strong>
+            <%= @client.notes %>
+          </li>
+
+          <li class="list-group-item">
+            <strong>Description of need:</strong>
+            <%= @client.description_of_need %>
+          </li>
+
         </ul>
+        <span><%= link "Next enter client household information", to: client_household_path(@conn, :new, @client), class: "btn btn-danger btn-xs" %></span>
+        <br/>
+        <br/>
         <span><%= link "Edit Client Profile", to: client_path(@conn, :edit, @client), class: "btn btn-primary btn-xs" %></span>
-        <span><%= link "Go Back", to: client_path(@conn, :index), class: "btn btn-primary btn-xs" %></span>
-        <span><%= link "Household information", to: client_household_path(@conn, :new, @client), class: "btn btn-primary btn-xs" %></span>
       </div>
     </div>
-  </div>
   <div class="col"></div>
 </div>
