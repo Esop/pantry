@@ -1,0 +1,27 @@
+<h2><strong> <%= @client.first_name <> " " <> @client.last_name %></strong> Previous Records of Assistance</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Received $5.00 voucher</th>
+      <th>Received food</th>
+      <th>Next service date</th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for assistance <- @assistance do %>
+    <tr>
+      <td><%= assistance.received_voucher %></td>
+      <td><%= assistance.received_food %></td>
+      <td><%= assistance.next_service_date %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: client_assistance_path(@conn, :show, @client, assistance), class: "btn btn-danger btn-xs" %></span>
+        <span><%= link "Edit", to: client_assistance_path(@conn, :edit, @client, assistance), class: "btn btn-danger btn-xs" %></span>
+        <span><%= link "Delete", to: client_assistance_path(@conn, :delete, @client, assistance), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Assistance", to: client_assistance_path(@conn, :new, @client), class: "btn btn-danger btn-xs" %></span>

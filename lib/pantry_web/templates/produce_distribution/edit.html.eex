@@ -1,0 +1,5 @@
+<h2>Edit Produce distribution</h2>
+
+<%= render "form.html", Map.put(assigns, :action, client_produce_distribution_path(@conn, :update, @client, @produce_distribution)) %>
+
+<span><%= link "Back", to: client_produce_distribution_path(@conn, :index, @client) %></span>

@@ -1,5 +1,0 @@
-<h2>Edit Voucher</h2>
-
-<%= render "form.html", Map.put(assigns, :action, client_voucher_path(@conn, :update, @client, @voucher)) %>
-
-<span><%= link "Back", to: client_voucher_path(@conn, :index, @client) %></span>

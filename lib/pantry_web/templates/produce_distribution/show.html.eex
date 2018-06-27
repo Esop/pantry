@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col"></div>
+  <div class="col-lg-6 card">
+    <h2 class="text-center">Produce distribution</h2>
+
+    <div class="card-body">
+      <ul>
+
+        <li>
+          <strong>First name:</strong>
+          <%= @produce_distribution.first_name %>
+        </li>
+
+        <li>
+          <strong>Last name:</strong>
+          <%= @produce_distribution.last_name %>
+        </li>
+
+        <li>
+          <strong>Income eligibility:</strong>
+          <%= @produce_distribution.income_eligibility %>
+        </li>
+
+        <li>
+          <strong>Food stamps:</strong>
+          <%= @produce_distribution.food_stamps %>
+        </li>
+
+        <li>
+          <strong>Temporary assistance:</strong>
+          <%= @produce_distribution.temporary_assistance %>
+        </li>
+
+        <li>
+          <strong>Ssi medicaid:</strong>
+          <%= @produce_distribution.ssi_medicaid %>
+        </li>
+
+        <li>
+          <strong>Public housing:</strong>
+          <%= @produce_distribution.public_housing %>
+        </li>
+
+        <li>
+          <strong>Signature:</strong>
+          <%= @produce_distribution.signature %>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+  <div class="col"></div>
+</div>
+<span><%= link "Edit", to: client_produce_distribution_path(@conn, :edit, @client, @produce_distribution) %></span>
+<span><%= link "Back", to: client_produce_distribution_path(@conn, :index, @client) %></span>

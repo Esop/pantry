@@ -1,66 +1,38 @@
-<h2>Show Client</h2>
 
-<ul>
+<div class="row">
+  <div class="col"></div>
+    <div class="card">
+      <h2 class="text-center"> <strong> <%= @client.first_name <> " " <> @client.last_name %> </strong> </h2>
 
-  <li>
-    <strong>First name:</strong>
-    <%= @client.first_name %>
-  </li>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
 
-  <li>
-    <strong>Last name:</strong>
-    <%= @client.last_name %>
-  </li>
+          <li class="list-group-item">
+            <strong>Telephone Number:</strong>
+            <%= @client.telephone %>
+          </li>
 
-  <li>
-    <strong>Address:</strong>
-    <%= @client.address %>
-  </li>
+          <li class="list-group-item">
+            <strong>Ethnicity:</strong>
+            <%= @client.ethnicity %>
+          </li>
 
-  <li>
-    <strong>County:</strong>
-    <%= @client.county %>
-  </li>
+          <li class="list-group-item">
+            <strong>Notes:</strong>
+            <%= @client.notes %>
+          </li>
 
-  <li>
-    <strong>City:</strong>
-    <%= @client.city %>
-  </li>
+          <li class="list-group-item">
+            <strong>Description of need:</strong>
+            <%= @client.description_of_need %>
+          </li>
 
-  <li>
-    <strong>State:</strong>
-    <%= @client.state %>
-  </li>
-
-  <li>
-    <strong>Zip code:</strong>
-    <%= @client.zip_code %>
-  </li>
-
-  <li>
-    <strong>Telephone:</strong>
-    <%= @client.telephone %>
-  </li>
-
-  <li>
-    <strong>Ethnicity:</strong>
-    <%= @client.ethnicity %>
-  </li>
-
-  <li>
-    <strong>Last visit:</strong>
-    <%= @client.last_visit %>
-  </li>
-
-</ul>
-
-<span><%= link "Create New Voucher", to: client_voucher_path(@conn, :new, @client), class: "btn btn-primary btn-xs" %></span>
-<br>
-<br>
-<span><%= link "Edit Client Record", to: client_path(@conn, :edit, @client), class: "btn btn-primary btn-xs" %></span>
-<br>
-<br>
-<span><%= link "Go Back", to: client_path(@conn, :index), class: "btn btn-primary btn-xs" %></span>
-<br>
-<br>
-<br>
+        </ul>
+        <span><%= link "Next enter client household information", to: client_household_path(@conn, :new, @client), class: "btn btn-danger btn-xs" %></span>
+        <br/>
+        <br/>
+        <span><%= link "Edit Client Profile", to: client_path(@conn, :edit, @client), class: "btn btn-primary btn-xs" %></span>
+      </div>
+    </div>
+  <div class="col"></div>
+</div>
