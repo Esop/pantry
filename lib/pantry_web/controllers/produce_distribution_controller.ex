@@ -38,9 +38,7 @@ defmodule PantryWeb.ProduceDistributionController do
       {:ok, produce_distribution} ->
         conn
         |> put_flash(:info, "Produce distribution created successfully.")
-        |> redirect(
-          to: client_produce_distribution_path(conn, :show, client, produce_distribution)
-        )
+        |> redirect(to: client_assistance_path(conn, :index, client))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset, client: client)
