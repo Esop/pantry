@@ -6,19 +6,19 @@
   <% end %>
 
   <div class="form-group">
-    <%= label f, :received_voucher, "Received $5.00 voucher?",  class: "control-label" %>
+    <%= label f, :received_voucher, "Needs $5.00 voucher?",  class: "control-label" %>
     <%= checkbox f, :received_voucher, class: "checkbox" %>
     <%= error_tag f, :received_voucher %>
   </div>
 
   <div class="form-group">
-    <%= label f, :received_food, "Received Food Assistance?", class: "control-label" %>
+    <%= label f, :received_food, "Needs Food Assistance?", class: "control-label" %>
     <%= checkbox f, :received_food, class: "checkbox" %>
     <%= error_tag f, :received_food %>
   </div>
 
   <div class="form-group">
-    Next service date 30 days from today: <%= add_30_days() %>
+    Next date eligible for service: <%= add_30_days() %>
   </div>
 
   <div class="form-group">

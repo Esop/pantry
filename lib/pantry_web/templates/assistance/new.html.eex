@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col"></div>
   <div class="col-lg-6 card">
-    <h2 class="text-center">Assistance form for: <%= @client.first_name <> " " <> @client.last_name %> </h2>
-
+    <h2 class="text-center">Assistance form for </h2>
+    <h2 class="text-center"> <%= @client.first_name <> " " <> @client.last_name %> </h2>
     <%= render "form.html", Map.put(assigns, :action, client_assistance_path(@conn, :create, @client )) %>
 
     <span><%= link "Back", to: client_assistance_path(@conn, :index, @client) %></span>

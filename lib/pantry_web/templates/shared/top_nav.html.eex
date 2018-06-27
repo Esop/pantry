@@ -7,10 +7,10 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link "Log in", to: session_path(@conn, :new), class: "navbar-brand" %>
+        <%= link "Volunteer Log in", to: session_path(@conn, :new), class: "navbar-brand" %>
       </li>
       <li class="nav-item">
-        <%= link "Sign up", to: volunteer_path(@conn, :new), class: "navbar-brand" %>
+        <%= link "Volunteer Sign up", to: volunteer_path(@conn, :new), class: "navbar-brand" %>
       </li>
     </ul>
   </div>

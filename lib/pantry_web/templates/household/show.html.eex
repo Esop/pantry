@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col"></div>
   <div class="col-lg-6 card">
-    <h2> <%= @client.first_name <> " " <> @client.last_name %> Household</h2>
+    <h2 class="text-center"> <%= @client.first_name <> " " <> @client.last_name %> Household</h2>
 
     <ul>
 
@@ -36,8 +36,13 @@
       </li>
 
     </ul>
+<span><%= link "Next Certify Assistance Eligibility", to: client_certification_path(@conn, :new, @client), class: "btn btn-danger" %></span>
+<br>
+<span><%= link "Edit Household information", to: client_household_path(@conn, :edit, @client, @household), class: "btn btn-primary" %></span>
+<br>
+<span><%= link "Edit Client information", to: client_path(@conn, :edit, @client), class: "btn btn-primary" %></span>
+<br>
+<span><%= link "Back", to: client_household_path(@conn, :index, @client) , class: "btn btn-primary"%></span>
   </div>
   <div class="col"></div>
 </div>
-<span><%= link "Edit", to: client_household_path(@conn, :edit, @client, @household) %></span>
-<span><%= link "Back", to: client_household_path(@conn, :index, @client) %></span>

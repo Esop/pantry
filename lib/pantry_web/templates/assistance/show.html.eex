@@ -1,23 +1,33 @@
-<h2>Show Assistance</h2>
+<div class="row">
+  <div class="col"></div>
+  <div class="card">
+    <h2 class="text-center">Assistance for <%= @client.first_name <> " " <> @client.last_name %></h2>
 
-<ul>
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <strong>Received $5.00 voucher:</strong>
+          <%= @assistance.received_voucher %>
+        </li>
 
-  <li>
-    <strong>Received voucher:</strong>
-    <%= @assistance.received_voucher %>
-  </li>
+        <li class="list-group-item">
+          <strong>Received food:</strong>
+          <%= @assistance.received_food %>
+        </li>
 
-  <li>
-    <strong>Received food:</strong>
-    <%= @assistance.received_food %>
-  </li>
+        <li class="list-group-item">
+          <strong>Next eligible service date:</strong>
+          <%= @assistance.next_service_date %>
+        </li>
+      </ul>
 
-  <li>
-    <strong>Next service:</strong>
-    <%= @assistance.next_service_date %>
-  </li>
+    </div>
+<span><%= link "Next create Produce Distribution", to: client_produce_distribution_path(@conn, :new, @client), class: "btn btn-danger" %></span>
+<br>
+<span><%= link "Edit Assistance package", to: client_assistance_path(@conn, :edit,@client, @assistance), class: "btn btn-primary" %></span>
+<br>
+<span><%= link "Back", to: client_assistance_path(@conn, :index, @client), class: "btn btn-primary" %></span>
+  </div>
+    <div class="col"></div>
+</div>
 
-</ul>
-
-<span><%= link "Edit", to: client_assistance_path(@conn, :edit,@client, @assistance) %></span>
-<span><%= link "Back", to: client_assistance_path(@conn, :index, @client) %></span>

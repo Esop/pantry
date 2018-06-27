@@ -10,7 +10,6 @@ defmodule Pantry.Accounts.Client do
     field(:first_name, :string)
     field(:last_name, :string)
     field(:telephone, :string)
-    field(:total_family_size, :integer, default: 0)
     field(:description_of_need, :string)
     field(:notes, :string)
 
@@ -18,6 +17,8 @@ defmodule Pantry.Accounts.Client do
     # FIXME: If I call has_one my routes are broken
     # has_one(:Household, Pantry.Residence.Household)
     has_many(:Household, Pantry.Residence.Household)
+    has_many(:Certification, Pantry.Forms.Certification)
+    has_many(:ProduceDistribution, Pantry.Forms.ProduceDistribution)
 
     timestamps()
   end
@@ -30,7 +31,6 @@ defmodule Pantry.Accounts.Client do
       :last_name,
       :telephone,
       :ethnicity,
-      :total_family_size,
       :description_of_need,
       :notes
     ])
@@ -39,7 +39,6 @@ defmodule Pantry.Accounts.Client do
       :last_name,
       :telephone,
       :ethnicity,
-      :total_family_size
     ])
   end
 end

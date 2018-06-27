@@ -1,13 +1,10 @@
-<h2>Listing Assistance</h2>
-
+<h2><strong> <%= @client.first_name <> " " <> @client.last_name %></strong> Previous Records of Assistance</h2>
 <table class="table">
   <thead>
     <tr>
-      <th>Received voucher</th>
+      <th>Received $5.00 voucher</th>
       <th>Received food</th>
-      <th>Next service</th>
-
-      <th></th>
+      <th>Next service date</th>
     </tr>
   </thead>
   <tbody>
@@ -27,4 +24,4 @@
   </tbody>
 </table>
 
-<span><%= link "New Assistance", to: client_assistance_path(@conn, :new, @client) %></span>
+<span><%= link "New Assistance", to: client_assistance_path(@conn, :new, @client), class: "btn btn-danger btn-xs" %></span>

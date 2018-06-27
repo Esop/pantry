@@ -1,0 +1,59 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :first_name, class: "control-label" %>
+    <%= text_input f, :first_name, class: "form-control" %>
+    <%= error_tag f, :first_name %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :last_name, class: "control-label" %>
+    <%= text_input f, :last_name, class: "form-control" %>
+    <%= error_tag f, :last_name %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :income_eligibility, "Meets income eligibility?", class: "control-label" %>
+    <%= checkbox f, :income_eligibility, class: "checkbox" %>
+    <%= error_tag f, :income_eligibility %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :food_stamps, "Meets Food Stamps eligibility?", class: "control-label" %>
+    <%= checkbox f, :food_stamps, class: "checkbox" %>
+    <%= error_tag f, :food_stamps %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :temporary_assistance, "Meets temporary assistance eligibility?", class: "control-label" %>
+    <%= checkbox f, :temporary_assistance, class: "checkbox" %>
+    <%= error_tag f, :temporary_assistance %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :ssi_medicaid, "Meets SSI or Medicaid eligibility?", class: "control-label" %>
+    <%= checkbox f, :ssi_medicaid, class: "checkbox" %>
+    <%= error_tag f, :ssi_medicaid %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :public_housing, "Meets public housing eligibility?", class: "control-label" %>
+    <%= checkbox f, :public_housing, class: "checkbox" %>
+    <%= error_tag f, :public_housing %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :signature, class: "control-label" %>
+    <%= text_input f, :signature, class: "form-control" %>
+    <%= error_tag f, :signature %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
