@@ -76,6 +76,8 @@ exports.config = {
       jQuery: 'jquery',
       Popper: 'popper.js',
       Tether: 'tether',
-      bootstrap: 'bootstrap'
+      bootstrap: 'bootstrap',
+     SignaturePad: 'signature_pad'
+
     }}
 };

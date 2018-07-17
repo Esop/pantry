@@ -55,7 +55,7 @@
         </li>
 
       </ul>
-      <span> <%= link "Create Assistance Package", to: client_assistance_path(@conn, :new, @client), class: "btn btn-danger" %></span>
+      <span> <%= link "Next create Assistance Package", to: client_assistance_path(@conn, :new, @client), class: "btn btn-danger" %></span>
       <br>
       <span><%= link "Edit Eligibility", to: client_certification_path(@conn, :edit, @client, @certification), class: "btn btn-primary" %></span>
       <br>
