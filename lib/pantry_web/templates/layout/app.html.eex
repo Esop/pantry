@@ -22,9 +22,19 @@
 
       <%= render PantryWeb.SharedView, "top_nav.html", assigns %>
 
-      <main role="main">
-        <%= render @view_module, @view_template, assigns %>
-      </main>
+      <div class="flash">
+        <%= if get_flash(@conn) do %>
+          <%= for {type, message} <- get_flash(@conn) do %>
+            <p class="alert alert-<%= type %>" role="alert">
+              <%= message %>
+            </p>
+          <% end %>
+      </div>
+    <% end %>
+
+    <main role="main">
+    <%= render @view_module, @view_template, assigns %>
+    </main>
 
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
