@@ -9,7 +9,10 @@ defmodule PantryWeb.SessionController do
     case PantryWeb.Auth.login_by_email_and_pass(conn, email, pass) do
       {:ok, conn} ->
         conn
-        |> put_flash(:info, "Welcom back!")
+        |> put_flash(
+          :info,
+          "#{conn.assigns.current_user.first_name} welcome back, you are logged in!"
+        )
         |> redirect(to: client_path(conn, :index))
 
       {:error, _reason, conn} ->
