@@ -22,15 +22,13 @@
 
       <%= render PantryWeb.SharedView, "top_nav.html", assigns %>
 
-      <div class="flash">
         <%= if get_flash(@conn) do %>
-          <%= for {type, message} <- get_flash(@conn) do %>
-            <p class="alert alert-<%= type %>" role="alert">
-              <%= message %>
-            </p>
+          <%= for a = {type, message}  <- get_flash(@conn) do %>
+            <p class="alert alert-<%= type %>" role="alert"> <%= message %></p>
+            <% end %>
           <% end %>
-      </div>
-    <% end %>
+
+
 
     <main role="main">
     <%= render @view_module, @view_template, assigns %>
