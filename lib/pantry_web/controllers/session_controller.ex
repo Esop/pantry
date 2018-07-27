@@ -9,12 +9,15 @@ defmodule PantryWeb.SessionController do
     case PantryWeb.Auth.login_by_email_and_pass(conn, email, pass) do
       {:ok, conn} ->
         conn
-        |> put_flash(:info, "Welcom back!")
+        |> put_flash(
+          :info,
+          "Welcome back #{conn.assigns.current_user.first_name}, you are logged in!"
+        )
         |> redirect(to: client_path(conn, :index))
 
       {:error, _reason, conn} ->
         conn
-        |> put_flash(:error, "Invalid username/password combination")
+        |> put_flash(:danger, "Invalid username/password combination")
         |> render("new.html")
     end
   end

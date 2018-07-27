@@ -1,7 +1,7 @@
 <%= form_for @changeset, @action, fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below.</p>
+      <p>Something went wrong! Make sure all the fields are filled out</p>
     </div>
   <% end %>
 
@@ -47,15 +47,9 @@
     <%= error_tag f, :public_housing %>
   </div>
 
-  <!-- <div class="form&#45;group"> -->
-  <!--   <%= label f, :signature, class: "control&#45;label" %> -->
-  <!--   <%= text_input f, :signature, class: "form&#45;control" %> -->
-  <!--   <%= error_tag f, :signature %> -->
-  <!-- </div> -->
-
-
   <div class="form-grop wrapper">
-    <h4>Sign with mouse</h4>
+    <br>
+    <h6>Sign with mouse</h6>
   <img src="http://www.licensing.biz/cimages/c0f1a3a97bc0de97271f9813f7715bb3.png" width=400 height=200 />
   <canvas id="signature-pad" class="signature-pad" width=400 height=200></canvas>
 </div>
@@ -63,20 +57,8 @@
   <button id="save">Save</button>
   <button id="clear">Clear</button>
 </div>
-  </div>
 
-<!-- <h1> -->
-<!--   Draw over image -->
-<!-- </h1> -->
-<!-- <div class="wrapper"> -->
-<!--   <img src="http://www.licensing.biz/cimages/c0f1a3a97bc0de97271f9813f7715bb3.png" width=400 height=200 /> -->
-<!--   <canvas id="signature&#45;pad" class="signature&#45;pad" width=400 height=200></canvas> -->
-<!-- </div> -->
-<!-- <div> -->
-<!--   <button id="save">Save</button> -->
-<!--   <button id="clear">Clear</button> -->
-<!-- </div> -->
-
+    <br>
   <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
