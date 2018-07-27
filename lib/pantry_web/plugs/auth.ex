@@ -44,9 +44,4 @@ defmodule PantryWeb.Auth do
         {:error, :not_found, conn}
     end
   end
-
-  def logout(conn) do
-    conn
-    |> configure_session(drop: true)
-  end
 end
