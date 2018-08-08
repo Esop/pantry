@@ -15,6 +15,9 @@
       <li class="nav-item">
         <%= link "Test Client Flow", to: client_path(@conn, :new), class: "navbar-brand" %>
       </li>
-    </ul>
+      <li class="nav-item">
+        <%= link "Log out", to: session_path(@conn, :delete), class: "navbar-brand" %>
+      </li>
+    </ul
   </div>
 </nav>
