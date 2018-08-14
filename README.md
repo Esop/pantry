@@ -1,4 +1,1 @@
-mix phx.gen.html Forms ProduceDistribution produce_distributions first_name last_name income_eligibility:boolean food_stamps:boolean temporary_assistance ssi_medicaid public_housing signature client_id:references:clients
-
-
-mix phx.gen.html Forms Certification certifications first_name last_name address county family_size:integer income_eligibility:boolean supplemental_nutrition_assistance:boolean temporary_assistance_to_needy_families:boolean supplemental_security_income:boolean medicaid:boolean clients_id:references:clients
+Change Theme
