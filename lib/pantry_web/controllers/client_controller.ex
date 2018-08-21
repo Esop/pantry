@@ -20,6 +20,7 @@ defmodule PantryWeb.ClientController do
         conn
         |> put_flash(:info, "Client created successfully.")
         |> redirect(to: client_path(conn, :show, client))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -44,6 +45,7 @@ defmodule PantryWeb.ClientController do
         conn
         |> put_flash(:info, "Client updated successfully.")
         |> redirect(to: client_path(conn, :show, client))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", client: client, changeset: changeset)
     end
