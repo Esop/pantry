@@ -1,5 +1,7 @@
 defmodule PantryWeb.ClientController do
   use PantryWeb, :controller
+  plug PantryWeb.CheckAuth
+  # plug PantryWeb.CheckAuth when action in [:new, :create]
 
   alias Pantry.Accounts
   alias Pantry.Accounts.Client
