@@ -14,11 +14,25 @@ defmodule PantryWeb.Router do
     plug(:accepts, ["json"])
   end
 
+  pipeline :authentication do
+    plug(PantryWeb.CheckAuth)
+  end
+
   scope "/", PantryWeb do
     # Use the default browser stack
     pipe_through(:browser)
 
     get("/", PageController, :index)
+
+    get("/login", SessionController, :new)
+    post("/login", SessionController, :create)
+    get("/logout", SessionController, :delete)
+  end
+
+  scope "/", PantryWeb do
+    pipe_through([:browser, :authentication])
+
+    resources("/volunteers", VolunteerController)
 
     resources("/clients", ClientController) do
       resources("/household", HouseholdController)
@@ -26,16 +40,5 @@ defmodule PantryWeb.Router do
       resources("/assistance", AssistanceController)
       resources("/produce_distributions", ProduceDistributionController)
     end
-
-    resources("/volunteers", VolunteerController)
-
-    get("/login", SessionController, :new)
-    post("/login", SessionController, :create)
-    get("/logout", SessionController, :delete)
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", PantryWeb do
-  #   pipe_through :api
-  # end
 end
