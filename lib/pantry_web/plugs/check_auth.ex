@@ -1,6 +1,7 @@
 defmodule PantryWeb.CheckAuth do
   import Plug.Conn
-  use PantryWeb, :controller
+  import Phoenix.Controller
+  alias PantryWeb.Router.Helpers
 
   def init(_args) do
   end
@@ -14,7 +15,7 @@ defmodule PantryWeb.CheckAuth do
     else
       conn
       |> put_flash(:danger, "You are not logged in")
-      |> redirect(to: page_path(conn, :index))
+      |> redirect(to: Helpers.page_path(conn, :index))
       |> halt()
     end
   end
