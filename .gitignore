@@ -28,3 +28,5 @@ npm-debug.log
 Session.vim
 .env
 tags
+*.elixir_ls
+*.*workspace
