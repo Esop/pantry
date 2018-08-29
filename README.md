@@ -2,3 +2,19 @@ mix phx.gen.html Forms ProduceDistribution produce_distributions first_name last
 
 
 mix phx.gen.html Forms Certification certifications first_name last_name address county family_size:integer income_eligibility:boolean supplemental_nutrition_assistance:boolean temporary_assistance_to_needy_families:boolean supplemental_security_income:boolean medicaid:boolean clients_id:references:clients
+
+
+
+password_reset.ex
+password_reset_controller.ex
+password_controller.ex
+password
+password_changed.html.eex
+password_reset_request.html.eex
+password_reset_view.ex
+password_view.ex
+20180609210018_add_password_resets.exs
+change_password.exs
+password_controller_test.exs
+password_reset_controller_testiepple.finder AppleShowAllFiles YES; killall Finder;
+xs
