@@ -18,3 +18,14 @@ change_password.exs
 password_controller_test.exs
 password_reset_controller_testiepple.finder AppleShowAllFiles YES; killall Finder;
 xs
+
+
+
+
+curl -s --user 'api:34deca9bd99c802f48ff517c0d1ec3fc-c1fe131e-a9277f60' \
+    https://api.mailgun.net/v3/pantry.russellbaker.me/messages \
+    -F from='Excited User <mailgun@pantry.russellbaker.me>' \
+    -F to=pantry.russellbaker.me \
+    -F to=rbakerjax@gmail.com \
+    -F subject='Hello' \
+    -F text='Testing some Mailgun awesomeness!'
