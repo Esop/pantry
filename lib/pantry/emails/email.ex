@@ -5,8 +5,8 @@ defmodule Pantry.Emails.Email do
     new_email(
       to: "rbakerjax@gmail.com",
       from: "pantry.russellbaker.me",
-      subject: "you forgot it",
-      html_body: "<strong>Thanks for forgetting!</strong>",
+      subject: "password reset",
+      html_body: "<strong>pleas click the link to reset your password</strong>",
       text_body: "here is your password reset"
     )
   end
