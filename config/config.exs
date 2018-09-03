@@ -14,8 +14,7 @@ config :pantry, PantryWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "zncI2n/X0KLsrzHxOmjRdMnNOe/BJowft0CfKktpmGZnQpwtrNzM4X+dO8+0ZXrV",
   render_errors: [view: PantryWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Pantry.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: Pantry.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -24,4 +23,4 @@ config :logger, :console,
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
+import_config "#{Mix.env()}.exs"
