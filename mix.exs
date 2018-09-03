@@ -20,7 +20,7 @@ defmodule Pantry.Mixfile do
   def application do
     [
       mod: {Pantry.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :bamboo]
     ]
   end
 
@@ -43,7 +43,8 @@ defmodule Pantry.Mixfile do
       {:cowboy, "~> 1.0"},
       {:comeonin, "~> 3.0"},
       {:credo, "~> 0.9"},
-      {:ex_debug_toolbar, "~> 0.5"}
+      {:ex_debug_toolbar, "~> 0.5"},
+      {:bamboo, "~> 1.1"}
     ]
   end
 

@@ -66,7 +66,9 @@ config :pantry, Pantry.Repo,
   pool_size: 10,
   loggers: [ExDebugToolbar.Collector.EctoCollector, Ecto.LogEntry]
 
-
 config :phoenix, :template_engines,
- eex: ExDebugToolbar.Template.EExEngine,
- exs: ExDebugToolbar.Template.ExsEngine
+  eex: ExDebugToolbar.Template.EExEngine,
+  exs: ExDebugToolbar.Template.ExsEngine
+
+  config :pantry, Pantry.Emails.Mailer,
+  adapter: Bamboo.LocalAdapter

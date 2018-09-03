@@ -27,7 +27,12 @@ defmodule PantryWeb.Router do
     get("/login", SessionController, :new)
     post("/login", SessionController, :create)
     get("/logout", SessionController, :delete)
+
+
   end
+    if Mix.env() == :dev do
+      forward("/sent_emails", Bamboo.SentEmailViewerPlug)
+    end
 
   scope "/", PantryWeb do
     pipe_through([:browser, :authentication])
