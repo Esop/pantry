@@ -18,6 +18,9 @@ defmodule PantryWeb.Router do
     plug(PantryWeb.CheckAuth)
   end
 
+    if Mix.env() == :dev do
+      forward("/sent_emails", Bamboo.SentEmailViewerPlug)
+    end
   scope "/", PantryWeb do
     # Use the default browser stack
     pipe_through(:browser)
@@ -30,9 +33,6 @@ defmodule PantryWeb.Router do
 
 
   end
-    if Mix.env() == :dev do
-      forward("/sent_emails", Bamboo.SentEmailViewerPlug)
-    end
 
   scope "/", PantryWeb do
     pipe_through([:browser, :authentication])
