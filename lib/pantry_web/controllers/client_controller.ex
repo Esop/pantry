@@ -5,8 +5,8 @@ defmodule PantryWeb.ClientController do
   alias Pantry.Accounts
   alias Pantry.Accounts.Client
 
-  def index(conn, _params) do
-    clients = Accounts.list_clients()
+  def index(conn, params) do
+    clients = Accounts.list_clients(params)
     render(conn, "index.html", clients: clients)
   end
 
