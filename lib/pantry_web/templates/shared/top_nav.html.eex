@@ -18,6 +18,12 @@
       <li class="nav-item">
         <%= link "Log out", to: session_path(@conn, :delete), class: "navbar-brand" %>
       </li>
-    </ul
+    </ul>
+      <form class="form-inline my-2 my-gl-0">
+        <%= form_for @conn, client_path(@conn, :index), [ method: :get], fn f -> %>
+          <%= search_input f, :query, [ class: "form-control mr-sm-2"] %>
+          <%= submit "Search", class: "btn btn-secondary my-2 my-sm-0", type: "submit" %>
+        <% end %>
+      </form>
   </div>
 </nav>

@@ -30,7 +30,7 @@ config :pantry, Pantry.Repo,
 config :logger, level: :info
 
 config :pantry, Pantry.Emails.Mailer,
-  adapter: Hexpm.Emails.Bamboo.MailgunAdapter,
+  adapter: Bamboo.MailgunAdapter,
   api_key: "34deca9bd99c802f48ff517c0d1ec3fc-c1fe131e-a9277f60",
   domain: "pantry.russellbaker.me"
 

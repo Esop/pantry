@@ -4,6 +4,7 @@ defmodule Pantry.Accounts.Client do
   """
   use Ecto.Schema
   import Ecto.Changeset
+  import Ecto.Query, only: [from: 2]
 
   schema "clients" do
     field(:ethnicity, :string)
@@ -38,7 +39,17 @@ defmodule Pantry.Accounts.Client do
       :first_name,
       :last_name,
       :telephone,
-      :ethnicity,
+      :ethnicity
     ])
+  end
+
+  def search(query, search_term) do
+    wildcard_search = "%#{search_term}%"
+
+    from(
+      client in query,
+      where: ilike(client.first_name, ^wildcard_search),
+      or_where: ilike(client.last_name, ^wildcard_search)
+    )
   end
 end
