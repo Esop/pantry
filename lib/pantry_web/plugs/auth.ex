@@ -44,4 +44,9 @@ defmodule PantryWeb.Auth do
         {:error, :not_found, conn}
     end
   end
+
+  def gen_key() do
+    :crypto.strong_rand_bytes(16)
+    |> Base.encode16(case: :lower)
+  end
 end

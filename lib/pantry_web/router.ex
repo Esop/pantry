@@ -18,9 +18,10 @@ defmodule PantryWeb.Router do
     plug(PantryWeb.CheckAuth)
   end
 
-    if Mix.env() == :dev do
-      forward("/sent_emails", Bamboo.SentEmailViewerPlug)
-    end
+  if Mix.env() == :dev do
+    forward("/sent_emails", Bamboo.SentEmailViewerPlug)
+  end
+
   scope "/", PantryWeb do
     # Use the default browser stack
     pipe_through(:browser)
@@ -30,8 +31,6 @@ defmodule PantryWeb.Router do
     get("/login", SessionController, :new)
     post("/login", SessionController, :create)
     get("/logout", SessionController, :delete)
-
-
   end
 
   scope "/", PantryWeb do
@@ -45,5 +44,8 @@ defmodule PantryWeb.Router do
       resources("/assistance", AssistanceController)
       resources("/produce_distributions", ProduceDistributionController)
     end
+
+    get("/password/reset", PasswordResetController, :show)
+    post("/password/reset", PasswordResetController, :create)
   end
 end

@@ -137,4 +137,66 @@ defmodule Pantry.AccountsTest do
       assert %Ecto.Changeset{} = Accounts.change_volunteer(volunteer)
     end
   end
+
+  describe "password_resets" do
+    alias Pantry.Accounts.PasswordReset
+
+    @valid_attrs %{key: "some key", primary_email: "some primary_email"}
+    @update_attrs %{key: "some updated key", primary_email: "some updated primary_email"}
+    @invalid_attrs %{key: nil, primary_email: nil}
+
+    def password_reset_fixture(attrs \\ %{}) do
+      {:ok, password_reset} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Accounts.create_password_reset()
+
+      password_reset
+    end
+
+    test "list_password_resets/0 returns all password_resets" do
+      password_reset = password_reset_fixture()
+      assert Accounts.list_password_resets() == [password_reset]
+    end
+
+    test "get_password_reset!/1 returns the password_reset with given id" do
+      password_reset = password_reset_fixture()
+      assert Accounts.get_password_reset!(password_reset.id) == password_reset
+    end
+
+    test "create_password_reset/1 with valid data creates a password_reset" do
+      assert {:ok, %PasswordReset{} = password_reset} = Accounts.create_password_reset(@valid_attrs)
+      assert password_reset.key == "some key"
+      assert password_reset.primary_email == "some primary_email"
+    end
+
+    test "create_password_reset/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Accounts.create_password_reset(@invalid_attrs)
+    end
+
+    test "update_password_reset/2 with valid data updates the password_reset" do
+      password_reset = password_reset_fixture()
+      assert {:ok, password_reset} = Accounts.update_password_reset(password_reset, @update_attrs)
+      assert %PasswordReset{} = password_reset
+      assert password_reset.key == "some updated key"
+      assert password_reset.primary_email == "some updated primary_email"
+    end
+
+    test "update_password_reset/2 with invalid data returns error changeset" do
+      password_reset = password_reset_fixture()
+      assert {:error, %Ecto.Changeset{}} = Accounts.update_password_reset(password_reset, @invalid_attrs)
+      assert password_reset == Accounts.get_password_reset!(password_reset.id)
+    end
+
+    test "delete_password_reset/1 deletes the password_reset" do
+      password_reset = password_reset_fixture()
+      assert {:ok, %PasswordReset{}} = Accounts.delete_password_reset(password_reset)
+      assert_raise Ecto.NoResultsError, fn -> Accounts.get_password_reset!(password_reset.id) end
+    end
+
+    test "change_password_reset/1 returns a password_reset changeset" do
+      password_reset = password_reset_fixture()
+      assert %Ecto.Changeset{} = Accounts.change_password_reset(password_reset)
+    end
+  end
 end

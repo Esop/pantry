@@ -14,6 +14,10 @@ get "/password/reset", PasswordResetController, :show
 post "/password/reset", PasswordResetController, :create
 
 
+get "/email/verify", EmailVerificationController, :verify
+get "/email/verification", EmailVerificationController, :show
+post "/email/verification", EmailVerificationController, :create
+
 ## Modules I need
 PasswordReset
 The main responsibility of this module is to
@@ -23,7 +27,7 @@ This module contains the schema and two functions
 ## Controllers I need
 PasswordResetController
 PasswordController
-
+EmailVerificationController
 
 ## Templates I need
 password_changed.html.eex
@@ -56,3 +60,9 @@ change_password.exs
 password_controller_test.exs
 password_reset_controller_test.exs
 password_controller_test.exs
+
+
+
+## Password Reset Flow
+
+PasswordResetController.show -> PasswordResetController.create -> Users.password_reset_init ->
