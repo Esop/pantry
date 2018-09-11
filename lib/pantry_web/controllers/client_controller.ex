@@ -1,11 +1,12 @@
 defmodule PantryWeb.ClientController do
   use PantryWeb, :controller
+  plug(PantryWeb.CheckAuth)
 
   alias Pantry.Accounts
   alias Pantry.Accounts.Client
 
-  def index(conn, _params) do
-    clients = Accounts.list_clients()
+  def index(conn, params) do
+    clients = Accounts.list_clients(params)
     render(conn, "index.html", clients: clients)
   end
 
@@ -20,6 +21,7 @@ defmodule PantryWeb.ClientController do
         conn
         |> put_flash(:info, "Client created successfully.")
         |> redirect(to: client_path(conn, :show, client))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -44,6 +46,7 @@ defmodule PantryWeb.ClientController do
         conn
         |> put_flash(:info, "Client updated successfully.")
         |> redirect(to: client_path(conn, :show, client))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", client: client, changeset: changeset)
     end

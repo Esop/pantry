@@ -17,6 +17,8 @@ defmodule Pantry.Accounts.Volunteer do
     field(:password, :string, virtual: true)
     field(:admin, :boolean, default: true)
 
+    has_many(:password_resets, Pantry.Accounts.PasswordReset)
+
     timestamps()
   end
 
@@ -60,6 +62,25 @@ defmodule Pantry.Accounts.Volunteer do
 
       _ ->
         changeset
+    end
+  end
+
+  def password_reset_init(email) do
+    import Ecto
+
+    if volunteer = Pantry.Accounts.get_user_by_email(email) do
+      changeset =
+        Pantry.Accounts.PasswordReset.changeset(build_assoc(volunteer, :password_resets), email)
+
+      {:ok, %{reset: reset}} =
+        Ecto.Multi.new()
+        |> Ecto.Multi.insert(:reset, changeset)
+        |> Pantry.Repo.transaction()
+
+      Pantry.Emails.Email.reset_password_email(email, reset)
+      |> Pantry.Emails.Mailer.deliver_now()
+    else
+      {:error, :not_found}
     end
   end
 end

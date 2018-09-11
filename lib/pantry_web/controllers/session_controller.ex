@@ -24,7 +24,7 @@ defmodule PantryWeb.SessionController do
 
   def delete(conn, _) do
     conn
-    |> PantryWeb.Auth.logout()
+    |> clear_session()
     |> put_flash(:info, "You have been logged out!")
     |> redirect(to: page_path(conn, :index))
   end

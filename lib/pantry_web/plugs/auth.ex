@@ -45,8 +45,8 @@ defmodule PantryWeb.Auth do
     end
   end
 
-  def logout(conn) do
-    conn
-    |> configure_session(drop: true)
+  def gen_key() do
+    :crypto.strong_rand_bytes(16)
+    |> Base.encode16(case: :lower)
   end
 end

@@ -29,6 +29,11 @@ config :pantry, Pantry.Repo,
 # Do not print debug messages in production
 config :logger, level: :info
 
+config :pantry, Pantry.Emails.Mailer,
+  adapter: Bamboo.MailgunAdapter,
+  api_key: "34deca9bd99c802f48ff517c0d1ec3fc-c1fe131e-a9277f60",
+  domain: "pantry.russellbaker.me"
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key

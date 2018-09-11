@@ -14,11 +14,32 @@ defmodule PantryWeb.Router do
     plug(:accepts, ["json"])
   end
 
+  pipeline :authentication do
+    plug(PantryWeb.CheckAuth)
+  end
+
+  if Mix.env() == :dev do
+    forward("/sent_emails", Bamboo.SentEmailViewerPlug)
+  end
+
   scope "/", PantryWeb do
     # Use the default browser stack
     pipe_through(:browser)
 
     get("/", PageController, :index)
+
+    get("/login", SessionController, :new)
+    post("/login", SessionController, :create)
+    get("/logout", SessionController, :delete)
+
+    get("/password/reset", PasswordResetController, :show)
+    post("/password/reset", PasswordResetController, :create)
+  end
+
+  scope "/", PantryWeb do
+    pipe_through([:browser, :authentication])
+
+    resources("/volunteers", VolunteerController)
 
     resources("/clients", ClientController) do
       resources("/household", HouseholdController)
@@ -26,13 +47,5 @@ defmodule PantryWeb.Router do
       resources("/assistance", AssistanceController)
       resources("/produce_distributions", ProduceDistributionController)
     end
-
-    resources("/volunteers", VolunteerController)
-    resources("/sessions", SessionController, only: [:new, :create, :delete])
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", PantryWeb do
-  #   pipe_through :api
-  # end
 end
