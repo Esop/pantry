@@ -10,6 +10,10 @@ defmodule PantryWeb.PasswordResetController do
   def create(conn, %{"username" => password_reset_params}) do
     changeset = Volunteer.password_reset_init(password_reset_params)
 
-    render(conn, "new.html", changeset: changeset)
+    render(
+      conn,
+      "new.html",
+      changeset: changeset
+    )
   end
 end

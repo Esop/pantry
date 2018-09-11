@@ -77,7 +77,7 @@ defmodule Pantry.Accounts.Volunteer do
         |> Ecto.Multi.insert(:reset, changeset)
         |> Pantry.Repo.transaction()
 
-      Pantry.Emails.Email.reset_password_email(email)
+      Pantry.Emails.Email.reset_password_email(email, reset)
       |> Pantry.Emails.Mailer.deliver_now()
     else
       {:error, :not_found}
