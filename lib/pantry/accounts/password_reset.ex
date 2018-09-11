@@ -10,10 +10,10 @@ defmodule Pantry.Accounts.PasswordReset do
     timestamps(updated_at: false)
   end
 
-  def changeset(reset, user) do
-    change(reset, %{
+  def changeset(volunteer, email) do
+    change(volunteer, %{
       key: PantryWeb.Auth.gen_key(),
-      primary_email: Pantry.Accounts.Volunteer.email()
+      primary_email: email
     })
   end
 end

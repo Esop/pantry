@@ -1,5 +1,5 @@
-<h2>New Password reset</h2>
+<h2>Reset your password</h2>
 
-<%= render "form.html", Map.put(assigns, :action, password_reset_path(@conn, :create)) %>
-
-<span><%= link "Back", to: password_reset_path(@conn, :index) %></span>
+<p>
+  If this account has been registered, you should receive an email shortly with a link to reset your password.
+</p>

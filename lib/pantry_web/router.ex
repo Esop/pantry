@@ -31,6 +31,9 @@ defmodule PantryWeb.Router do
     get("/login", SessionController, :new)
     post("/login", SessionController, :create)
     get("/logout", SessionController, :delete)
+
+    get("/password/reset", PasswordResetController, :show)
+    post("/password/reset", PasswordResetController, :create)
   end
 
   scope "/", PantryWeb do
@@ -44,8 +47,5 @@ defmodule PantryWeb.Router do
       resources("/assistance", AssistanceController)
       resources("/produce_distributions", ProduceDistributionController)
     end
-
-    get("/password/reset", PasswordResetController, :show)
-    post("/password/reset", PasswordResetController, :create)
   end
 end

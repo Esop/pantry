@@ -11,8 +11,6 @@ defmodule PantryWeb.ClientController do
   end
 
   def new(conn, _params) do
-    Pantry.Emails.Email.reset_password_email() |> Pantry.Emails.Mailer.deliver_now()
-
     changeset = Accounts.change_client(%Client{})
     render(conn, "new.html", changeset: changeset)
   end
