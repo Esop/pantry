@@ -78,6 +78,7 @@ defmodule Pantry.Accounts.Volunteer do
         |> Pantry.Repo.transaction()
 
       Pantry.Emails.Email.reset_password_email(email, reset)
+      #  TODO: change this to deliver_later()  <12-09-18, russell baker> #
       |> Pantry.Emails.Mailer.deliver_now()
     else
       {:error, :not_found}
