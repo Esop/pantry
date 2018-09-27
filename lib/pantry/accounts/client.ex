@@ -52,4 +52,19 @@ defmodule Pantry.Accounts.Client do
       or_where: ilike(client.last_name, ^wildcard_search)
     )
   end
+
+  def sort_clients(:first_name = sort ) do
+    from(c in Pantry.Accounts.Client, order_by: [asc: c.first_name ])
+    |> Pantry.Repo.all
+  end
+
+  def sort_clients(:last_name = sort) do
+    from(c in Pantry.Accounts.Client, order_by: [asc: c.last_name ])
+    |> Pantry.Repo.all
+  end
+
+  def sort_clients(:inserted_at = sort ) do
+    from(c in Pantry.Accounts.Client, order_by: [asc: c.inserted_at ])
+    |> Pantry.Repo.all
+  end
 end

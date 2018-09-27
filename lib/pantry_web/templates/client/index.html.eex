@@ -1,7 +1,16 @@
 <h2>All Current Clients</h2>
+
+<%
+sort_first_name = PantryWeb.ViewHelpers.params(sort: "first_name")
+sort_last_name = PantryWeb.ViewHelpers.params(sort: "last_name")
+sort_inserted_at = PantryWeb.ViewHelpers.params(sort: "inserted_at")
+%>
+
 <nav>
   <div class="pagination-info">
     <h4 class="results-found">Results Found</h4>
+    <%= show_sort_info(@sorted_clients) %>
+
   </div>
   <div class="navbar-right pagination-sort">
     <div class="dropdown">
@@ -10,26 +19,29 @@
       </button>
       <ul class="dropdown-menu dropdown-menu-right" role="menu">
         <li role="presentation">
-          <a role="menuitem" tabindex="-1">First Name</a>
+          <a role="menuitem" tabindex="-1" href="<%= client_path(@conn, :index, sort_first_name) %>">First name</a>
         </li>
         <li role="presentation">
-          <a role="menuitem" tabindex="-1">Last Name</a>
+          <a role="menuitem" tabindex="-1" href="<%= client_path(@conn, :index, sort_last_name) %>">Last name</a>
+        </li>
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" href="<%= client_path(@conn, :index, sort_inserted_at) %>">Created at</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-<table class="table">
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
+    <thead>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
 
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= for client <- @clients do %>
+        <th></th>
+      </tr>
+    </thead>
+<%= for client <- @sorted_clients do %>
+  <table class="table">
+    <tbody>
       <tr>
         <td><%= client.first_name %></td>
         <td><%= client.last_name %></td>
@@ -39,6 +51,6 @@
         </td>
       </tr>
     <% end %>
-  </tbody>
-</table>
-<span><%= link "New Client Form", to: client_path(@conn, :new), class: "btn btn-danger btn-small" %></span>
+    </tbody>
+  </table>
+  <span><%= link "New Client Form", to: client_path(@conn, :new), class: "btn btn-danger btn-small" %></span>

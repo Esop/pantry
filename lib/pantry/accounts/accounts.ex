@@ -21,9 +21,20 @@ defmodule Pantry.Accounts do
   def list_clients(params) do
     search_term = get_in(params, ["query"])
 
+
     Client
     |> Client.search(search_term)
     |> Repo.all()
+  end
+
+  def search(params) do
+    Client
+    |> Client.search(params)
+    # |> sort()
+  end
+
+  defp sort(query, :first_name) do
+    from(c in query, order_by: [desc: c.first_name])
   end
 
   @doc """
