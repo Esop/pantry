@@ -53,18 +53,21 @@ defmodule Pantry.Accounts.Client do
     )
   end
 
-  def sort_clients(:first_name = sort ) do
-    from(c in Pantry.Accounts.Client, order_by: [asc: c.first_name ])
+  def sort_clients(:first_name = sort, search) do
+    from(c in Pantry.Accounts.Client, order_by: [asc: c.first_name])
+    |> search(search)
     |> Pantry.Repo.all
   end
 
-  def sort_clients(:last_name = sort) do
+  def sort_clients(:last_name = sort, search) do
     from(c in Pantry.Accounts.Client, order_by: [asc: c.last_name ])
+    |> search(search)
     |> Pantry.Repo.all
   end
 
-  def sort_clients(:inserted_at = sort ) do
+  def sort_clients(:inserted_at = sort , search) do
     from(c in Pantry.Accounts.Client, order_by: [asc: c.inserted_at ])
+    |> search(search)
     |> Pantry.Repo.all
   end
 end

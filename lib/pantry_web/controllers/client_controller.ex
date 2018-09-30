@@ -8,11 +8,10 @@ defmodule PantryWeb.ClientController do
   @sort_params ~w(first_name last_name inserted_at)
 
   def index(conn, params) do
-    #  TODO:  <27-09-18 add this function
-    # search = Pantry.Utils.parse_search(params["search"])
+    search = Pantry.Utils.parse_search(params["query"])
     sort = sort(params["sort"])
 
-    sorted_clients = fetch_clients(sort)
+    sorted_clients = fetch_clients(sort, search)
 
     clients = Accounts.list_clients(params)
 
@@ -79,7 +78,7 @@ defmodule PantryWeb.ClientController do
   defp sort(param), do: Pantry.Utils.safe_to_atom(param, @sort_params)
 
 
-  defp fetch_clients(sort) do
-    Pantry.Accounts.Client.sort_clients(sort)
+  defp fetch_clients(sort, search) do
+    Pantry.Accounts.Client.sort_clients(sort, search)
   end
 end

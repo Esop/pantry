@@ -8,7 +8,6 @@ sort_inserted_at = PantryWeb.ViewHelpers.params(sort: "inserted_at")
 
 <nav>
   <div class="pagination-info">
-    <h4 class="results-found">Results Found</h4>
     <%= show_sort_info(@sorted_clients) %>
 
   </div>
@@ -31,16 +30,16 @@ sort_inserted_at = PantryWeb.ViewHelpers.params(sort: "inserted_at")
     </div>
   </div>
 </nav>
-    <thead>
-      <tr>
-        <th>First name</th>
-        <th>Last name</th>
+<table class="table">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
 
-        <th></th>
-      </tr>
-    </thead>
-<%= for client <- @sorted_clients do %>
-  <table class="table">
+      <th></th>
+    </tr>
+  </thead>
+  <%= for client <- @sorted_clients do %>
     <tbody>
       <tr>
         <td><%= client.first_name %></td>
@@ -52,5 +51,5 @@ sort_inserted_at = PantryWeb.ViewHelpers.params(sort: "inserted_at")
       </tr>
     <% end %>
     </tbody>
-  </table>
-  <span><%= link "New Client Form", to: client_path(@conn, :new), class: "btn btn-danger btn-small" %></span>
+</table>
+<span><%= link "New Client Form", to: client_path(@conn, :new), class: "btn btn-danger btn-small" %></span>
