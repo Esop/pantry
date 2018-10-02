@@ -1,7 +1,7 @@
-<h2>You lost your password?</h2>
+<h2>You forgot your password?</h2>
 <%= form_tag(password_reset_path(PantryWeb.Endpoint, :create)) do %>
   <div class="form-group">
-    <label for="username">Username or Email</label>
+    <label for="username">Enter your Email</label>
     <input type="text" class="form-control" name="username">
   </div>
 

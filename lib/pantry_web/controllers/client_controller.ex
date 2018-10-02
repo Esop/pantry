@@ -5,9 +5,21 @@ defmodule PantryWeb.ClientController do
   alias Pantry.Accounts
   alias Pantry.Accounts.Client
 
+  @sort_params ~w(first_name last_name inserted_at)
+
   def index(conn, params) do
-    clients = Accounts.list_clients(params)
-    render(conn, "index.html", clients: clients)
+    search = Pantry.Utils.parse_search(params["query"])
+    sort = sort(params["sort"])
+
+    sorted_clients = fetch_clients(sort, search)
+
+
+    render(
+      conn,
+      "index.html",
+      sorted_clients: sorted_clients,
+      sort: sort
+    )
   end
 
   def new(conn, _params) do
@@ -59,5 +71,13 @@ defmodule PantryWeb.ClientController do
     conn
     |> put_flash(:info, "Client deleted successfully.")
     |> redirect(to: client_path(conn, :index))
+  end
+
+  defp sort(nil), do: sort("inserted_at")
+  defp sort(param), do: Pantry.Utils.safe_to_atom(param, @sort_params)
+
+
+  defp fetch_clients(sort, search) do
+    Pantry.Accounts.Client.sort_clients(sort, search)
   end
 end
