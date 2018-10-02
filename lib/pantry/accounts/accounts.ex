@@ -30,11 +30,6 @@ defmodule Pantry.Accounts do
   def search(params) do
     Client
     |> Client.search(params)
-    # |> sort()
-  end
-
-  defp sort(query, :first_name) do
-    from(c in query, order_by: [desc: c.first_name])
   end
 
   @doc """

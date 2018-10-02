@@ -13,13 +13,12 @@ defmodule PantryWeb.ClientController do
 
     sorted_clients = fetch_clients(sort, search)
 
-    clients = Accounts.list_clients(params)
 
     render(
       conn,
       "index.html",
-      clients: clients,
-      sorted_clients: sorted_clients
+      sorted_clients: sorted_clients,
+      sort: sort
     )
   end
 

@@ -7,13 +7,10 @@ sort_inserted_at = PantryWeb.ViewHelpers.params(sort: "inserted_at")
 %>
 
 <nav>
-  <div class="pagination-info">
-    <%= show_sort_info(@sorted_clients) %>
-
-  </div>
   <div class="navbar-right pagination-sort">
     <div class="dropdown">
       <button class="btn btn-default dropdown-toggle" type="button" id="sort_dropdown" data-toggle="dropdown">
+    <%= show_sort_info(@sort) %>
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu dropdown-menu-right" role="menu">
@@ -24,7 +21,7 @@ sort_inserted_at = PantryWeb.ViewHelpers.params(sort: "inserted_at")
           <a role="menuitem" tabindex="-1" href="<%= client_path(@conn, :index, sort_last_name) %>">Last name</a>
         </li>
         <li role="presentation">
-          <a role="menuitem" tabindex="-1" href="<%= client_path(@conn, :index, sort_inserted_at) %>">Created at</a>
+          <a role="menuitem" tabindex="-1" href="<%= client_path(@conn, :index, sort_inserted_at) %>">Oldest</a>
         </li>
       </ul>
     </div>
