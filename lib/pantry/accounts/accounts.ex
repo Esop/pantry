@@ -21,9 +21,15 @@ defmodule Pantry.Accounts do
   def list_clients(params) do
     search_term = get_in(params, ["query"])
 
+
     Client
     |> Client.search(search_term)
     |> Repo.all()
+  end
+
+  def search(params) do
+    Client
+    |> Client.search(params)
   end
 
   @doc """

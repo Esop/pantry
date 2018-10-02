@@ -1,5 +1,32 @@
 <h2>All Current Clients</h2>
 
+<%
+sort_first_name = PantryWeb.ViewHelpers.params(sort: "first_name")
+sort_last_name = PantryWeb.ViewHelpers.params(sort: "last_name")
+sort_inserted_at = PantryWeb.ViewHelpers.params(sort: "inserted_at")
+%>
+
+<nav>
+  <div class="navbar-right pagination-sort">
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="sort_dropdown" data-toggle="dropdown">
+    <%= show_sort_info(@sort) %>
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-right" role="menu">
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" href="<%= client_path(@conn, :index, sort_first_name) %>">First name</a>
+        </li>
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" href="<%= client_path(@conn, :index, sort_last_name) %>">Last name</a>
+        </li>
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" href="<%= client_path(@conn, :index, sort_inserted_at) %>">Oldest</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <table class="table">
   <thead>
     <tr>
@@ -9,17 +36,17 @@
       <th></th>
     </tr>
   </thead>
-  <tbody>
-<%= for client <- @clients do %>
-    <tr>
-      <td><%= client.first_name %></td>
-      <td><%= client.last_name %></td>
+  <%= for client <- @sorted_clients do %>
+    <tbody>
+      <tr>
+        <td><%= client.first_name %></td>
+        <td><%= client.last_name %></td>
 
-      <td class="text-right">
-        <span><%= link "view client profile", to: client_path(@conn, :show, client), class: "btn btn-outline-primary btn-xs" %></span>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
+        <td class="text-right">
+          <span><%= link "view client profile", to: client_path(@conn, :show, client), class: "btn btn-outline-primary btn-xs" %></span>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
 </table>
 <span><%= link "New Client Form", to: client_path(@conn, :new), class: "btn btn-danger btn-small" %></span>
