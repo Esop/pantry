@@ -3,9 +3,8 @@ defmodule Pantry.Accounts.PasswordReset do
   import Ecto.Changeset
 
   schema "password_resets" do
-    field(:key, :string)
-    field(:primary_email, :string)
     field(:volunteer_id, :id)
+    field(:expires_at, :naive_datetime)
 
     timestamps(updated_at: false)
   end
