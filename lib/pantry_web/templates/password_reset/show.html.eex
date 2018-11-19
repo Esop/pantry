@@ -1,9 +1,23 @@
-<h2>You forgot your password?</h2>
-<%= form_tag(password_reset_path(PantryWeb.Endpoint, :create)) do %>
+<%= form_for @changeset, password_reset_path(@conn, :update, @password_reset), [as: :password_reset], fn f -> %>
+   <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+    <h1 class="">Reset my password</h1>
+
   <div class="form-group">
-    <label for="username">Enter your Email</label>
-    <input type="text" class="form-control" name="username">
+    <%= label f, :password, class: "control-label" %>
+    <%= password_input f, :password, class: "form-control" %>
+    <%= error_tag f, :password %>
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <div class="form-group">
+    <%= label f, :password_confirmation, class: "control-label" %>
+    <%= password_input f, :password_confirmation, class: "form-control" %>
+    <%= error_tag f, :password_confirmation %>
+  </div>
+
+    <%= submit ("Set new password"), class: "btn btn-blue w-full" %>
+  </div>
 <% end %>

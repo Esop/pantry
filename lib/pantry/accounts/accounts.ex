@@ -21,7 +21,6 @@ defmodule Pantry.Accounts do
   def list_clients(params) do
     search_term = get_in(params, ["query"])
 
-
     Client
     |> Client.search(search_term)
     |> Repo.all()
@@ -209,8 +208,14 @@ defmodule Pantry.Accounts do
     Volunteer.volunteer_registration_changeset(volunteer, %{})
   end
 
-  def get_user_by_email(email) do
-    Repo.get_by(Volunteer, email: email)
+  def get_vol_by_email(email) do
+    case Repo.get_by(Volunteer, %{email: email}) do
+      %Volunteer{} = volunteer ->
+        {:ok, volunteer}
+
+      _ ->
+        {:error, "Volunteer not found"}
+    end
   end
 
   alias Pantry.Accounts.PasswordReset
