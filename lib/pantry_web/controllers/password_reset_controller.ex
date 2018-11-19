@@ -3,13 +3,13 @@ defmodule PantryWeb.PasswordResetController do
 
   alias Pantry.Accounts.Volunteer
   alias Pantry.Accounts
+  alias Pantry.Accounts.PasswordReset
 
   plug(:redirect_if_signed_in when action in [:new, :create])
   plug(:fetch_password_reset when action in [:show, :update])
 
   @doc """
   renders an email field.
-  lib/level_web/templates/password_reset/new.html.eex
   """
   def new(conn, _) do
     render(conn, "new.html")
@@ -36,16 +36,20 @@ defmodule PantryWeb.PasswordResetController do
   end
 
   def show(conn, _) do
-    vol = conn.assigns.password_reset.user
-    # conn
-    # |> assign(:changeset, Volunteer.reset_password_changeset(vol, %{}))
-    # |> render("show.html")
+    # password_reset contains both password and password_confirmation
+    vol = conn.assigns.password_reset.volunteer
+
+    conn
+    |> assign(:changeset, PasswordReset.reset_password_changeset(vol, %{}))
+    |> render("show.html")
   end
 
   def update(conn, %{"password_reset" => params}) do
+    # this is an PasswordReset stuct the Volunteer is in the data
+    # structure as well
     reset = conn.assigns.password_reset
 
-    case Volunteer.reset_password(reset, params["password"]) do
+    case Volunteer.reset_password(reset, params) do
       {:ok, _} ->
         conn
         |> put_flash(:info, "You password was successfully reset!")
@@ -58,6 +62,7 @@ defmodule PantryWeb.PasswordResetController do
     end
   end
 
+  # called when in [:show, :update]
   defp fetch_password_reset(conn, _opts) do
     case Volunteer.get_password_reset(conn.params["id"]) do
       {:ok, reset} ->
@@ -67,7 +72,7 @@ defmodule PantryWeb.PasswordResetController do
       _ ->
         conn
         |> put_status(404)
-        |> put_view(ErrorView)
+        |> put_view(PantryWeb.ErrorView)
         |> render("404.html")
         |> halt()
     end

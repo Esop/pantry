@@ -19,8 +19,7 @@ defmodule Pantry.Accounts.Volunteer do
     field(:password_confirmation, :string, virtual: true)
     field(:password, :string, virtual: true)
     field(:admin, :boolean, default: true)
-
-    has_many(:password_resets, Pantry.Accounts.PasswordReset)
+    has_many(:password_resets, PasswordReset)
 
     timestamps()
   end
@@ -58,7 +57,7 @@ defmodule Pantry.Accounts.Volunteer do
     end
   end
 
-  defp put_pass_hash(changeset) do
+  def put_pass_hash(changeset) do
     case changeset do
       %Ecto.Changeset{valid?: true, changes: %{password: pass}} ->
         put_change(changeset, :password_hash, Bcrypt.hashpwsalt(pass))
@@ -87,14 +86,10 @@ defmodule Pantry.Accounts.Volunteer do
     {:ok, reset}
   end
 
-  #
-  # def reset_password(%PasswordReset{} = reset, new_password) do
-  #   reset.volunteer
-  #   |> reset_password_changeset(%{password: new_password})
-  #   |> Pantry.Repo.update()
-  # end
-
-  def reset_password_changeset(volunteer, %{}) do
+  def reset_password(%PasswordReset{} = reset, params) do
+    reset.volunteer
+    |> PasswordReset.reset_password_changeset(params)
+    |> Pantry.Repo.update()
   end
 
   def get_password_reset(id) do
@@ -107,7 +102,7 @@ defmodule Pantry.Accounts.Volunteer do
 
     case Pantry.Repo.one(query) do
       nil -> {:error, "Password reset not found"}
-      reset -> {:ok, Pantry.Repo.preload(reset, :user)}
+      reset -> {:ok, Pantry.Repo.preload(reset, :volunteer)}
     end
   end
 end

@@ -13,7 +13,6 @@ defmodule PantryWeb.ClientController do
 
     sorted_clients = fetch_clients(sort, search)
 
-
     render(
       conn,
       "index.html",
@@ -75,7 +74,6 @@ defmodule PantryWeb.ClientController do
 
   defp sort(nil), do: sort("inserted_at")
   defp sort(param), do: Pantry.Utils.safe_to_atom(param, @sort_params)
-
 
   defp fetch_clients(sort, search) do
     Pantry.Accounts.Client.sort_clients(sort, search)

@@ -9,7 +9,7 @@ defmodule Pantry.Emails.Email do
     new_email()
     |> to("#{volunteer.email}")
     |> from("Community Cares <russell@pantry.russellbaker.me>")
-    |> assign(:email, volunteer.email)
+    |> assign(:reset_key, reset)
     |> subject("Reset Lost Password")
     |> render("password_reset_request.html")
   end

@@ -35,8 +35,7 @@ defmodule PantryWeb.Router do
     get("/reset-password", PasswordResetController, :new)
     post("/reset-password", PasswordResetController, :create)
     get("/reset-password/initiated", PasswordResetController, :initiated)
-    # get("/reset-password/:id", PasswordResetController, :show)
-    get("/reset-password/", PasswordResetController, :show)
+    get("/reset-password/:id", PasswordResetController, :show)
     put("/reset-password/:id", PasswordResetController, :update)
   end
 

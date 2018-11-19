@@ -31,7 +31,7 @@ defmodule PantryWeb.Auth do
   end
 
   def login_by_email_and_pass(conn, email, given_pass) do
-    user = Accounts.get_vol_by_email(email)
+    {:ok, user} = Accounts.get_vol_by_email(email)
 
     cond do
       user && checkpw(given_pass, user.password_hash) ->
