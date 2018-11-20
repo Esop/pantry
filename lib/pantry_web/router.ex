@@ -40,7 +40,8 @@ defmodule PantryWeb.Router do
   end
 
   scope "/", PantryWeb do
-    pipe_through([:browser, :authentication])
+    # pipe_through([:browser, :authentication])
+    pipe_through([:browser])
 
     resources("/volunteers", VolunteerController)
 
