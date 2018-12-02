@@ -8,6 +8,7 @@ defmodule PantryWeb.Auth do
   import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]
 
   alias Pantry.Accounts.Volunteer
+  alias Pantry.Accounts
 
   def init(opts) do
     Keyword.fetch!(opts, :repo)
@@ -30,7 +31,7 @@ defmodule PantryWeb.Auth do
   end
 
   def login_by_email_and_pass(conn, email, given_pass) do
-    user = Pantry.Accounts.get_user_by_email(email)
+    {:ok, user} = Accounts.get_vol_by_email(email)
 
     cond do
       user && checkpw(given_pass, user.password_hash) ->

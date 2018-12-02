@@ -5,8 +5,11 @@ defmodule Pantry.Accounts.Volunteer do
   """
   use Ecto.Schema
   import Ecto.Changeset
+  import Ecto.Query
 
   alias Comeonin.Bcrypt
+  alias Pantry.Accounts.Volunteer
+  alias Pantry.Accounts.PasswordReset
 
   schema "volunteers" do
     field(:email, :string)
@@ -16,8 +19,7 @@ defmodule Pantry.Accounts.Volunteer do
     field(:password_confirmation, :string, virtual: true)
     field(:password, :string, virtual: true)
     field(:admin, :boolean, default: true)
-
-    has_many(:password_resets, Pantry.Accounts.PasswordReset)
+    has_many(:password_resets, PasswordReset)
 
     timestamps()
   end
@@ -27,6 +29,7 @@ defmodule Pantry.Accounts.Volunteer do
     volunteer
     |> cast(attrs, [:first_name, :last_name, :email, :password, :password_confirmation])
     |> validate_required([:first_name, :last_name, :email, :password, :password_confirmation])
+    |> unique_constraint(:email)
     |> confirm_passwords_are_equal()
     |> put_pass_hash()
   end
@@ -55,7 +58,7 @@ defmodule Pantry.Accounts.Volunteer do
     end
   end
 
-  defp put_pass_hash(changeset) do
+  def put_pass_hash(changeset) do
     case changeset do
       %Ecto.Changeset{valid?: true, changes: %{password: pass}} ->
         put_change(changeset, :password_hash, Bcrypt.hashpwsalt(pass))
@@ -65,23 +68,42 @@ defmodule Pantry.Accounts.Volunteer do
     end
   end
 
-  def password_reset_init(email) do
-    import Ecto
+  def initiate_password_reset(%Volunteer{} = volunteer) do
+    one_day_from_now =
+      NaiveDateTime.utc_now()
+      |> NaiveDateTime.add(60 * 60 * 24)
 
-    if volunteer = Pantry.Accounts.get_user_by_email(email) do
-      changeset =
-        Pantry.Accounts.PasswordReset.changeset(build_assoc(volunteer, :password_resets), email)
+    %PasswordReset{}
+    |> Ecto.Changeset.change(%{volunteer_id: volunteer.id, expires_at: one_day_from_now})
+    |> Pantry.Repo.insert!()
+    |> after_insert_password_reset(volunteer)
+  end
 
-      {:ok, %{reset: reset}} =
-        Ecto.Multi.new()
-        |> Ecto.Multi.insert(:reset, changeset)
-        |> Pantry.Repo.transaction()
+  defp after_insert_password_reset(reset, volunteer) do
+    volunteer
+    |> Pantry.Emails.Email.reset_password_email(reset)
+    |> Pantry.Emails.Mailer.deliver_now()
 
-      Pantry.Emails.Email.reset_password_email(email, reset)
-      #  TODO: change this to deliver_later()  <12-09-18, russell baker> #
-      |> Pantry.Emails.Mailer.deliver_now()
-    else
-      {:error, :not_found}
+    {:ok, reset}
+  end
+
+  def reset_password(%PasswordReset{} = reset, params) do
+    reset.volunteer
+    |> PasswordReset.reset_password_changeset(params)
+    |> Pantry.Repo.update()
+  end
+
+  def get_password_reset(id) do
+    now = NaiveDateTime.utc_now()
+
+    query =
+      from(pr in PasswordReset,
+        where: pr.id == ^id and pr.expires_at > ^now
+      )
+
+    case Pantry.Repo.one(query) do
+      nil -> {:error, "Password reset not found"}
+      reset -> {:ok, Pantry.Repo.preload(reset, :volunteer)}
     end
   end
 end
