@@ -29,6 +29,7 @@ defmodule Pantry.Accounts.Volunteer do
     volunteer
     |> cast(attrs, [:first_name, :last_name, :email, :password, :password_confirmation])
     |> validate_required([:first_name, :last_name, :email, :password, :password_confirmation])
+    |> unique_constraint(:email)
     |> confirm_passwords_are_equal()
     |> put_pass_hash()
   end
