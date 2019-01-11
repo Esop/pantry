@@ -24,6 +24,7 @@ defmodule Pantry.Accounts.Client do
     has_many(:Certification, Pantry.Forms.Certification)
     has_many(:Household, Pantry.Residence.Household)
     has_many(:ProduceDistribution, Pantry.Forms.ProduceDistribution)
+    has_one(:Dashboard, Pantry.Accounts.Dashboard)
 
     timestamps()
   end
