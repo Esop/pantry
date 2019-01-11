@@ -7,18 +7,22 @@ defmodule Pantry.Accounts.Client do
   import Ecto.Query, only: [from: 2]
 
   schema "clients" do
+    # FIXME: If I call has_one my routes are broken
+    # has_one(:Household, Pantry.Residence.Household)
+    field(:address, :string)
+    field(:city, :string)
+    field(:county, :string)
+    field(:description_of_need, :string)
     field(:ethnicity, :string)
     field(:first_name, :string)
     field(:last_name, :string)
-    field(:telephone, :string)
-    field(:description_of_need, :string)
     field(:notes, :string)
-
+    field(:state, :string)
+    field(:telephone, :string)
+    field(:zipcode, :string)
     has_many(:Assistance, Pantry.Forms.Assistance)
-    # FIXME: If I call has_one my routes are broken
-    # has_one(:Household, Pantry.Residence.Household)
-    has_many(:Household, Pantry.Residence.Household)
     has_many(:Certification, Pantry.Forms.Certification)
+    has_many(:Household, Pantry.Residence.Household)
     has_many(:ProduceDistribution, Pantry.Forms.ProduceDistribution)
 
     timestamps()
@@ -28,38 +32,44 @@ defmodule Pantry.Accounts.Client do
   def changeset(client, attrs) do
     client
     |> cast(attrs, [
+      :address,
+      :city,
+      :county,
+      :description_of_need,
+      :ethnicity,
       :first_name,
       :last_name,
+      :notes,
+      :state,
       :telephone,
-      :ethnicity,
-      :description_of_need,
-      :notes
+      :zipcode
     ])
     |> validate_required([
+      :ethnicity,
       :first_name,
       :last_name,
-      :telephone,
-      :ethnicity
+      :telephone
     ])
   end
-
 
   ## Sorting functions
   # I think these functions should be moved
   # to another module because they touch the databass
   # def sort_clients(:first_name = sort, search) do
-  def sort_clients(:first_name = sort , search) when is_atom(sort) do
+  def sort_clients(:first_name = sort, search) when is_atom(sort) do
     from(c in Pantry.Accounts.Client, order_by: [asc: c.first_name])
     |> search(search)
     |> Pantry.Repo.all()
   end
+
   def sort_clients(:last_name = sort, search) when is_atom(sort) do
-    from(c in Pantry.Accounts.Client, order_by: [asc: c.last_name ])
+    from(c in Pantry.Accounts.Client, order_by: [asc: c.last_name])
     |> search(search)
     |> Pantry.Repo.all()
   end
-  def sort_clients(:inserted_at = sort , search) when is_atom(sort) do
-    from(c in Pantry.Accounts.Client, order_by: [asc: c.inserted_at ])
+
+  def sort_clients(:inserted_at = sort, search) when is_atom(sort) do
+    from(c in Pantry.Accounts.Client, order_by: [asc: c.inserted_at])
     |> search(search)
     |> Pantry.Repo.all()
   end

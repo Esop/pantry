@@ -30,6 +30,38 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :address, "Address", class: "control-label" %>
+    <%= text_input f, :address, class: "form-control" %>
+    <%= error_tag f, :address %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :city, "City", class: "control-label" %>
+    <%= text_input f, :city, class: "form-control" %>
+    <%= error_tag f, :city %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :county, "County", class: "control-label" %>
+    <%= text_input f, :county, class: "form-control" %>
+    <%= error_tag f, :county %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :state, "State", class: "control-label" %>
+    <%= text_input f, :state, class: "form-control" %>
+    <%= error_tag f, :state %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :zipcode, "Zip Code", class: "control-label" %>
+    <%= text_input f, :zipcode, class: "form-control" %>
+    <%= error_tag f, :zipcode %>
+  </div>
+
+
+
+  <div class="form-group">
     <%= label f, :description_of_need, class: "control-label" %>
     <%= text_input f, :description_of_need, class: "form-control" %>
     <%= error_tag f, :description_of_need %>
