@@ -1,1 +1,3 @@
-the dash
+Client Dashboard
+<p> <%= @client.first_name %> </p>
+<p> <%= @client.address %> </p>

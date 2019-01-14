@@ -3,9 +3,9 @@ defmodule PantryWeb.DashboardController do
   # plug(PantryWeb.CheckAuth)
 
   alias Pantry.Accounts
-  alias Pantry.Accounts.Client
 
-  def show(conn, _) do
-    render(conn, "show.html")
+  def show(conn, %{"id" => id}) do
+    client = Accounts.get_client!(id)
+    render(conn, "show.html", client: client)
   end
 end
