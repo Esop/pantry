@@ -45,7 +45,11 @@ defmodule Pantry.Accounts do
       ** (Ecto.NoResultsError)
 
   """
-  def get_client!(id), do: Repo.get!(Client, id)
+  def get_client!(id) do
+    Client
+    |> Repo.get!(id)
+    |> Repo.preload(:assistance)
+  end
 
   @doc """
   Creates a client.

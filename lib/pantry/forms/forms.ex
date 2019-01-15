@@ -59,6 +59,7 @@ defmodule Pantry.Forms do
   def create_assistance(attrs \\ %{}) do
     %Assistance{}
     |> Assistance.changeset(attrs)
+    |> Ecto.build_assoc(:clients)
     |> Repo.insert()
   end
 

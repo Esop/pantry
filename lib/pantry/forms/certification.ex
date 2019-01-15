@@ -13,7 +13,7 @@ defmodule Pantry.Forms.Certification do
     field(:supplemental_nutrition_assistance, :boolean, default: false)
     field(:supplemental_security_income, :boolean, default: false)
     field(:temporary_assistance_to_needy_families, :boolean, default: false)
-    field(:client_id, :id)
+    belongs_to(:client, Pantry.Accounts.Client)
 
     timestamps()
   end

@@ -20,11 +20,11 @@ defmodule Pantry.Accounts.Client do
     field(:state, :string)
     field(:telephone, :string)
     field(:zipcode, :string)
-    has_many(:Assistance, Pantry.Forms.Assistance)
-    has_many(:Certification, Pantry.Forms.Certification)
-    has_many(:Household, Pantry.Residence.Household)
-    has_many(:ProduceDistribution, Pantry.Forms.ProduceDistribution)
-    has_one(:Dashboard, Pantry.Accounts.Dashboard)
+    has_many(:assistance, Pantry.Forms.Assistance)
+    has_many(:certification, Pantry.Forms.Certification)
+    has_many(:household, Pantry.Residence.Household)
+    has_many(:produceDistribution, Pantry.Forms.ProduceDistribution)
+    has_one(:dashboard, Pantry.Accounts.Dashboard)
 
     timestamps()
   end
