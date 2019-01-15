@@ -1,4 +1,7 @@
 defmodule Pantry.Forms.ProduceDistribution do
+  @moduledoc """
+    The schema for ProduceDistribution
+  """
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -11,7 +14,7 @@ defmodule Pantry.Forms.ProduceDistribution do
     field(:signature, :string)
     field(:ssi_medicaid, :boolean, default: false)
     field(:temporary_assistance, :boolean)
-    field(:client_id, :id)
+    belongs_to(:client, Pantry.Accounts.Client)
 
     timestamps()
   end

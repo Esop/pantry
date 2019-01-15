@@ -48,7 +48,7 @@ defmodule Pantry.Accounts do
   def get_client!(id) do
     Client
     |> Repo.get!(id)
-    |> Repo.preload(:assistance)
+    |> Repo.preload([:assistance, :certification, :household, :produce_distributions])
   end
 
   @doc """
