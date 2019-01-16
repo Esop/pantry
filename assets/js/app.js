@@ -38,10 +38,11 @@ saveButton.addEventListener('click', function (event) {
   // var data = signaturePad.toDataURL('image/png');
   var data = signaturePad.toDataURL();
 
-// Send data to server instead...
+  // Send data to server instead...
   window.open(data);
 });
 
 cancelButton.addEventListener('click', function (event) {
+  event.preventDefault();
   signaturePad.clear();
 });
