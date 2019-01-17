@@ -27,8 +27,13 @@
             <%= @client.description_of_need %>
           </li>
 
+          <li class="list-group-item">
+            <strong>address</strong>
+            <%= @client.address %>
+          </li>
+
         </ul>
-        <span><%= link "Next enter client household information", to: client_household_path(@conn, :new, @client), class: "btn btn-danger btn-xs" %></span>
+        <span><%= link "Next enter client household information ->", to: client_household_path(@conn, :new, @client), class: "btn btn-success btn-xs" %></span>
         <br/>
         <br/>
         <span><%= link "Edit Client Profile", to: client_path(@conn, :edit, @client), class: "btn btn-primary btn-xs" %></span>

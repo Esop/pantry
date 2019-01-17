@@ -10,31 +10,6 @@
         <%= @household.total_members %>
       </li>
 
-      <li>
-        <strong>Street address:</strong>
-        <%= @household.street_address %>
-      </li>
-
-      <li>
-        <strong>City:</strong>
-        <%= @household.city %>
-      </li>
-
-      <li>
-        <strong>County:</strong>
-        <%= @household.county %>
-      </li>
-
-      <li>
-        <strong>Zip code:</strong>
-        <%= @household.zip_code %>
-      </li>
-
-      <li>
-        <strong>State:</strong>
-        <%= @household.state %>
-      </li>
-
     </ul>
 <span><%= link "Next Certify Assistance Eligibility", to: client_certification_path(@conn, :new, @client), class: "btn btn-danger" %></span>
 <br>

@@ -32,3 +32,4 @@ tags
 .elixir_ls
 *.*workspace
 todo
+.vscode

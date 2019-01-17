@@ -9,30 +9,6 @@
       <% end %>
 
       <div class="form-group">
-        <%= label f, :first_name, class: "control-label" %>
-        <%= text_input f, :first_name, class: "form-control" %>
-        <%= error_tag f, :first_name %>
-      </div>
-
-      <div class="form-group">
-        <%= label f, :last_name, class: "control-label" %>
-        <%= text_input f, :last_name, class: "form-control" %>
-        <%= error_tag f, :last_name %>
-      </div>
-
-      <div class="form-group">
-        <%= label f, :address, class: "control-label" %>
-        <%= text_input f, :address, class: "form-control" %>
-        <%= error_tag f, :address %>
-      </div>
-
-      <div class="form-group">
-        <%= label f, :county, class: "control-label" %>
-        <%= text_input f, :county, class: "form-control" %>
-        <%= error_tag f, :county %>
-      </div>
-
-      <div class="form-group">
         <%= label f, :family_size, class: "control-label" %>
         <%= number_input f, :family_size, class: "form-control" %>
         <%= error_tag f, :family_size %>
