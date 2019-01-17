@@ -33,3 +33,4 @@ tags
 *.*workspace
 todo
 .vscode
+.DS_Store
