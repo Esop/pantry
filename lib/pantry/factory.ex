@@ -3,17 +3,17 @@ defmodule Pantry.Factory do
 
   def client_factory do
     %Pantry.Accounts.Client{
-      address: sequence(:address, ["2045 Davis Lane", "2222 My Road"]),
-      city: sequence(:city, ["Tallahasse", "Jacksonville", "Madison", "Gilchrest"]),
+      address: Faker.Address.street_address(),
+      city: Faker.Address.city(),
       county: sequence(:county, ["Duval", "Dade", "Leon", "Madison"]),
       description_of_need: "Needs food and clothes",
       ethnicity: sequence(:ethnicity, ["African American", "Asian", "White", "Other"]),
-      first_name: sequence("Mary"),
-      last_name: sequence("Thomas"),
+      first_name: Faker.Name.first_name(),
+      last_name: Faker.Name.last_name(),
       notes: "Some random notes",
       state: sequence(:state, ["Florida", "Georgia", "Alabama"]),
-      telephone: sequence(:telephone, ["904-728-6000", "805-911-2312"]),
-      zipcode: sequence(:zipcode, ["32207", "32209"]),
+      telephone: Faker.Phone.EnUs.phone(),
+      zipcode: Faker.Address.zip_code(),
       assistance: [build(:assistance)],
       certification: [build(:certification)],
       household: [build(:household)],
