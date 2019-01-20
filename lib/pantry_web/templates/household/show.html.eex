@@ -1,23 +1,14 @@
 <div class="row">
   <div class="col"></div>
-  <div class="col-lg-6 card">
-    <h2 class="text-center"> <%= @client.first_name <> " " <> @client.last_name %> Household</h2>
+  <div class="card">
+    <h2 class="card-header">Household Info</h2>
 
-    <ul>
+    <%= @household.total_members%>
 
-      <li>
-        <strong>Total household members:</strong>
-        <%= @household.total_members %>
-      </li>
-
-    </ul>
-<span><%= link "Next Certify Assistance Eligibility", to: client_certification_path(@conn, :new, @client), class: "btn btn-danger" %></span>
-<br>
-<span><%= link "Edit Household information", to: client_household_path(@conn, :edit, @client, @household), class: "btn btn-primary" %></span>
-<br>
-<span><%= link "Edit Client information", to: client_path(@conn, :edit, @client), class: "btn btn-primary" %></span>
-<br>
-<span><%= link "Back", to: client_household_path(@conn, :index, @client) , class: "btn btn-primary"%></span>
+    <div class="btn-group-vertical">
+      <%= link "Create Produce Distribution", to: client_produce_distribution_path(@conn, :new, @client), class: "btn btn-success" %>
+      <%= link "Edit Household info", to: client_household_path(@conn, :edit, @client, @household), class: "btn btn-info" %>
+    </div>
   </div>
   <div class="col"></div>
 </div>

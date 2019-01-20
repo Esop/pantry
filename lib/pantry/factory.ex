@@ -16,7 +16,7 @@ defmodule Pantry.Factory do
       zipcode: Faker.Address.zip_code(),
       assistance: [build(:assistance)],
       certification: [build(:certification)],
-      household: [build(:household)],
+      household: build(:household),
       produce_distributions: [build(:produce_distribution)]
     }
   end
@@ -52,7 +52,6 @@ defmodule Pantry.Factory do
     %Pantry.Forms.ProduceDistribution{
       food_stamps: sequence(:foodstamps, ["true", "false"]),
       income_eligibility: "true",
-      last_name: "Hartl",
       public_housing: "true",
       signature: "she signed",
       ssi_medicaid: "true",

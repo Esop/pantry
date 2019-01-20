@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <title>Hello Pantry!</title>
-    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-  <body>
-    <div class="container-fluid">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-          </ul>
-        </nav>
-      </header>
+  <title>Hello Pantry!</title>
+  <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
+</head>
 
-      <%= render PantryWeb.SharedView, "top_nav.html", assigns %>
+<body>
+  <div class="container-fluid">
+    <header class="header">
+      <nav role="navigation">
+        <ul class="nav nav-pills pull-right">
+        </ul>
+      </nav>
+    </header>
 
-        <%= if get_flash(@conn) do %>
-          <%= for a = {type, message}  <- get_flash(@conn) do %>
-            <p class="alert alert-<%= type %>" role="alert"> <%= message %></p>
-            <% end %>
-          <% end %>
+    <%= render PantryWeb.SharedView, "top_nav.html", assigns %>
+
+    <%= if get_flash(@conn) do %>
+    <%= for a = {type, message}  <- get_flash(@conn) do %>
+    <p class="alert alert-<%= type %>" role="alert">
+      <%= message %>
+    </p>
+    <% end %>
+    <% end %>
 
 
 
     <main role="main">
-    <%= render @view_module, @view_template, assigns %>
+      <%= render @view_module, @view_template, assigns %>
     </main>
 
-    </div> <!-- /container -->
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
-  </body>
+  </div> <!-- /container -->
+  <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+</body>
+
 </html>
