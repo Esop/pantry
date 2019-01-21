@@ -1,48 +1,80 @@
 <%= form_for @changeset, @action, fn f -> %>
-  <%= if @changeset.action do %>
-    <div class="alert alert-danger">
-      <p>Something went wrong! Make sure all the fields are filled out</p>
-    </div>
-  <% end %>
+<%= if @changeset.action do %>
+<div class="alert alert-danger">
+  <p>Something went wrong! Make sure all the fields are filled out</p>
+</div>
+<% end %>
 
-  <div class="form-group">
-    <%= label f, :first_name, "First Name", class: "control-label" %>
-    <%= text_input f, :first_name, class: "form-control" %>
-    <%= error_tag f, :first_name %>
-  </div>
+<div class="form-group">
+  <%= label f, :first_name, "First Name", class: "control-label" %>
+  <%= text_input f, :first_name, class: "form-control" %>
+  <%= error_tag f, :first_name %>
+</div>
 
-  <div class="form-group">
-    <%= label f, :last_name, "Last Name", class: "control-label" %>
-    <%= text_input f, :last_name, class: "form-control" %>
-    <%= error_tag f, :last_name %>
-  </div>
+<div class="form-group">
+  <%= label f, :last_name, "Last Name", class: "control-label" %>
+  <%= text_input f, :last_name, class: "form-control" %>
+  <%= error_tag f, :last_name %>
+</div>
 
-  <div class="form-group">
-    <%= label f, :telephone, "Telephone Number", class: "control-label" %>
-    <%= text_input f, :telephone, class: "form-control" %>
-    <%= error_tag f, :telephone %>
-  </div>
+<div class="form-group">
+  <%= label f, :telephone, "Telephone Number", class: "control-label" %>
+  <%= text_input f, :telephone, class: "form-control" %>
+  <%= error_tag f, :telephone %>
+</div>
 
-  <div class="form-group">
-    <%= label f, :ethnicity, class: "control-label" %>
-    <%= select f, :ethnicity, [ "" ,"Black/African American", "White", "Hispanic/Latino", "Asian", "American Indian/Alaskan Native", "Native Hawaiian/Other Pacific Islander", "Other/Multi Racial"] %>
-    <%= error_tag f, :ethnicity %>
-  </div>
+<div class="form-group">
+  <%= label f, :ethnicity, class: "control-label" %>
+  <%= select f, :ethnicity, [ "" ,"Black/African American", "White", "Hispanic/Latino", "Asian", "American Indian/Alaskan Native", "Native Hawaiian/Other Pacific Islander", "Other/Multi Racial"] %>
+  <%= error_tag f, :ethnicity %>
+</div>
 
-  <div class="form-group">
-    <%= label f, :description_of_need, class: "control-label" %>
-    <%= text_input f, :description_of_need, class: "form-control" %>
-    <%= error_tag f, :description_of_need %>
-  </div>
+<div class="form-group">
+  <%= label f, :address, "Address", class: "control-label" %>
+  <%= text_input f, :address, class: "form-control" %>
+  <%= error_tag f, :address %>
+</div>
+
+<div class="form-group">
+  <%= label f, :city, "City", class: "control-label" %>
+  <%= text_input f, :city, class: "form-control" %>
+  <%= error_tag f, :city %>
+</div>
+
+<div class="form-group">
+  <%= label f, :county, "County", class: "control-label" %>
+  <%= text_input f, :county, class: "form-control" %>
+  <%= error_tag f, :county %>
+</div>
+
+<div class="form-group">
+  <%= label f, :state, "State", class: "control-label" %>
+  <%= text_input f, :state, class: "form-control" %>
+  <%= error_tag f, :state %>
+</div>
+
+<div class="form-group">
+  <%= label f, :zipcode, "Zip Code", class: "control-label" %>
+  <%= text_input f, :zipcode, class: "form-control" %>
+  <%= error_tag f, :zipcode %>
+</div>
 
 
-  <div class="form-group">
-    <%= label f, :notes, class: "control-label" %>
-    <%= text_input f, :notes, class: "form-control" %>
-    <%= error_tag f, :notes %>
-  </div>
 
-  <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
-  </div>
+<div class="form-group">
+  <%= label f, :description_of_need, class: "control-label" %>
+  <%= text_input f, :description_of_need, class: "form-control" %>
+  <%= error_tag f, :description_of_need %>
+</div>
+
+
+<div class="form-group">
+  <%= label f, :notes, class: "control-label" %>
+  <%= text_input f, :notes, class: "form-control" %>
+  <%= error_tag f, :notes %>
+</div>
+
+<div class="form-group">
+  <%= submit "Submit", class: "btn btn-success" %>
+</div>
 <% end %>

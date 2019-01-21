@@ -37,7 +37,7 @@ defmodule PantryWeb.HouseholdController do
     case Residence.create_household(household_params) do
       {:ok, household} ->
         conn
-        |> put_flash(:info, "Household created successfully.")
+        |> put_flash(:info, "Household information added.")
         |> redirect(to: client_household_path(conn, :show, client, household))
 
       {:error, %Ecto.Changeset{} = changeset} ->

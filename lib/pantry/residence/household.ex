@@ -3,12 +3,7 @@ defmodule Pantry.Residence.Household do
   import Ecto.Changeset
 
   schema "residences" do
-    field(:city, :string, default: "")
-    field(:county, :string, default: "")
-    field(:state, :string, default: "")
-    field(:street_address, :string, default: "")
     field(:total_members, :integer, default: 0)
-    field(:zip_code, :string, default: 0)
     field(:zero_five, :integer, default: 0)
     field(:six_twelve, :integer, default: 0)
     field(:thirteen_eighteen, :integer, default: 0)
@@ -26,11 +21,6 @@ defmodule Pantry.Residence.Household do
     household
     |> cast(attrs, [
       :total_members,
-      :street_address,
-      :city,
-      :county,
-      :zip_code,
-      :state,
       :client_id,
       :zero_five,
       :six_twelve,
@@ -42,11 +32,6 @@ defmodule Pantry.Residence.Household do
     ])
     |> validate_required([
       :total_members,
-      :street_address,
-      :city,
-      :county,
-      :zip_code,
-      :state,
       :client_id,
       :zero_five,
       :six_twelve,

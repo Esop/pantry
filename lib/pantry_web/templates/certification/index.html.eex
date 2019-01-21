@@ -3,10 +3,6 @@
 <table class="table">
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Address</th>
-      <th>County</th>
       <th>Family size</th>
       <th>Income eligibility</th>
       <th>Supplemental nutrition assistance</th>
@@ -20,22 +16,12 @@
   <tbody>
 <%= for certification <- @certifications do %>
     <tr>
-      <td><%= certification.first_name %></td>
-      <td><%= certification.last_name %></td>
-      <td><%= certification.address %></td>
-      <td><%= certification.county %></td>
       <td><%= certification.family_size %></td>
       <td><%= certification.income_eligibility %></td>
       <td><%= certification.supplemental_nutrition_assistance %></td>
       <td><%= certification.temporary_assistance_to_needy_families %></td>
       <td><%= certification.supplemental_security_income %></td>
       <td><%= certification.medicaid %></td>
-
-      <td class="text-right">
-        <%# <span><%= link "Show", to: certification_path(@conn, :show, certification), class: "btn btn-default btn-xs" %></span> %>
-        <%# <span><%= link "Edit", to: certification_path(@conn, :edit, certification), class: "btn btn-default btn-xs" %></span> %>
-        <%# <span><%= link "Delete", to: certification_path(@conn, :delete, certification), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span> %>
-      </td>
     </tr>
 <% end %>
   </tbody>

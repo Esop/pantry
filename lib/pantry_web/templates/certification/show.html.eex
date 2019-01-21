@@ -5,26 +5,6 @@
       <ul class="list-group list-group-flush">
 
         <li class="list-group-item">
-          <strong>First name:</strong>
-          <%= @certification.first_name %>
-        </li>
-
-        <li class="list-group-item">
-          <strong>Last name:</strong>
-          <%= @certification.last_name %>
-        </li>
-
-        <li class="list-group-item">
-          <strong>Address:</strong>
-          <%= @certification.address %>
-        </li>
-
-        <li class="list-group-item">
-          <strong>County:</strong>
-          <%= @certification.county %>
-        </li>
-
-        <li class="list-group-item">
           <strong>Family size:</strong>
           <%= @certification.family_size %>
         </li>

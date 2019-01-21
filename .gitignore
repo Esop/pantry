@@ -31,3 +31,6 @@ tags
 
 .elixir_ls
 *.*workspace
+todo
+.vscode
+.DS_Store
