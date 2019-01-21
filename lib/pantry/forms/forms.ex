@@ -56,8 +56,13 @@ defmodule Pantry.Forms do
       {:error, %Ecto.Changeset{}}
 
   """
+
   def create_assistance(attrs \\ %{}) do
-    %Assistance{}
+    id = Map.get(attrs, "client_id")
+    client = Pantry.Accounts.get_client!(id)
+    assistance_changeset = Ecto.build_assoc(client, :assistance)
+
+    assistance_changeset
     |> Assistance.changeset(attrs)
     |> Repo.insert()
   end
@@ -159,7 +164,11 @@ defmodule Pantry.Forms do
 
   """
   def create_produce_distribution(attrs \\ %{}) do
-    %ProduceDistribution{}
+    id = Map.get(attrs, "client_id")
+    client = Pantry.Accounts.get_client!(id)
+    produce_dis_changeset = Ecto.build_assoc(client, :produce_distributions)
+
+    produce_dis_changeset
     |> ProduceDistribution.changeset(attrs)
     |> Repo.insert()
   end
@@ -261,7 +270,11 @@ defmodule Pantry.Forms do
 
   """
   def create_certification(attrs \\ %{}) do
-    %Certification{}
+    id = Map.get(attrs, "client_id")
+    client = Pantry.Accounts.get_client!(id)
+    certification_changeset = Ecto.build_assoc(client, :certification)
+
+    certification_changeset
     |> Certification.changeset(attrs)
     |> Repo.insert()
   end

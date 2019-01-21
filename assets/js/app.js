@@ -35,13 +35,14 @@ var saveButton = document.getElementById('save');
 var cancelButton = document.getElementById('clear');
 
 saveButton.addEventListener('click', function (event) {
-  // var data = signaturePad.toDataURL('image/png');
-  var data = signaturePad.toDataURL();
-
-// Send data to server instead...
+  var data = signaturePad.toDataURL('image/png');
+  // var data = signaturePad.toDataURL();
+  console.log(data);
+  // Send data to server instead...
   window.open(data);
 });
 
 cancelButton.addEventListener('click', function (event) {
+  event.preventDefault();
   signaturePad.clear();
 });

@@ -44,7 +44,9 @@ defmodule Pantry.Mixfile do
       {:comeonin, "~> 3.0"},
       {:credo, "~> 0.9"},
       {:ex_debug_toolbar, "~> 0.5"},
-      {:bamboo, "~> 1.1"}
+      {:bamboo, "~> 1.1"},
+      {:ex_machina, "~> 2.2"},
+      {:faker, "~> 0.11"}
     ]
   end
 
