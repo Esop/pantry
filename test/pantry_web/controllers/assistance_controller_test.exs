@@ -14,31 +14,31 @@ defmodule PantryWeb.AssistanceControllerTest do
 
   describe "index" do
     test "lists all assistance", %{conn: conn} do
-      conn = get conn, assistance_path(conn, :index)
+      conn = get(conn, client_assistance_path(conn, :index))
       assert html_response(conn, 200) =~ "Listing Assistance"
     end
   end
 
   describe "new assistance" do
     test "renders form", %{conn: conn} do
-      conn = get conn, assistance_path(conn, :new)
+      conn = get(conn, assistance_path(conn, :new))
       assert html_response(conn, 200) =~ "New Assistance"
     end
   end
 
   describe "create assistance" do
     test "redirects to show when data is valid", %{conn: conn} do
-      conn = post conn, assistance_path(conn, :create), assistance: @create_attrs
+      conn = post(conn, assistance_path(conn, :create), assistance: @create_attrs)
 
       assert %{id: id} = redirected_params(conn)
       assert redirected_to(conn) == assistance_path(conn, :show, id)
 
-      conn = get conn, assistance_path(conn, :show, id)
+      conn = get(conn, assistance_path(conn, :show, id))
       assert html_response(conn, 200) =~ "Show Assistance"
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = post conn, assistance_path(conn, :create), assistance: @invalid_attrs
+      conn = post(conn, assistance_path(conn, :create), assistance: @invalid_attrs)
       assert html_response(conn, 200) =~ "New Assistance"
     end
   end
@@ -47,7 +47,7 @@ defmodule PantryWeb.AssistanceControllerTest do
     setup [:create_assistance]
 
     test "renders form for editing chosen assistance", %{conn: conn, assistance: assistance} do
-      conn = get conn, assistance_path(conn, :edit, assistance)
+      conn = get(conn, assistance_path(conn, :edit, assistance))
       assert html_response(conn, 200) =~ "Edit Assistance"
     end
   end
@@ -56,15 +56,15 @@ defmodule PantryWeb.AssistanceControllerTest do
     setup [:create_assistance]
 
     test "redirects when data is valid", %{conn: conn, assistance: assistance} do
-      conn = put conn, assistance_path(conn, :update, assistance), assistance: @update_attrs
+      conn = put(conn, assistance_path(conn, :update, assistance), assistance: @update_attrs)
       assert redirected_to(conn) == assistance_path(conn, :show, assistance)
 
-      conn = get conn, assistance_path(conn, :show, assistance)
+      conn = get(conn, assistance_path(conn, :show, assistance))
       assert html_response(conn, 200)
     end
 
     test "renders errors when data is invalid", %{conn: conn, assistance: assistance} do
-      conn = put conn, assistance_path(conn, :update, assistance), assistance: @invalid_attrs
+      conn = put(conn, assistance_path(conn, :update, assistance), assistance: @invalid_attrs)
       assert html_response(conn, 200) =~ "Edit Assistance"
     end
   end
@@ -73,11 +73,12 @@ defmodule PantryWeb.AssistanceControllerTest do
     setup [:create_assistance]
 
     test "deletes chosen assistance", %{conn: conn, assistance: assistance} do
-      conn = delete conn, assistance_path(conn, :delete, assistance)
+      conn = delete(conn, assistance_path(conn, :delete, assistance))
       assert redirected_to(conn) == assistance_path(conn, :index)
-      assert_error_sent 404, fn ->
-        get conn, assistance_path(conn, :show, assistance)
-      end
+
+      assert_error_sent(404, fn ->
+        get(conn, assistance_path(conn, :show, assistance))
+      end)
     end
   end
 
