@@ -61,7 +61,12 @@ defmodule Pantry.Mixfile do
     [
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate", "test"]
+      test: ["assets.compile --quiet", "ecto.create --quiet", "ecto.migrate", "test"],
+      "assets.compile": &compile_assets/1
     ]
+  end
+
+  defp compile_assets(_) do
+    Mix.shell().cmd("assets/node_modules/brunch/bin/brunch build assets/")
   end
 end
