@@ -1,12 +1,14 @@
 <div class="row">
-  <div class="col"></div>
+  <div class="col"></div> <!-- I need these col classes to center the form -->
   <div class="col-lg-6 card">
     <h2 class="text-center">New Client Intake Form</h2>
 
     <%= render "form.html", Map.put(assigns, :action, client_path(@conn, :create)) %>
 
 
-    <span><%= link "Back", to: client_path(@conn, :index) %></span>
+    <span>
+      <%= link "Back", to: client_path(@conn, :index) %></span>
   </div>
+  <!-- I need these col classes to center the form -->
   <div class="col"></div>
 </div>

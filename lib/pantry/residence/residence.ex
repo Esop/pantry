@@ -56,7 +56,11 @@ defmodule Pantry.Residence do
 
   """
   def create_household(attrs \\ %{}) do
-    %Household{}
+    id = Map.get(attrs, "client_id")
+    client = Pantry.Accounts.get_client!(id)
+    household_changeset = Ecto.build_assoc(client, :household)
+
+    household_changeset
     |> Household.changeset(attrs)
     |> Repo.insert()
   end
@@ -107,5 +111,4 @@ defmodule Pantry.Residence do
   def change_household(%Household{} = household) do
     Household.changeset(household, %{})
   end
-
 end
