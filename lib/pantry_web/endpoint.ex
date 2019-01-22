@@ -2,6 +2,9 @@ defmodule PantryWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :pantry
   use ExDebugToolbar.Phoenix
 
+  if Application.get_env(:pantry, :sql_sandbox) do
+    plug Phoenix.Ecto.SQL.Sandbox
+  end
   socket "/socket", PantryWeb.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.

@@ -46,7 +46,8 @@ defmodule Pantry.Mixfile do
       {:ex_debug_toolbar, "~> 0.5"},
       {:bamboo, "~> 1.1"},
       {:ex_machina, "~> 2.2"},
-      {:faker, "~> 0.11"}
+      {:faker, "~> 0.11"},
+      {:wallaby, "~> 0.21.0", [runtime: false, only: :test]}
     ]
   end
 
