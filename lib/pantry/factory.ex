@@ -33,7 +33,6 @@ defmodule Pantry.Factory do
 
   def certification_factory do
     %Pantry.Forms.Certification{
-      family_size: sequence(:family_size, &"1#{&1}"),
       income_eligibility: sequence(:income_eligibility, ["true", "false"]),
       medicaid: sequence(:income_eligibility, ["true", "false"]),
       supplemental_nutrition_assistance: sequence(:income_eligibility, ["true", "false"]),

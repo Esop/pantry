@@ -1,8 +1,17 @@
-<h2 class="text-center">Second Harvest</h2>
-<h2 class="text-center">Emergency Food Assistance Program</h2>
-<h2 class="text-center">Certification of Eligibility to Take Food Home</h2>
+<div class="row">
+  <div class="col"></div>
+  <div class="col-lg-6">
+    <div class="card">
 
-<%= render "form.html", Map.put(assigns, :action, client_certification_path(@conn, :create, @client)) %>
+      <h2 class="text-center card-header">Emergency Food Assistance Program</h2>
+
+      <%= render "form.html", Map.put(assigns, :action, client_certification_path(@conn, :create, @client)) %>
+<%= link "Back", to: client_certification_path(@conn, :index, @client), class: "btn btn-primary btn-lg btn-block" %>
+    </div>
+  </div>
+
+  <div class="col"></div>
+</div>
 
 <table class="table">
   <thead>
@@ -93,5 +102,3 @@
   </tbody>
 </table>
 <br>
-
-<span><%= link "Back", to: client_certification_path(@conn, :index, @client) %></span>

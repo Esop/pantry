@@ -3,7 +3,6 @@ defmodule Pantry.Forms.Certification do
   import Ecto.Changeset
 
   schema "certifications" do
-    field(:family_size, :integer)
     field(:income_eligibility, :boolean, default: false)
     field(:medicaid, :boolean, default: false)
     field(:supplemental_nutrition_assistance, :boolean, default: false)
@@ -18,7 +17,6 @@ defmodule Pantry.Forms.Certification do
   def changeset(certification, attrs) do
     certification
     |> cast(attrs, [
-      :family_size,
       :income_eligibility,
       :supplemental_nutrition_assistance,
       :temporary_assistance_to_needy_families,
@@ -27,7 +25,6 @@ defmodule Pantry.Forms.Certification do
       :client_id
     ])
     |> validate_required([
-      :family_size,
       :income_eligibility,
       :supplemental_nutrition_assistance,
       :temporary_assistance_to_needy_families,

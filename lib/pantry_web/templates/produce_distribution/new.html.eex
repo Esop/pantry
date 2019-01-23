@@ -1,11 +1,13 @@
 <div class="row">
   <div class="col"></div>
-  <div class="col-lg-6 card">
-    <h2>Produce Distribution Log Sheet</h2>
+  <div class="col-lg-6">
+    <div class="card">
+      <h2 class="card-header">Produce Distribution Log Sheet</h2>
 
-    <%= render "form.html", Map.put(assigns, :action, client_produce_distribution_path(@conn, :create, @client)) %>
+      <%= render "form.html", Map.put(assigns, :action, client_produce_distribution_path(@conn, :create, @client)) %>
 
-    <span><%= link "Back", to: client_produce_distribution_path(@conn, :index, @client) %></span>
+      <span><%= link "Back", to: client_produce_distribution_path(@conn, :index, @client), class: "btn btn-primary btn-lg btn-block" %></span>
+    </div>
   </div>
   <div class="col"></div>
 </div>

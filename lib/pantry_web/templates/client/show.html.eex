@@ -1,47 +1,44 @@
 <div class="row">
   <div class="col"></div> <!-- I need these colum classes to center the form -->
-  <div class="card">
-    <h2 class="card-header">
-      <%= @client.first_name <> " " <> @client.last_name %>
-    </h2>
+  <div class="col-lg-6 card">
+      <h2 class="card-header text-center">
+        <%= @client.first_name <> " " <> @client.last_name %>
+      </h2>
 
-    <div class="card-body">
-      <ul class="list-group list-group-flush">
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
 
-        <li class="list-group-item">
-          <strong>Telephone Number:</strong>
-          <%= @client.telephone %>
-        </li>
+          <li class="list-group-item">
+            <strong>Telephone Number:</strong>
+            <%= @client.telephone %>
+          </li>
 
-        <li class="list-group-item">
-          <strong>Ethnicity:</strong>
-          <%= @client.ethnicity %>
-        </li>
+          <li class="list-group-item">
+            <strong>Ethnicity:</strong>
+            <%= @client.ethnicity %>
+          </li>
 
-        <li class="list-group-item">
-          <strong>Notes:</strong>
-          <%= @client.notes %>
-        </li>
+          <li class="list-group-item">
+            <strong>Notes:</strong>
+            <%= @client.notes %>
+          </li>
 
-        <li class="list-group-item">
-          <strong>Description of need:</strong>
-          <%= @client.description_of_need %>
-        </li>
+          <li class="list-group-item">
+            <strong>Description of need:</strong>
+            <%= @client.description_of_need %>
+          </li>
 
-        <li class="list-group-item">
-          <%= @client.address %>
-        </li>
+          <li class="list-group-item">
+            <%= @client.address %>
+          </li>
 
-        <li class="list-group-item">
-          <%= @client.city <> " " <> @client.state <> " " <> @client.zipcode %>
-        </li>
+            <%= @client.city <> " " <> @client.state <> " " <> @client.zipcode %>
+          </li>
 
-      </ul>
-    </div>
-    <div class='btn-group-vertical'>
-      <%= link "Add client household information", to: client_household_path(@conn, :new, @client), class: "btn btn-success" %>
+        </ul>
+      </div>
+      <%= link "Add client household information", to: client_household_path(@conn, :new, @client), class: "btn btn-success btn-lg btn-block" %>
       <%= link "Edit Client Profile", to: client_path(@conn, :edit, @client), class: "btn btn-primary" %>
     </div>
-  </div>
   <div class="col"></div> <!-- I need these columns classes to center the form -->
 </div>

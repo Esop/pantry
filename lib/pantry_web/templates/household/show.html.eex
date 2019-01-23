@@ -1,14 +1,19 @@
 <div class="row">
   <div class="col"></div>
   <div class="card">
-    <h2 class="card-header">Household Info</h2>
+    <h3 class="card-header">Household Information </h3>
+    <h2 class="card-title text-center"> <%= @client.first_name <> " " <> @client.last_name %> </h2>
+    <div class="card-body">
+      <span>
+        <%= @household.total_members%>
+        Total Members
+      </span>
 
-    <%= @household.total_members%>
-
-    <div class="btn-group-vertical">
-      <%= link "Create Produce Distribution", to: client_produce_distribution_path(@conn, :new, @client), class: "btn btn-success" %>
-      <%= link "Edit Household info", to: client_household_path(@conn, :edit, @client, @household), class: "btn btn-info" %>
     </div>
+      <div class="btn-group-vertical">
+        <%= link "Create Assistance Package", to: client_assistance_path(@conn, :new, @client), class: "btn btn-success" %>
+        <%= link "Edit Household info", to: client_household_path(@conn, :edit, @client, @household), class: "btn btn-info" %>
+      </div>
   </div>
   <div class="col"></div>
 </div>

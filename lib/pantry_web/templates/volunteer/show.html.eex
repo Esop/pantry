@@ -1,20 +1,13 @@
-<div class="row volunteer">
+<div class="row">
   <div class="col"></div>
-  <div class="col-lg-6 card">
+  <div class="card">
+    <h3 class="card-header text-center">
+      Volunteer
+      <%= @volunteer.first_name <> "  " <> @volunteer.last_name %>
+    </h3>
     <div class="card-body">
-      <h2>Show Volunteer</h2>
 
       <ul>
-
-        <li>
-          <strong>First name:</strong>
-          <%= @volunteer.first_name %>
-        </li>
-
-        <li>
-          <strong>Last name:</strong>
-          <%= @volunteer.last_name %>
-        </li>
 
         <li>
           <strong>Email:</strong>
@@ -23,9 +16,10 @@
 
       </ul>
     </div>
+<div class="btn-group-vertical">
+  <%= link "Edit Volunteer:  #{@volunteer.first_name <> @volunteer.last_name}", to: volunteer_path(@conn, :edit, @volunteer), class: "btn btn-info" %>
+  <%= link "Back", to: volunteer_path(@conn, :index), class: "btn btn-success" %>
+</div>
   </div>
   <div class="col"></div>
 </div>
-
-<span><%= link "Edit", to: volunteer_path(@conn, :edit, @volunteer) %></span>
-<span><%= link "Back", to: volunteer_path(@conn, :index) %></span>

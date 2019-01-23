@@ -1,5 +1,10 @@
-<h2>Edit Produce distribution</h2>
+<div class="row">
+  <div class="col"></div>
+  <div class="col-lg-6 card">
+    <h2 class="card-header">Edit Produce distribution</h2>
 
-<%= render "form.html", Map.put(assigns, :action, client_produce_distribution_path(@conn, :update, @client, @produce_distribution)) %>
-
-<span><%= link "Back", to: client_produce_distribution_path(@conn, :index, @client) %></span>
+    <%= render "form.html", Map.put(assigns, :action, client_produce_distribution_path(@conn, :update, @client, @produce_distribution)) %>
+<span><%= link "Back", to: client_produce_distribution_path(@conn, :index, @client), class: "btn btn-success btn-lg btn-block" %></span>
+  </div>
+  <div class="col"></div>
+</div>

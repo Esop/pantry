@@ -1,13 +1,11 @@
-<h2 class="text-center">Certification of Eligibility</h2>
 <div class="row">
   <div class="col"></div>
-    <div class="card card-body">
-      <ul class="list-group list-group-flush">
-
-        <li class="list-group-item">
-          <strong>Family size:</strong>
-          <%= @certification.family_size %>
-        </li>
+  <%# the class col-lg-6 is what is causeing the %>
+  <%# the buttons to not fill the card If I remove the class %>
+  <%# the buttons look correct but the design doesn't %>
+    <div class="card col-lg-6">
+<h2 class="card-header text-center">Certification of Eligibility</h2>
+      <ul class="list-group">
 
         <li class="list-group-item">
           <strong>Income eligibility:</strong>
@@ -35,12 +33,11 @@
         </li>
 
       </ul>
-      <span> <%= link "Next create Assistance Package", to: client_assistance_path(@conn, :new, @client), class: "btn btn-danger" %></span>
-      <br>
-      <span><%= link "Edit Eligibility", to: client_certification_path(@conn, :edit, @client, @certification), class: "btn btn-primary" %></span>
-      <br>
-      <span><%= link "Back", to: client_certification_path(@conn, :index, @client), class: "btn btn-primary" %></span>
+      <div class="btn-group-vertical">
+        <%= link "Next create Produce", to: client_produce_distribution_path(@conn, :new, @client), class: "btn btn-success" %>
+        <%= link "Edit Eligibility", to: client_certification_path(@conn, :edit, @client, @certification), class: "btn btn-primary" %>
+        <%= link "Back", to: client_certification_path(@conn, :index, @client), class: "btn btn-primary" %>
+      </div>
     </div>
   <div class="col"></div>
 </div>
-

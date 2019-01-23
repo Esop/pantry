@@ -26,7 +26,7 @@
 
     </div>
     <div class="btn-group-vertical">
-      <%= link "Next create Produce Distribution", to: client_produce_distribution_path(@conn, :new, @client), class: "btn btn-success" %>
+      <%= link "Next Client Certification", to: client_certification_path(@conn, :new, @client), class: "btn btn-success" %>
       <%= link "Edit Assistance package", to: client_assistance_path(@conn, :edit,@client, @assistance), class: "btn btn-info" %>
       <%= link "Back", to: client_assistance_path(@conn, :index, @client), class: "btn btn-warning" %>
     </div>

@@ -1,18 +1,9 @@
-<div class="row">
-  <div class="col"></div>
-  <div class="col-lg-6 card">
     <%= form_for @changeset, @action, fn f -> %>
       <%= if @changeset.action do %>
         <div class="alert alert-danger">
           <p>Oops, something went wrong! Please check the errors below.</p>
         </div>
       <% end %>
-
-      <div class="form-group">
-        <%= label f, :family_size, class: "control-label" %>
-        <%= number_input f, :family_size, class: "form-control" %>
-        <%= error_tag f, :family_size %>
-      </div>
 
       <div class="form-group">
         <%= label f, :income_eligibility, "Meets income eligibility?", class: "control-label" %>
@@ -45,10 +36,6 @@
       </div>
 
       <div class="form-group">
-        <%= submit "Submit", class: "btn btn-primary" %>
+        <%= submit "Submit", class: "btn btn-primary btn-lg btn-block" %>
       </div>
     <% end %>
-  </div>
-  <div class="col"></div>
-</div>
-<br/>
