@@ -10,7 +10,7 @@ defmodule Pantry.FeatureCase do
       import Ecto.Changeset
       import Ecto.Query
 
-      # import Pantry.Router.Helpers
+      import PantryWeb.Router.Helpers
     end
   end
 
