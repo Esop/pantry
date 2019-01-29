@@ -1,6 +1,17 @@
 defmodule Pantry.Factory do
   use ExMachina.Ecto, repo: Pantry.Repo
 
+  def volunteer_factory do
+    %Pantry.Accounts.Volunteer{
+      email: Faker.Internet.email(),
+      first_name: Faker.Name.first_name(),
+      last_name: Faker.Name.last_name(),
+      password_hash: Comeonin.Bcrypt.hashpwsalt("mydogs33"),
+      password: "mydogs33",
+      admin: true
+    }
+  end
+
   def client_factory do
     %Pantry.Accounts.Client{
       address: Faker.Address.street_address(),

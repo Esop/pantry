@@ -11,9 +11,9 @@
 //
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
-import "phoenix_html"
-import "bootstrap"
-import "signature_pad"
+import "phoenix_html";
+import "bootstrap";
+import "signature_pad";
 
 // Import local files
 //
@@ -25,24 +25,23 @@ import "signature_pad"
 //
 //
 
-
-var signaturePad = new SignaturePad(document.getElementById('signature-pad'), {
-  backgroundColor: 'rgba(255, 255, 255, 0)',
-  penColor: 'rgb(0, 0, 0)'
+var signaturePad = new SignaturePad(document.getElementById("signature-pad"), {
+  backgroundColor: "rgba(255, 255, 255, 0)",
+  penColor: "rgb(0, 0, 0)"
 });
 
-var saveButton = document.getElementById('save');
-var cancelButton = document.getElementById('clear');
+var saveButton = document.getElementById("save");
+var cancelButton = document.getElementById("clear");
 
-saveButton.addEventListener('click', function (event) {
-  var data = signaturePad.toDataURL('image/png');
+saveButton.addEventListener("click", function(event) {
+  var data = signaturePad.toDataURL("image/png");
   // var data = signaturePad.toDataURL();
   console.log(data);
   // Send data to server instead...
   window.open(data);
 });
 
-cancelButton.addEventListener('click', function (event) {
+cancelButton.addEventListener("click", function(event) {
   event.preventDefault();
   signaturePad.clear();
 });

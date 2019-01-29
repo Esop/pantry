@@ -4,7 +4,13 @@ use Mix.Config
 # you can enable the server option below.
 config :pantry, PantryWeb.Endpoint,
   http: [port: 4001],
-  server: false
+  server: true
+
+config :wallaby,
+  js_errors: false,
+  screenshot_on_failure: true
+
+config :pantry, :sql_sandbox, true
 
 # Print only warnings and errors during test
 config :logger, level: :warn

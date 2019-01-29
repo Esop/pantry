@@ -3,10 +3,6 @@ defmodule Pantry.Repo.Migrations.CreateCertifications do
 
   def change do
     create table(:certifications) do
-      add :first_name, :string
-      add :last_name, :string
-      add :address, :string
-      add :county, :string
       add :family_size, :integer
       add :income_eligibility, :boolean, default: false, null: false
       add :supplemental_nutrition_assistance, :boolean, default: false, null: false
