@@ -1,10 +1,13 @@
-<h2>Reset your password</h2>
-
-<%= form_for @conn, password_reset_path(@conn, :create), [as: :password_reset_email], fn f -> %>
-  <div class="px-8 sm:px-12 py-8 bg-white rounded-lg border">
-    <h1 class="text-center text-2xl font-extrabold text-dusty-blue-darkest pb-8">Reset my password</h1>
-    <div class="pb-6">
-      <%= label f, :email, "Email address", class: "input-label" %>
+<div class="row">
+  <div class="col"></div>
+  <div class="col-lg-6 card">
+    <h2 class="text-center card-header">Reset your password</h2>
+    <%= form_for @conn, password_reset_path(@conn, :create), [as: :password_reset_email], fn f -> %>
       <%= text_input f, :email, class: "input-field", autofocus: true, placeholder: "jane@smithco.com" %>
-    </div>
-  <% end %>
+      <div class="form-group">
+        <%= submit "Submit", class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col"></div>
+</div>
