@@ -1,43 +1,46 @@
 <div class="row">
   <div class="col"></div>
-  <div class="card">
-    <h2 class="card-header">Produce Distribution</h2>
-    <div class="card-body">
-      <ul class="list-group list-group-flush">
+  <div card="col-lg-6">
+    <div class="card">
+      <div card="card-body">
+        <h2 class="card-header text-center"> <%= @client.first_name <> " " <> @client.last_name %></h2>
+        <h3 class="text-center">Produce Distribution</h3>
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
 
-        <li class="list-group-item">
-          <strong>Income eligibility:</strong>
-          <%= @produce_distribution.income_eligibility %>
-        </li>
+            <li class="list-group-item">
+              <strong>Income eligibility:</strong>
+              <%= @produce_distribution.income_eligibility %>
+            </li>
 
-        <li class="list-group-item">
-          <strong>Food stamps:</strong>
-          <%= @produce_distribution.food_stamps %>
-        </li>
+            <li class="list-group-item">
+              <strong>Food stamps:</strong>
+              <%= @produce_distribution.food_stamps %>
+            </li>
 
-        <li class="list-group-item">
-          <strong>Temporary assistance:</strong>
-          <%= @produce_distribution.temporary_assistance %>
-        </li>
+            <li class="list-group-item">
+              <strong>Temporary assistance:</strong>
+              <%= @produce_distribution.temporary_assistance %>
+            </li>
 
-        <li class="list-group-item">
-          <strong>Ssi medicaid:</strong>
-          <%= @produce_distribution.ssi_medicaid %>
-        </li>
+            <li class="list-group-item">
+              <strong>Ssi medicaid:</strong>
+              <%= @produce_distribution.ssi_medicaid %>
+            </li>
 
-        <li class="list-group-item">
-          <strong>Public housing:</strong>
-          <%= @produce_distribution.public_housing %>
-        </li>
-      </ul>
+            <li class="list-group-item">
+              <strong>Public housing:</strong>
+              <%= @produce_distribution.public_housing %>
+            </li>
+          </ul>
 
+          <div class="btn-group-vertical">
+            <%= link "Edit Produce Distribution", to: client_produce_distribution_path(@conn, :edit, @client, @produce_distribution), class: "btn btn-warning" %>
+            <%= link "Back", to: client_produce_distribution_path(@conn, :index, @client), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="btn-group-vertical">
-      <%= link "Edit Produce Distribution", to: client_produce_distribution_path(@conn, :edit, @client, @produce_distribution), class: "btn btn-primary" %>
-      <%= link "Back", to: client_produce_distribution_path(@conn, :index, @client), class: "btn btn-primary" %>
-    </div>
-
   </div>
   <div class="col"></div>
-</div>
 </div>

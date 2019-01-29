@@ -2,11 +2,12 @@
   <div class="col"></div>
   <div class="col-lg-6">
     <div class="card">
+      <div class="card-body">
+        <h2 class="text-center card-header">Emergency Food Assistance Program</h2>
 
-      <h2 class="text-center card-header">Emergency Food Assistance Program</h2>
-
-      <%= render "form.html", Map.put(assigns, :action, client_certification_path(@conn, :create, @client)) %>
-<%= link "Back", to: client_certification_path(@conn, :index, @client), class: "btn btn-primary btn-lg btn-block" %>
+        <%= render "form.html", Map.put(assigns, :action, client_certification_path(@conn, :create, @client)) %>
+        <%= link "Back", to: client_certification_path(@conn, :index, @client), class: "btn btn-primary btn-lg btn-block" %>
+      </div>
     </div>
   </div>
 

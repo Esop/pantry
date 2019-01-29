@@ -1,43 +1,44 @@
 <div class="row">
   <div class="col"></div>
-  <%# the class col-lg-6 is what is causeing the %>
-  <%# the buttons to not fill the card If I remove the class %>
-  <%# the buttons look correct but the design doesn't %>
-    <div class="card col-lg-6">
-<h2 class="card-header text-center">Certification of Eligibility</h2>
-      <ul class="list-group">
+  <div class="col-lg-6">
+    <div class="card">
+      <h2 class="card-header text-center">Certification of Eligibility</h2>
+      <div class="card-body">
+        <ul class="list-group">
 
-        <li class="list-group-item">
-          <strong>Income eligibility:</strong>
-          <%= @certification.income_eligibility %>
-        </li>
+          <li class="list-group-item">
+            <strong>Income eligibility:</strong>
+            <%= @certification.income_eligibility %>
+          </li>
 
-        <li class="list-group-item">
-          <strong>Supplemental nutrition assistance:</strong>
-          <%= @certification.supplemental_nutrition_assistance %>
-        </li>
+          <li class="list-group-item">
+            <strong>Supplemental nutrition assistance:</strong>
+            <%= @certification.supplemental_nutrition_assistance %>
+          </li>
 
-        <li class="list-group-item">
-          <strong>Temporary assistance to needy families:</strong>
-          <%= @certification.temporary_assistance_to_needy_families %>
-        </li>
+          <li class="list-group-item">
+            <strong>Temporary assistance to needy families:</strong>
+            <%= @certification.temporary_assistance_to_needy_families %>
+          </li>
 
-        <li class="list-group-item">
-          <strong>Supplemental security income:</strong>
-          <%= @certification.supplemental_security_income %>
-        </li>
+          <li class="list-group-item">
+            <strong>Supplemental security income:</strong>
+            <%= @certification.supplemental_security_income %>
+          </li>
 
-        <li class="list-group-item">
-          <strong>Medicaid:</strong>
-          <%= @certification.medicaid %>
-        </li>
+          <li class="list-group-item">
+            <strong>Medicaid:</strong>
+            <%= @certification.medicaid %>
+          </li>
 
-      </ul>
+        </ul>
+      </div>
       <div class="btn-group-vertical">
         <%= link "Next create Produce", to: client_produce_distribution_path(@conn, :new, @client), class: "btn btn-success" %>
-        <%= link "Edit Eligibility", to: client_certification_path(@conn, :edit, @client, @certification), class: "btn btn-primary" %>
-        <%= link "Back", to: client_certification_path(@conn, :index, @client), class: "btn btn-primary" %>
+        <%= link "Edit Eligibility", to: client_certification_path(@conn, :edit, @client, @certification), class: "btn btn-warning" %>
+        <%= link "Back", to: client_certification_path(@conn, :index, @client), class: "btn btn-info" %>
       </div>
     </div>
+  </div>
   <div class="col"></div>
 </div>

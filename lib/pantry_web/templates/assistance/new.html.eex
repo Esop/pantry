@@ -1,14 +1,15 @@
 <div class="row">
   <div class="col"></div>
   <div class="col-lg-6">
-  <div class="card border-success">
+  <div class="card">
     <h1 class="card-header text-center"> <%= @client.first_name <> " " <> @client.last_name %> </h1>
     <h4 class="text-center">Assistance Package  </h4>
+    <div class="card-body">
+      <%= render "form.html", Map.put(assigns, :action, client_assistance_path(@conn, :create, @client )) %>
 
-    <%= render "form.html", Map.put(assigns, :action, client_assistance_path(@conn, :create, @client )) %>
-
-    <%# TODO change this link to and edit %>
-    <span><%= link "Back", to: client_assistance_path(@conn, :index, @client ), class: "btn btn-danger btn-block" %></span>
+      <%# TODO change this link to and edit %>
+      <span><%= link "Back", to: client_assistance_path(@conn, :index, @client ), class: "btn btn-danger btn-block" %></span>
+    </div>
   </div>
   </div>
   <div class="col"></div>
