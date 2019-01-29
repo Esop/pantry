@@ -8,12 +8,12 @@
           <%= text_input f, :email, placeholder: "email", class: "form-control", type: "email"%>
         </div>
         <div class="form-group">
-          <%= password_input f, :password, placeholder: "Password", class: "form-control" %>
+          <%= password_input f, :password, placeholder: "password", class: "form-control" %>
         </div>
         <div class="form-group">
           <%= link "forgot password?", to: password_reset_path(@conn, :new) %>
         </div>
-        <%= submit "Log in", class: "btn btn-primary" %>
+        <%= submit "Log in", class: "btn btn-primary", name: "login" %>
       <% end %>
     </div>
   </div>

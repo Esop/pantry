@@ -31,18 +31,22 @@ defmodule PantryWeb.Auth do
   end
 
   def login_by_email_and_pass(conn, email, given_pass) do
-    {:ok, user} = Accounts.get_vol_by_email(email)
+    case Accounts.get_vol_by_email(email) do
+      {:ok, volunteer} ->
+        cond do
+          volunteer && checkpw(given_pass, volunteer.password_hash) ->
+            {:ok, login(conn, volunteer)}
 
-    cond do
-      user && checkpw(given_pass, user.password_hash) ->
-        {:ok, login(conn, user)}
+          volunteer ->
+            {:error, :unauthorized, conn}
 
-      user ->
-        {:error, :unauthorized, conn}
+          true ->
+            dummy_checkpw()
+            {:error, :not_found, conn}
+        end
 
-      true ->
-        dummy_checkpw()
-        {:error, :not_found, conn}
+      {:error, _} ->
+        {:error, "Volunteer not found", conn}
     end
   end
 
