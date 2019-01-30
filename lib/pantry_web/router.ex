@@ -43,7 +43,6 @@ defmodule PantryWeb.Router do
     # pipe_through([:browser, :authentication])
     pipe_through([:browser])
 
-    get("/clients/:id/dashboard", DashboardController, :show)
     resources("/volunteers", VolunteerController)
 
     resources("/clients", ClientController) do
