@@ -52,4 +52,9 @@ defmodule PantryWeb.Router do
       resources("/produce_distributions", ProduceDistributionController)
     end
   end
+
+  scope "/dashboard", PantryWeb.Dashboard do
+    pipe_through([:browser])
+    get("/profile", ProfileController, :index)
+  end
 end
