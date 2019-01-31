@@ -1,9 +1,10 @@
-defmodule PantryWeb.SessionControllerTest do
+defmodule Features.VolunteerLoginTest do
   use Pantry.FeatureCase, async: true
   import Wallaby.Query
   import Wallaby.Browser
   import Pantry.Factory
-
+  # FIXME: This test should be renamed and
+  # moved to a features/volunteer_login_test.exs This is not a controller test
   test "volunteers can log in", %{session: session} do
     volunteer = insert(:volunteer)
 
