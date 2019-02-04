@@ -1,1 +1,13 @@
-Hello from the dashboard
+<div class="row">
+  <div class="col-sm-3">
+    <%= render PantryWeb.DashboardView, "_sidebar.html", assigns %>
+  </div>
+
+
+
+  <div class="col-sm-9">
+    <div class="panel panel-default">
+      this is the main
+    </div>
+  </div>
+</div>
