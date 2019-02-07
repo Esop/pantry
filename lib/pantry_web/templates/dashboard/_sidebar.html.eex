@@ -1,1 +1,7 @@
-this is the  sidebar
+<ul class="list-group">
+  <li class="list-group-item">Profile</li>
+  <li class="list-group-item">Assistance</li>
+  <li class="list-group-item">Certification</li>
+  <li class="list-group-item">Household</li>
+  <li class="list-group-item">Produce Distribution</li>
+</ul>
